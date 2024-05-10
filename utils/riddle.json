@@ -1,0 +1,41 @@
+[{
+  "id": 1,
+  "riddle": "rid 1",
+  "answer": "ans 1, ans 2, ans 3, ans 4, ans 5"
+}, {
+  "id": 2,
+  "riddle": "rid 2",
+  "answer": "ans 1, ans 2, ans 3, ans 4, ans 5"
+}, {
+  "id": 3,
+  "riddle": "rid 3",
+  "answer": "ans 1, ans 2, ans 3, ans 4, ans 5"
+}, {
+  "id": 4,
+  "riddle": "rid 4",
+  "answer": "ans 1, ans 2, ans 3, ans 4, ans 5"
+}, {
+  "id": 5,
+  "riddle": "rid 5",
+  "answer": "ans 1, ans 2, ans 3, ans 4, ans 5"
+}, {
+  "id": 6,
+  "riddle": "rid 6",
+  "answer": "ans 1, ans 2, ans 3, ans 4, ans 5"
+}, {
+  "id": 7,
+  "riddle": "rid 7",
+  "answer": "ans 1, ans 2, ans 3, ans 4, ans 5"
+}, {
+  "id": 8,
+  "riddle": "rid 8",
+  "answer": "ans 1, ans 2, ans 3, ans 4, ans 5"
+}, {
+  "id": 9,
+  "riddle": "rid 9",
+  "answer": "ans 1, ans 2, ans 3, ans 4, ans 5"
+}, {
+  "id": 10,
+  "riddle": "rid 10",
+  "answer": "ans 1, ans 2, ans 3, ans 4, ans 5"
+}]
