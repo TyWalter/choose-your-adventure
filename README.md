@@ -23,7 +23,10 @@
 * Thank you to [Bcrypt](https://www.npmjs.com/package/bcrypt)
 
 ## Authors / Collaborators
-
+* [Jackie Funk]()
+* [Anna Manrodt]()
+* [Adam Shew]()
+* [Tyler Walter](https://github.com/TyWalter)
 
 ## Support
 
