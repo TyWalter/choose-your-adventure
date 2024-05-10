@@ -1,0 +1,13 @@
+{
+  "name": "gp2",
+  "version": "1.0.0",
+  "description": "Project Requirements\r You will build a web application, the subject is yours to choose, that meets the following criteria:",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
