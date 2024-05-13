@@ -23,10 +23,10 @@ Stats.init(
         losses: {
             type: DataTypes.INTEGER
         },
-        character_id: {
+        login_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'character',
+                model: 'login',
                 key: 'id',
             },
         },
