@@ -1,0 +1,12 @@
+/*Animation:  https://animate.style/#javascript*/
+.my-element {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+  }
+
+  /* This changes all the animations globally */
+:root {
+    --animate-duration: 800ms;
+    --animate-delay: 0.9s;
+  }
