@@ -82,7 +82,7 @@ $(document).ready(function () {
         ArrayText3.text(questions2[1])
         ArrayText2.appendTo(mainText);
         button1.text(questions2);
-        button2.text(startOfstory[3]);
+        //button2.text(startOfstory[3]);
         button1.appendTo(buttonArea);
         button2.appendTo(buttonArea);
     });

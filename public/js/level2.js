@@ -1,6 +1,10 @@
 // this will contain all the logic to make level two work 
 
-const { level_3_Story } = require("../../storyarray/storyarray");
+// Importing level_3_Story from the module if it's nested within another object
+//const { storyObject: { level_3_Story } } = require("../../storyarray/storyarray");
+
+
+//const { level_3_Story } = require("../../storyarray/storyarray");
 
 const level_2_Story = {
     // storyStart: 
@@ -18,7 +22,7 @@ const level_2_Story = {
 
 //let startOfstory = level_1_Story.storyStart;
 let questions1 = level_2_Story.questions1;
-let questions2 = level_3_Story.questions3;
+let questions2 = level_2_Story.questions2;
 // on click to excute this function 
 const mainText = $(".storyTextLevel2")
 let ArrayText = $("<div>")
@@ -76,7 +80,7 @@ $(document).ready(function () {
         ArrayText3.text(questions2[1])
         ArrayText2.appendTo(mainText);
         button1.text(questions2);
-        // button2.text(startOfstory[3]);
+        //button2.text(startOfstory[3]);
         button2.text(questions2[2]);
         button1.appendTo(buttonArea);
         button2.appendTo(buttonArea);
