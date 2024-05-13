@@ -11,12 +11,12 @@ Character.belongsTo(Login, {
     foreignKey: 'login_id',
 });
 
-Character.hasOne(Stats, {
-    foreignKey: 'character_id',
+Login.hasOne(Stats, {
+    foreignKey: 'login_id',
 });
 
-Stats.belongsTo(Character, {
-    foreignKey: 'character_id',
+Stats.belongsTo(Login, {
+    foreignKey: 'login_id',
 });
 
 module.exports = { Stats, Character, Login };
