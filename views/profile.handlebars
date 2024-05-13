@@ -1,1 +1,35 @@
 {{!-- change to profile infomation, see wire frame --}}
+<div class="container-fluid text-center">
+  <div class="row align-items-center">
+    <div class="col">
+      <div>
+        <img src="../public/imgs/the_Queen_And_her_guard.PNG" alt="Queen and her guard" />
+      </div>
+    </div>
+    <div class="col">
+      
+      <div>
+        <div>
+          Times played = {{played}}
+        </div>
+        <div>
+          Deaths/Losses = {{losses}}
+        </div>
+        <div>
+          Times Beaten LVL 1 = {{level_1_wins}}
+        </div>
+        <div>
+          Times Beaten LVL 2 = {{level_2_wins}}
+        </div>
+        <div>
+          Times Beaten LVL 3 = {{level_3_wins}}
+        </div>
+        <div>
+          <form action="../controllers/routes/homepage.js">
+            <input type="submit" value="Go to Google" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
