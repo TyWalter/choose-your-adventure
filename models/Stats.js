@@ -11,6 +11,9 @@ Stats.init(
             primaryKey: true,
             autoIncrement: true,
         },
+        played: {
+            type: DataTypes.INTEGER
+        },
         level_1_wins: {
             type: DataTypes.INTEGER
         },
