@@ -5,7 +5,7 @@ const profileRoute = require("./profile");
 const characterRoute = require("./character");
 const gameRoute = require("./game");
 
-router.use("/homepage", homeRoute)
+router.use("/", homeRoute)
 router.use("/profile", profileRoute)
 router.use("/login", loginRoute)
 router.use("/character", characterRoute)

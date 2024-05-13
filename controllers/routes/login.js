@@ -1,25 +1,30 @@
 const router = require("express").Router();
 const {Login} = require("../../models");
 
-//get all login info
+// Get login/signup page and display
 router.get("/", async (req, res) => {
   try {
-    const result = await Login.findAll()
-    res.json({status: "success", payload: result});
+    // const result = await Login.findAll()
+    // res.json({status: "success", payload: result});
+    if(req.session.logged_in){
+      res.redirect('/profile');
+      return;
+    }
+    res.render('login')
   }catch(err){
     res.status(400).json({ status:"error" });
   };
 });
 
-//get login by ID if we want it
-router.get("/:id", async (req, res) => {
-  try {
-    const result = await Login.findByPk(req.params.id)
-    res.json({status: "success", payload: result});
-  }catch(err){
-    res.status(400).json({ status:"error" });
-  };
-});
+// //get login by ID if we want it
+// router.get("/:id", async (req, res) => {
+//   try {
+//     const result = await Login.findByPk(req.params.id)
+//     res.json({status: "success", payload: result});
+//   }catch(err){
+//     res.status(400).json({ status:"error" });
+//   };
+// });
 
 //post
 router.post("/", async (req, res) => {
