@@ -30,3 +30,4 @@ With thunderous laughter, Gary says “I ordered Dizzy’s death. I am the reaso
     storyEnd:[`The coming days go by in a blur as Queen Katy makes arrangements and does her best to undo all the damage evil King Gary had on the kingdom.`, `You are knighted as well and appointed as the chief role guard to the queen. The Queen and her guard go down in history as one of the most powerful and fair monarchs in all the realm.`, `From time to time you see a small white dog watching from the distance, Dizzy telling you from another world that you have done well.`]
 }
 
+module.exports = { level_1_Story, level_2_Story, level_3_Story}
