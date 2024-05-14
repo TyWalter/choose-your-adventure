@@ -1,8 +1,9 @@
-/* fonts.css */
+fonts.css
 
 @font-face {
-    font-family: "Nodesto Caps Condensed Bold Italic";
-    src: url("./Nodesto Caps Condensed/Nodesto Caps Condensed Bold Italic.otf") format("opentype");
+    font-family: "Modesto Caps Condensed Bold Italic";
+    src: url("https://fonts.adobe.com/fonts/modesto") 
+    format("opentype");
     font-weight: bold;
 }
 
@@ -17,3 +18,5 @@
     src: url("./Bookinsanity/Bookinsanity Bold Italic.otf") format("opentype");
     font-weight: bold;
 }
+
+
