@@ -142,4 +142,3 @@ renderWrongQuestionTwo();
 wrongAnswer();
 rightAnswer();
 renderQuestionThree();
-// module.exports = {}
