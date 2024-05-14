@@ -14,13 +14,10 @@ Stats.init(
         played: {
             type: DataTypes.INTEGER
         },
-        level_1_wins: {
+        wins: {
             type: DataTypes.INTEGER
         },
-        level_2_wins: {
-            type: DataTypes.INTEGER
-        },
-        level_3_wins: {
+        deaths: {
             type: DataTypes.INTEGER
         },
         losses: {

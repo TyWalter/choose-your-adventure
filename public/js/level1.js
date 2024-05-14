@@ -1,4 +1,4 @@
-// const { clear } = require("console");
+
 
 const story = {
     part1: {
@@ -7,7 +7,7 @@ const story = {
         wrongChoice: `You head down the main path.`,
         rightChoice: `You head to the short cut`,
         wrongResult: `Clearly, you are one for reliability and stability. Unfortunately, reliability and stability do not make for a good adventurer. To be a good adventurer one must take the path less traveled. The main path leads you to a nice town you settle down in and never go on another adventure ever again!`,
-        img: $('body').css('background-image', 'url("../../public/imgs/startgame.PNG")')
+        // img: $('body').css('background-image', 'url("imgs/startgame.PNG")')
     },
     part2: {
         description: `You head into the forest and take the shortcut.  Not long into the day, you hear the frightened cries of a young woman nearby. As you approach, you see the young woman is Princess Katy from Dizzylot, the kingdom you are traveling to. She is tied to a tree. `,
@@ -15,8 +15,8 @@ const story = {
         wrongChoice: `Cut the rope.`,
         rightChoice: `Don't cut the rope. `,
         wrongResult: `You go up to the princess as she struggles and say "You're Princess Katy from the kingdom of Dizzylot, right? Are you okay? Do you need help? " She replies "Of course I am, What do you think? I'm tied to a tree!" You lean down to untie her and feel a sharp pain in the middle of your back. Blood sprays onto the princess' face as she looks up at you with an evil grin.The princess says "Nice shot boys! They are sure to have plenty of a loot on them", You died`,
-        img1: $('body').css('background-image', 'url("../../public/imgs/shortcut.PNG")'),
-        img: $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")')
+        // img1: $('body').css('background-image', 'url("../../public/imgs/shortcut.PNG")'),
+        // img: $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")')
     },
     part3: {
         description: `You start to walk up to the princess but hear rustling in the leaves nearby and notice that the ropes tying her to the tree look strangely loose. As you start to draw your weapon and prepare for the attack you are sure is coming, you remember the words of a wise professor… `,
@@ -25,8 +25,8 @@ const story = {
         rightChoice: 'right riddel',
         wrongResult: `You get lost in thought tearing up at the thought of your old classmates and teacher. A Bandit comes up and kills you, you should have indented. `,
         rightResult: `Remembering your professor's wise words has focused your senses, you spin around your sword cutting down the first bandit that dared to make a move. You make quick work of the other three but when you turn to look for the princess she is gone. `,
-        img: $('body').css('background-image', 'url("../../public/imgs/startgame.PNG")'),
-        overlayImg: "bloodimg"
+        // img: $('body').css('background-image', 'url("../../public/imgs/startgame.PNG")'),
+        // overlayImg: "bloodimg"
     }
 }
 
@@ -34,12 +34,18 @@ let mainText = $("#stupid-div").css('backgroundColor', 'white');
 // let createdText = $("<div>")
 let button1 = $("<button>").addClass('btn btn-outline-dark')
 let button2 = $("<button>").addClass('btn btn-outline-dark');
+let button3 = $("<button>").addClass('btn btn-outline-dark');
 let bloodscreen = $("<div>").addClass('overlay-image');
+let played = 0;
+let wins = 0;
+let deaths = 0;
+let losses = 0;
 // let button3 = $("<button>").addClass('btn btn-outline-dark')
 // let button4 = $("<button>").addClass('btn btn-outline-dark');
 
 function startStory(){
     mainText.html(`<span>${story.part1.description}</span>`);
+    $('body').css('background-image', 'url("imgs/startgame.PNG")')
     renderStoryStart();
 }
 
@@ -74,7 +80,9 @@ function resultOfButton2() {
         event.stopPropagation()
         console.log('made it into button2')
         $(mainText).text(story.part1.wrongResult);
-        $('body').css('background-image', 'url("../../public/imgs/alterending.PNG")')
+        $('body').css('background-image', 'url("imgs/alterending.PNG")')
+        losses++;
+        played++;
     });
 }
 
@@ -91,7 +99,7 @@ function renderPart2() {
     console.log("ok")
     console.log(mainText)
     mainText.html(`<span>${story.part2.description}</span>`);
-    $('body').css('background-image', 'url("../../public/imgs/shortcut.PNG")')
+    $('body').css('background-image', 'url("imgs/shortcut.PNG")')
     mainText.children("span").text();
     mainText.children("button").hide();
 
@@ -119,7 +127,9 @@ function resultOfButton2Part2() {
         event.stopPropagation()
         console.log('made it into button2')
         $(mainText).text(story.part2.wrongResult);
-        $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")')
+        $('body').css('background-image', 'url("imgs/deathscreen.PNG")')
+        deaths++;
+        played++;
     });
 }
 
@@ -127,7 +137,7 @@ function renderPart3() {
     console.log("ok")
     console.log(mainText)
     mainText.html(`<span>${story.part3.description}</span>`);
-    $('body').css('background-image', 'url("../../public/imgs/shortcut.PNG")')
+    $('body').css('background-image', 'url("imgs/shortcut.PNG")')
     // this could use a new img
     mainText.children("span").text();
     mainText.children("button").hide();
@@ -145,10 +155,13 @@ function resultOfButton1Part3(event) {
         event.stopPropagation()
         console.log('this is button 1 part 2')
         // we need an you won img
-        $(mainText).text("Congrautions You beat Level 1 of the Queen and her Guard");
+        $(mainText).text("Congratulations You beat Level 1 of the Queen and her Guard");
+        button3.text('Continue to Level 2');
+        mainText.append(button3);
+        wins++;
+        played++;
         return 
     });
-
 }
 
 function resultOfButton2Part3() {
@@ -156,11 +169,17 @@ function resultOfButton2Part3() {
         event.stopPropagation()
         console.log('made it into button2')
         $(mainText).text(story.part2.wrongResult);
-        $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")')
+        $('body').css('background-image', 'url("imgs/deathscreen.PNG")')
+        deaths++;
+        played++;
+        
     });
 }
 // renderStoryStart();
 // resultOfButton1();
 // resultOfButton2();
 
+console.log(deaths, wins, losses, played)
 startStory()
+
+
