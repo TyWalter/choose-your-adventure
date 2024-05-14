@@ -15,6 +15,7 @@ const story = {
         wrongChoice: `Cut the rope.`,
         rightChoice: `Don't cut the rope. `,
         wrongResult: `You go up to the princess as she struggles and say "You're Princess Katy from the kingdom of Dizzylot, right? Are you okay? Do you need help? " She replies "Of course I am, What do you think? I'm tied to a tree!" You lean down to untie her and feel a sharp pain in the middle of your back. Blood sprays onto the princess' face as she looks up at you with an evil grin.The princess says "Nice shot boys! They are sure to have plenty of a loot on them", You died`,
+        img1: $('body').css('background-image', 'url("../../public/imgs/shortcut.PNG")'),
         img: $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")')
     },
     part3: {
@@ -33,6 +34,7 @@ let mainText = $("#stupid-div").css('backgroundColor', 'white');
 // let createdText = $("<div>")
 let button1 = $("<button>").addClass('btn btn-outline-dark')
 let button2 = $("<button>").addClass('btn btn-outline-dark');
+let bloodscreen = $("<div>").addClass('overlay-image');
 // let button3 = $("<button>").addClass('btn btn-outline-dark')
 // let button4 = $("<button>").addClass('btn btn-outline-dark');
 
@@ -42,57 +44,121 @@ function startStory(){
 }
 
 function renderStoryStart() {
-    document.addEventListener('click', function () {
-        $(mainText).html(`<span>${story.part1.question}</span>`);
-        $(button1).text(story.part1.wrongChoice);
-        $(button2).text(story.part1.rightChoice);
-        $(mainText).append(button1, button2);
+    document.addEventListener('click', function (event) {
+        event.stopPropagation()
+        $(mainText).html(`<span>${story.part1.question}</span>`);// which path do you choose 
+        $(button2).text(story.part1.wrongChoice);//main path
+        $(button1).text(story.part1.rightChoice);//the short cut 
+        $(mainText).append(button1, button2);// thisis the two buttons with this text
         // $(button1).on('click', function () {
         //     renderPart2();
         // });
         // $(button2).on('click', function () {
         //     $(mainText).text(story.part1.wrongResult);
         // });
+        resultOfButton1();
+        resultOfButton2();
     })
-    resultOfButton1();
-    resultOfButton2();
 }
 function resultOfButton1(event) {
     button1.on('click', function (event) {
         event.stopPropagation()
         console.log('this is button 1')
-        mainText.children("span").text();
+        // mainText.children("span").text();
+        renderPart2();
     });
 }
 
 function resultOfButton2() {
-    $(button2).on('click', function () {
+    $(button2).on('click', function (event) {
+        event.stopPropagation()
         console.log('made it into button2')
         $(mainText).text(story.part1.wrongResult);
+        $('body').css('background-image', 'url("../../public/imgs/alterending.PNG")')
     });
 }
 
-function renderWrongChoice(){
-    document.addEventListener('click', function () {
-        console.log('rednerwrong choise')
-        $(mainText).text(story.part1.wrongResult);
-        // img append to body
-    })
-}
+// function renderWrongChoice(){
+//     document.addEventListener('click', function () {
+//         console.log('rednerwrong choise')
+//         $(mainText).text(story.part1.wrongResult);
+//         $('body').css('background-image', 'url("../../public/imgs/alterending.PNG")')
+//         // img append to body
+//     })
+// }
 
 function renderPart2() {
     console.log("ok")
     console.log(mainText)
-    
-    // mainText.children("button").hide();
+    mainText.html(`<span>${story.part2.description}</span>`);
+    $('body').css('background-image', 'url("../../public/imgs/shortcut.PNG")')
+    mainText.children("span").text();
+    mainText.children("button").hide();
 
-    // button1.text(story.part2.wrongChoice);
-    // button2.text(story.part2.rightChoice);
-    // mainText.append(button1);
-    // mainText.append(button2);
+    button2.text(story.part2.wrongChoice);
+    button1.text(story.part2.rightChoice);
+    mainText.append(button1);
+    mainText.append(button2);
+    resultOfButton2Part2();
+    resultOfButton1Part2();
+}
+
+function resultOfButton1Part2(event) {
+    button1.on('click', function (event) {
+        event.stopPropagation()
+        console.log('this is button 1 part 2')
+        // mainText.children("span").text();
+        renderPart3();
+        return 
+    });
 
 }
 
+function resultOfButton2Part2() {
+    $(button2).on('click', function (event) {
+        event.stopPropagation()
+        console.log('made it into button2')
+        $(mainText).text(story.part2.wrongResult);
+        $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")')
+    });
+}
+
+function renderPart3() {
+    console.log("ok")
+    console.log(mainText)
+    mainText.html(`<span>${story.part3.description}</span>`);
+    $('body').css('background-image', 'url("../../public/imgs/shortcut.PNG")')
+    // this could use a new img
+    mainText.children("span").text();
+    mainText.children("button").hide();
+
+    button2.text(story.part3.wrongChoice);
+    button1.text(story.part3.rightChoice);
+    mainText.append(button1);
+    mainText.append(button2);
+    resultOfButton2Part3();
+    resultOfButton1Part3();
+}
+
+function resultOfButton1Part3(event) {
+    button1.on('click', function (event) {
+        event.stopPropagation()
+        console.log('this is button 1 part 2')
+        // we need an you won img
+        $(mainText).text("Congrautions You beat Level 1 of the Queen and her Guard");
+        return 
+    });
+
+}
+
+function resultOfButton2Part3() {
+    $(button2).on('click', function (event) {
+        event.stopPropagation()
+        console.log('made it into button2')
+        $(mainText).text(story.part2.wrongResult);
+        $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")')
+    });
+}
 // renderStoryStart();
 // resultOfButton1();
 // resultOfButton2();
