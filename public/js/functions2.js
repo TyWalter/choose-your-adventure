@@ -1,5 +1,7 @@
 // const { clear } = require("console");
 
+let globalGameState = ''
+
 const story = {
     part1: {
         description: `You are a well-experienced adventurer traveling to the next kingdom.  You awaken in your camp under a small tree feeling well rested for the journey ahead.  You pull out your map and examine it for the next kingdom.  You see a shortcut a villager marked on your map the day before.`,
@@ -29,16 +31,16 @@ const story = {
     }
 }
 
-let mainText = $("#stupid-div").css('backgroundColor', 'white');
+let mainText = $("#stupid-div");
 // let createdText = $("<div>")
-let button1 = $("<button>").addClass('btn btn-outline-dark')
-let button2 = $("<button>").addClass('btn btn-outline-dark');
+let button1 = $("<button>").attr("id", "btn1").addClass('clickable btn btn-outline-dark').text("Game Start 1")
+let button2 = $("<button>").attr("id", "btn2").addClass('clickable btn btn-outline-dark').text("Game Start 2");
 // let button3 = $("<button>").addClass('btn btn-outline-dark')
 // let button4 = $("<button>").addClass('btn btn-outline-dark');
 
 function startStory(){
-    mainText.html(`<span>${story.part1.description}</span>`);
-    renderStoryStart();
+    globalGameState = 'start';
+    mainText.html(`<span>${story.part1.description}</span>`)
 }
 
 function renderStoryStart() {
@@ -55,46 +57,94 @@ function renderStoryStart() {
         // });
     })
     resultOfButton1();
-    resultOfButton2();
+    // resultOfButton2();
 }
-function resultOfButton1(event) {
-    button1.on('click', function (event) {
-        event.stopPropagation()
-        console.log('this is button 1')
-        mainText.children("span").text();
-    });
-}
+// function resultOfButton1() {
+//     $(button1).on('click', function () {
+//         console.log('this is button 1')
+//         renderPart2();
+//     });
+// }
 
-function resultOfButton2() {
-    $(button2).on('click', function () {
-        console.log('made it into button2')
-        $(mainText).text(story.part1.wrongResult);
-    });
-}
+// function resultOfButton2() {
+//     $(button2).on('click', function () {
+//         console.log('made it into button2')
+//         $(mainText).text(story.part1.wrongResult);
+//     });
+// }
 
-function renderWrongChoice(){
-    document.addEventListener('click', function () {
-        console.log('rednerwrong choise')
-        $(mainText).text(story.part1.wrongResult);
-        // img append to body
-    })
-}
+// function renderWrongChoice(){
+//     document.addEventListener('click', function () {
+//         console.log('rednerwrong choise')
+//         $(mainText).text(story.part1.wrongResult);
+//         // img append to body
+//     })
+// }
 
 function renderPart2() {
-    console.log("ok")
-    console.log(mainText)
-    
-    // mainText.children("button").hide();
+    console.log(mainText[0])
+    // console.log($(maintext))
+    // $(button1).off('click');
+    // $(button2).off('click');
+    button1.html("");
+    button2.html("");
+    console.log('renderpart2')
+    console.log(story.part2.question)
+    mainText.html(`<span>This should work</span>`)
+    console.log(mainText[0].textContent)
 
-    // button1.text(story.part2.wrongChoice);
-    // button2.text(story.part2.rightChoice);
+    button1.text(story.part2.wrongChoice);
+    button2.text(story.part2.rightChoice);
     // mainText.append(button1);
     // mainText.append(button2);
 
 }
 
+
+function gameStatePart1(){
+    
+    $(button1).text(story.part1.wrongChoice);
+    $(button2).text(story.part1.rightChoice);
+}
+
+    
+    
+    $(mainText).append(button1, button2);
+    globalGameState = 'part1'
+}
+
+
+
 // renderStoryStart();
 // resultOfButton1();
 // resultOfButton2();
+$("document").on("click", function(){
+    mainText.html(`<span>${story.part1.question}</span>`)
+    mainText.append(button1);
+    mainText.append(button2);
+})
+
+
+$("#stupid-div").on('click', ".clickable", function () {
+    const id = $(this).attr("id");
+
+    switch(globalGameState){
+        case 'part1':
+        if( id === 'btn1' ){
+            // send to next part
+        } else {
+            // displays wrong choice
+        }
+
+        break;
+
+        case 'part1':
+
+        break;
+    }
+
+})
+
+
 
 startStory()
