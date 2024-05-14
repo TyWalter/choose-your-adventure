@@ -1,22 +1,18 @@
 fonts.css
 
 @font-face {
-    font-family: "Modesto Caps Condensed Bold Italic";
-    src: url("https://fonts.adobe.com/fonts/modesto") 
-    format("opentype");
-    font-weight: bold;
+    font-family: Nodesto;
+    src: url(../fonts/nodesto.otf);
 }
 
 @font-face {
-    font-family: "Bloody Scary Font";
-    src: url("//www.fontspace.com/bloody-scary-font-f85828") format("truetype");
-    font-weight: bold;
+    font-family: Bloody;
+    src: url(../fonts/bloody.ttf);
 }
 
 @font-face {
-    font-family: "Bookinsanity Bold Italic";
-    src: url("./Bookinsanity/Bookinsanity Bold Italic.otf") format("opentype");
-    font-weight: bold;
+    font-family: Insanity;
+    src: url(../fonts/bookinsanity.otf);
 }
 
 
