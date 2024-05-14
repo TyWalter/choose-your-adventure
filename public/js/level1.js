@@ -48,8 +48,8 @@ function renderStoryStart() {
 }
 function renderButtonTwo() {
     button2.on("click", function () {
-        // startOfstory[0].hide();
-        // startOfstory[1].hide();
+        startOfstory[0].style = 'none'; // Hiding startOfstory[0]
+        startOfstory[1].style = 'none';
         button2.hide(); // Hide button2 using jQuery method
         button1.hide(); // Hide button1 using jQuery method
         ArrayText1.text(questions1[0]);
@@ -60,8 +60,8 @@ function renderButtonTwo() {
 
 function renderButtonOne(){
     button1.on("click", function () {
-        // startOfstory[0].hide();
-        // startOfstory[1].hide();
+        startOfstory[0].style = 'none';
+        startOfstory[1].style = 'none';
         button2.hide(); // Hide button2 using jQuery method
         button1.hide(); // Hide button1 using jQuery method
 
@@ -89,6 +89,8 @@ function renderWrongQuestionTwo(){
         // ArrayText4.hide();?
         button3.hide();
         button4.hide();
+        questions2[1].style = 'none';
+        questions2[2].style = 'none';
         ArrayText4.text([questions2[3], questions2[4], questions2[5], questions2[6],questions2[7]]);
         //i need to make the hokd text disapear as well 
         ArrayText4.appendTo(mainText);
