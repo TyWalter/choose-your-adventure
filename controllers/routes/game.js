@@ -1,11 +1,15 @@
 const router = require("express").Router();
 const {Character, Login, Stats} = require("../../models");
 
-//get all game info
+// Get all game info
 router.get("/", async (req, res) => {
   try {
-    const result = await Login.findAll()
-    res.json({status: "success", payload: result});
+    // const result = await Login.findByPk(req.session.login_id, {
+    //   attributes: {exclude: ['password']}
+    // });
+    // const user = result.get({plain:true});
+    // res.json({status: "success", payload: result});
+    res.render('level1', {layout: 'game'})
   }catch(err){
     res.status(400).json({ status:"error" });
   };
