@@ -1,71 +1,45 @@
-// let uname = document.querySelector('#uname');
-// let upass = document.querySelector('#upass');
-// let sname = document.querySelector('#sname');
-// let semail = document.querySelector('#sname');
-// let snamp = document.querySelector('#sname');
-// let usubmit = document.querySelector('#usubmit')
-// let ssubmit = document.querySelector('#ssubmit')
+const loginFormHandler = async (event) => {
+  event.preventDefault();
 
+  let uname = document.querySelector('#uname').value;
+  let upass = document.querySelector('#upass').value;
 
-
-// function loginUser(){
-//   usubmit.addEventListener('click', function (){
-//     //will need to check to see if user exists
-//     //if user does exist and username/passwords match log in user
-//   })
-// }
-
-// function createUser(){
-//   ssubmit.addEventListener('click', function () {
-//     if(uname != " "){
-//       //save name to login model user_name
-//     }else{
-//       return err;
-//     }
-//     if(upass != " "){
-//       //save password to login model password
-//     }else{
-//       return err;
-//     }
-//     if(email != " "){
-//       //save name to login model user_name
-//     }else{
-//       return err;
-//     }
-
-   
-
-
-//   })
-// }
-
-
-
-
-
-const express = require('express');
-const { Pool } = require('pg');
-
-
-let uname = document.querySelector('#uname');
-let upass = document.querySelector('#upass');
-let sname = document.querySelector('#sname');
-let semail = document.querySelector('#sname');
-let snamp = document.querySelector('#sname');
-let usubmit = document.querySelector('#usubmit')
-let ssubmit = document.querySelector('#ssubmit')
-
-const pool = new Pool(
-  {
-    user: DB_USER,
-    password: DB_PW,
-    host: 'localhost',
-    database: 'adventure_db'
+  if(uname && upass){
+    const response = await fetch('/api/users/login', {
+      method: 'POST',
+      body: JSON.stringify({uname, upass}),
+      headers: {'Content-Type': 'application/json'}
+    });
+    if(response.ok){
+      document.location.replace('/profile');
+    } else {
+    alert(response.statusText);
+    }
   }
-)
+}
 
-pool.connect();
+const signupFormHandler = async (event) => {
+  event.preventDefault();
+  const name = document.querySelector('#sname').value;
+  const email = document.querySelector('#semail').value;
+  const password = document.querySelector('#spass').value;
+  if (name && email && password) {
+    const response = await fetch('/api/users', {
+      method: 'POST',
+      body: JSON.stringify({ name, email, password }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert(response.statusText);
+    }
+  }
+};
 
-pool.query('CREATE TABLE loginInfo');
-
-pool.query('INSERT INTO loginInfo', )
+document
+  .querySelector('#usubmit')
+  .addEventListener('submit', loginFormHandler);
+document
+  .querySelector('#ssubmit')
+  .addEventListener('submit', signupFormHandler);
