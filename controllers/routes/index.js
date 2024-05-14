@@ -9,6 +9,6 @@ router.use("/", homeRoute)
 router.use("/profile", profileRoute)
 router.use("/login", loginRoute)
 router.use("/character", characterRoute)
-router.use("/game", gameRoute)
+router.use("/game", gameRoute) 
 
 module.exports = router;
