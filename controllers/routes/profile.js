@@ -1,18 +1,17 @@
-// later on post
 const router = require("express").Router();
 const {Character, Login, Stats} = require("../../models");
-const withAuth = require('../../utils/auth')
+// const withAuth = require('../../utils/auth')
 
 // Get profile page and display
-router.get("/", withAuth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const result = await Login.findByPk(req.session.login_id, {
-      attributes: {exclude: ['password']}
-    });
-    const user = result.get({plain:true});
+    // const result = await Login.findByPk(req.session.login_id, {
+    //   attributes: {exclude: ['password']}
+    // });
+    // const user = result.get({plain:true});
     // res.json({status: "success", payload: result});
     res.render('profile', {
-      ...user,
+      // ...user,
       logged_in: true
     })
   }catch(err){
