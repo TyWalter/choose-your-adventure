@@ -19,7 +19,7 @@ const story = {
             wrongChoice:  `No`,
             rightChoice: `Yes`,
             wrongResult: `You make your way down the path but slip on all the blood and fall. You don't even notice the blade sticking out of your chest until you try to get up and are pulled down. Once you notice it is impossible to notice anything else, the pain racks your body and in your final moments, you think to yourself “I should have…followed the…Princess.”`,
-            img: ''
+            img: $('body').css('background-image', 'url("../../public/imgs/startgame.PNG")'),
         },
         part2: {
             description: `You follow the footprints into the woods, the forest grows thick as you run deeper and deeper through it. 
@@ -45,141 +45,137 @@ const story = {
 
 //let startOfstory = level_1_Story.storyStart;
 
-let questions1 = level_2_Story.questions1;
-let questions2 = level_2_Story.questions2;
-let questions3 = level_2_Story.questions3;
-// on click to excute this function 
-let mainText = $(".storyTextLevel1")
-let ArrayText = $("<div>")
-let ArrayText1 = $("<div>")
-let ArrayText2 = $("<div>")
-let ArrayText3 = $("<div>")
-let ArrayText4 = $("<div>")
-let ArrayText5 = $("<div>")
-let ArrayText6 = $("<div>")
-const button1 = $("<button>")
-const button2 = $("<button>")
-const button3 = $("<button>")
-const button4 = $("<button>")
-const button5 = $("<button>")
-const button6 = $("<button>")
-const buttonArea = $(".choiceLevel1")
-button1.addClass('btn btn-outline-dark')
-button2.addClass('btn btn-outline-dark')
-button3.addClass('btn btn-outline-dark')
-button4.addClass('btn btn-outline-dark')
-button5.addClass('btn btn-outline-dark')
-button6.addClass('btn btn-outline-dark')
+let mainText = $("#stupid-div").css('backgroundColor', 'white');
+// let createdText = $("<div>")
+let button1 = $("<button>").addClass('btn btn-outline-dark')
+let button2 = $("<button>").addClass('btn btn-outline-dark');
+let bloodscreen = $("<div>").addClass('overlay-image');
+// let button3 = $("<button>").addClass('btn btn-outline-dark')
+// let button4 = $("<button>").addClass('btn btn-outline-dark');
 
-$(document).ready(function () {
-    ArrayText.text(questions1[0])
-    ArrayText.appendTo(mainText);
-})
+function startStory(){
+    mainText.html(`<span>${story.part1.description}</span>`);
+    renderStoryStart();
+}
 
-function renderQuestion1lvl2() {
-    document.addEventListener('click', function () {
-        ArrayText.text(questions1[1])
-        ArrayText.appendTo(mainText);
-        button1.text(questions1[2]);
-        button2.text(questions1[3]);
-        button1.appendTo(buttonArea);
-        button2.appendTo(buttonArea);
+function renderStoryStart() {
+    document.addEventListener('click', function (event) {
+        event.stopPropagation()
+        $(mainText).html(`<span>${story.part1.question}</span>`);// which path do you choose 
+        $(button2).text(story.part1.wrongChoice);//main path
+        $(button1).text(story.part1.rightChoice);//the short cut 
+        $(mainText).append(button1, button2);// thisis the two buttons with this text
+        // $(button1).on('click', function () {
+        //     renderPart2();
+        // });
+        // $(button2).on('click', function () {
+        //     $(mainText).text(story.part1.wrongResult);
+        // });
+        resultOfButton1();
+        resultOfButton2();
     })
 }
-// function renderButtonTwo() {
-//     button2.on("click", function () {
-//         // startOfstory[0].hide();
-//         // startOfstory[1].hide();
-//         button2.hide(); // Hide button2 using jQuery method
-//         button1.hide(); // Hide button1 using jQuery method
-//         ArrayText1.text(questions1[0]);
-//         $('body').css('background-image', 'url("../../public/imgs/alterending.PNG")');
-//         ArrayText1.appendTo(mainText);
+function resultOfButton1(event) {
+    button1.on('click', function (event) {
+        event.stopPropagation()
+        console.log('this is button 1')
+        // mainText.children("span").text();
+        renderPart2();
+    });
+}
+
+function resultOfButton2() {
+    $(button2).on('click', function (event) {
+        event.stopPropagation()
+        console.log('made it into button2')
+        $(mainText).text(story.part1.wrongResult);
+        $('body').css('background-image', 'url("../../public/imgs/alterending.PNG")')
+    });
+}
+
+// function renderWrongChoice(){
+//     document.addEventListener('click', function () {
+//         console.log('rednerwrong choise')
+//         $(mainText).text(story.part1.wrongResult);
+//         $('body').css('background-image', 'url("../../public/imgs/alterending.PNG")')
+//         // img append to body
 //     })
 // }
 
-// function renderButtonOne(){
-//     button1.on("click", function () {
-//         // startOfstory[0].hide();
-//         // startOfstory[1].hide();
-//         button2.hide(); // Hide button2 using jQuery method
-//         button1.hide(); // Hide button1 using jQuery method
+function renderPart2() {
+    console.log("ok")
+    console.log(mainText)
+    mainText.html(`<span>${story.part2.description}</span>`);
+    $('body').css('background-image', 'url("../../public/imgs/shortcut.PNG")')
+    mainText.children("span").text();
+    mainText.children("button").hide();
 
-//         ArrayText1.text(questions1[1]);
-//         // $('body').css('background-image', 'url("../../public/imgs/Runningaftertheprincess.PNG")')
-//         ArrayText1.appendTo(mainText);
+    button2.text(story.part2.wrongChoice);
+    button1.text(story.part2.rightChoice);
+    mainText.append(button1);
+    mainText.append(button2);
+    resultOfButton2Part2();
+    resultOfButton1Part2();
+}
 
-//         ArrayText3.text(questions2[0])
-//         ArrayText3.appendTo(mainText);
-//         renderButtonThree();
-//     });
-// }
+function resultOfButton1Part2(event) {
+    button1.on('click', function (event) {
+        event.stopPropagation()
+        console.log('this is button 1 part 2')
+        // mainText.children("span").text();
+        renderPart3();
+        return 
+    });
 
-// function renderButtonThree(){
-//         // ArrayText3.text(startOfstory[1])
-//         // ArrayText3.appendTo(mainText);
-//         button3.text(questions2[1]);
-//         button4.text(questions2[2]);
-//         button3.appendTo(buttonArea);
-//         button4.appendTo(buttonArea);
-// }
+}
 
-// function renderWrongQuestionTwo(){
-//     button3.on('click', function() {
-//         // ArrayText4.hide();?
-//         button3.hide();
-//         button4.hide();
-//         ArrayText4.text([questions2[3], questions2[4], questions2[5], questions2[6],questions2[7]]);
-//         //i need to make the hokd text disapear as well 
-//         ArrayText4.appendTo(mainText);
-//     });
-// }
+function resultOfButton2Part2() {
+    $(button2).on('click', function (event) {
+        event.stopPropagation()
+        console.log('made it into button2')
+        $(mainText).text(story.part2.wrongResult);
+        $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")')
+    });
+}
 
-// function renderQuestionThree(){
-//     button4.on('click', function() {
-//         // ArrayText4.hide();?
-//         ArrayText4.text(questions3[0]);
-//         //i need to make the hokd text disapear as well 
-//         button3.hide();
-//         button4.hide();
-//         ArrayText4.appendTo(mainText);
-//         button5.text("riddle Wrong answer");
-//         button6.text("riddle right answer");
-//         button5.appendTo(buttonArea);
-//         button6.appendTo(buttonArea);
-//     });
-//     //still need to get rid of old text 
-// }
-//         // function renderRiddleButtons(){
-//         //     // not sure how we want to do this yet
-//         //     button5.text("riddle right answer");
-//         //     button6.text("riddle Wrong answer");
-//         //     button5.appendTo(buttonArea);
-//         //     button6.appendTo(buttonArea);
-//         // }
+function renderPart3() {
+    console.log("ok")
+    console.log(mainText)
+    mainText.html(`<span>${story.part3.description}</span>`);
+    $('body').css('background-image', 'url("../../public/imgs/shortcut.PNG")')
+    // this could use a new img
+    mainText.children("span").text();
+    mainText.children("button").hide();
 
-// function wrongAnswer(){
-//     button5.on('click', function() {
-//     ArrayText5.text(questions3[1]);
-//     //i need to make the hokd text disapear as well 
-//     ArrayText5.appendTo(mainText);
-//     })
-// }
+    button2.text(story.part3.wrongChoice);
+    button1.text(story.part3.rightChoice);
+    mainText.append(button1);
+    mainText.append(button2);
+    resultOfButton2Part3();
+    resultOfButton1Part3();
+}
 
-// function rightAnswer(){
-//     button6.on('click', function() {
-//         ArrayText6.text(questions3[2]);
-//         //i need to make the hokd text disapear as well 
-//         ArrayText6.appendTo(mainText);
-//         })
-// }
+function resultOfButton1Part3(event) {
+    button1.on('click', function (event) {
+        event.stopPropagation()
+        console.log('this is button 1 part 2')
+        // we need an you won img
+        $(mainText).text("Congrautions You beat Level 1 of the Queen and her Guard");
+        return 
+    });
 
-renderQuestion1lvl2()
-// renderButtonTwo();
-// renderButtonOne();
-// renderWrongQuestionTwo();
-// // renderRiddleButtons();
-// wrongAnswer();
-// rightAnswer();
-// renderQuestionThree();
-// module.exports = {}
+}
+
+function resultOfButton2Part3() {
+    $(button2).on('click', function (event) {
+        event.stopPropagation()
+        console.log('made it into button2')
+        $(mainText).text(story.part2.wrongResult);
+        $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")')
+    });
+}
+// renderStoryStart();
+// resultOfButton1();
+// resultOfButton2();
+
+startStory()
