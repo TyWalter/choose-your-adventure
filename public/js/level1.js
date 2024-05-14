@@ -58,10 +58,13 @@ button3.addClass('btn btn-outline-dark')
 button4.addClass('btn btn-outline-dark')
 button5.addClass('btn btn-outline-dark')
 button6.addClass('btn btn-outline-dark')
+let bloodscreen = $('<img src="../../public/imgs/blood-png-7140 (1).png" alt="Foreground Image">');
+
 
 $(document).ready(function () {
     ArrayText.text(startOfstory[0]);
     ArrayText.appendTo(mainText);
+    $('body').css('background-image', 'url("../../public/imgs/startgame.PNG")')
 })
 
 function renderStoryStart() {
@@ -76,8 +79,6 @@ function renderStoryStart() {
 function renderButtonTwo() {
     button2.on("click", function () {
         ArrayText.hide()
-        // startOfstory[0].hide();
-        // startOfstory[1].hide();
         button2.hide(); // Hide button2 using jQuery method
         button1.hide(); // Hide button1 using jQuery method
         ArrayText1.text(questions1[0]);
@@ -86,7 +87,7 @@ function renderButtonTwo() {
     })
 }
 
-function renderButtonOne(){
+function renderButtonOne() {
     button1.on("click", function () {
         ArrayText.hide()
         // startOfstory[0].hide();
@@ -95,34 +96,38 @@ function renderButtonOne(){
         button1.hide(); // Hide button1 using jQuery method
 
         ArrayText1.text(questions1[1]);
+
         // $('body').css('background-image', 'url("../../public/imgs/Runningaftertheprincess.PNG")')
         ArrayText1.appendTo(mainText);
-
         ArrayText3.text(questions2[0])
         ArrayText3.appendTo(mainText);
         renderButtonThree();
     });
 }
 
-function renderButtonThree(){
-        // ArrayText3.text(startOfstory[1])
-        // ArrayText3.appendTo(mainText);
-        button3.text(questions2[1]);
-        button4.text(questions2[2]);
-        button3.appendTo(buttonArea);
-        button4.appendTo(buttonArea);
+function renderButtonThree() {
+    // ArrayText3.text(startOfstory[1])
+    // ArrayText3.appendTo(mainText);
+    button3.text(questions2[1]);
+    button4.text(questions2[2]);
+    button3.appendTo(buttonArea);
+    button4.appendTo(buttonArea);
 }
+
 
 function renderWrongQuestionTwo(){
     button3.on('click', function() {
         ArrayText3.hide();
         button3.hide();
         button4.hide();
-        ArrayText4.text([questions2[3], questions2[4], questions2[5], questions2[6],questions2[7]]);
-        //i need to make the hokd text disapear as well 
+        questions2[1].style = 'none';
+        questions2[2].style = 'none';
+        ArrayText4.text([questions2[3], questions2[4], questions2[5], questions2[6], questions2[7]]);
+        $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")')
         ArrayText4.appendTo(mainText);
     });
 }
+
 
 function renderQuestionThree(){
     button4.on('click', function() {
@@ -139,28 +144,30 @@ function renderQuestionThree(){
     });
     //still need to get rid of old text 
 }
-        // function renderRiddleButtons(){
-        //     // not sure how we want to do this yet
-        //     button5.text("riddle right answer");
-        //     button6.text("riddle Wrong answer");
-        //     button5.appendTo(buttonArea);
-        //     button6.appendTo(buttonArea);
-        // }
+// function renderRiddleButtons(){
+//     // not sure how we want to do this yet
+//     button5.text("riddle right answer");
+//     button6.text("riddle Wrong answer");
+//     button5.appendTo(buttonArea);
+//     button6.appendTo(buttonArea);
+// }
 
-function wrongAnswer(){
-    button5.on('click', function() {
-    ArrayText5.text(questions3[1]);
-    //i need to make the hokd text disapear as well 
-    ArrayText5.appendTo(mainText);
-    })
+function wrongAnswer() {
+    button5.on('click', function () {
+        ArrayText5.empty().text(questions3[1]); // Clear existing text and set new text
+        $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")');
+        ArrayText5.appendTo(mainText);
+    });
 }
 
-function rightAnswer(){
-    button6.on('click', function() {
+function rightAnswer() {
+    button6.on('click', function () {
         ArrayText6.text(questions3[2]);
         //i need to make the hokd text disapear as well 
+        bloodscreen.appendTo('body');
+        $('body').css('background-image', 'url("../../public/imgs/shortcut.PNG")');
         ArrayText6.appendTo(mainText);
-        })
+    })
 }
 
 renderStoryStart();
