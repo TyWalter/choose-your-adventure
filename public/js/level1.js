@@ -1,3 +1,7 @@
+// this will contain all the logic to make level one work 
+
+const { level_2_Story } = require("../../storyarray/storyarray");
+
 const level_1_Story = {
     storyStart: [`You are a well-experienced adventurer traveling to the next kingdom.  You awaken in your camp under a small tree feeling well rested for the journey ahead.  You pull out your map and examine it for the next kingdom.  You see a shortcut a villager marked on your map the day before.`, `Do you take the villager’s shortcut or proceed to the well-worn path?`, `You head down the main path.`, `You head to the short cut`],
     questions1: [`Clearly, you are one for reliability and stability. Unfortunately, reliability and stability do not make for a good adventurer. To be a good adventurer one must take the path less traveled. The main path leads you to a nice town you settle down in and never go on another adventure ever again!`, `You head into the forest and take the shortcut.  Not long into the day, you hear the frightened cries of a young woman nearby. As you approach, you see the young woman is Princess Katy from Dizzylot, the kingdom you are traveling to. She is tied to a tree. `],
@@ -71,10 +75,21 @@ function renderButtonOne() {
         ArrayText1.text(questions1[1]);
         $('body').css('background-image', 'url("../../public/imgs/shortcut.PNG")')
         ArrayText1.appendTo(mainText);
-
         ArrayText3.text(questions2[0])
         ArrayText3.appendTo(mainText);
         renderButtonThree();
+    });
+
+    document.addEventListener('click', function () {
+        ArrayText3.text(questions2[0])
+        ArrayText3.appendTo(mainText);
+
+        ArrayText3.text(questions2[1])
+        ArrayText.appendTo(mainText);
+        button1.text(startOfstory[2]);
+        button2.text(startOfstory[3]);
+        button1.appendTo(buttonArea);
+        button2.appendTo(buttonArea);
     });
 }
 
