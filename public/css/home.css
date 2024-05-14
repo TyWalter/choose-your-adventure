@@ -4,7 +4,7 @@ Cambridge #84A98C
 Hookers green #52796F
 Dark slate gray #354F52
 Charcoal #2F3E46
- */
+*/
 
 body {
   display: flex;
@@ -19,52 +19,52 @@ header {
   padding: 1%;
   background-color: #2F3E46;
   color: #CAD2C5;
-  font-family: "Nodesto Caps Condensed Bold Italic", sans-serif;
+  font-family: Nodesto, sans-serif;
   font-weight: bold;
 }
 /* give the logo a class/id in html */
 img {
   border-radius: 50%;
-  max-width: 75%;
+  max-width: 100%;
   height: auto;
   padding: 15px;
 }
 
 h1 {
-  font-family: "Bookinsanity Bold Italic";
+  font-family: Insanity;
   font-size: 200%;
 }
 
 h2 {
-  font-family: "Bookinsanity Bold Italic";
+  font-family: Insanity;
   margin: 2% 0;
   font-size: 250%;
 }
 
 h3 {
-  font-family: "Bookinsanity Bold Italic";
+  font-family: Insanity;
   color: #84a98c;
 }
 h4 {
-  font-family: "Bloody Scary Font";
+  font-family: Bloody;
 }
 
 /*Story font family*/
 story {
-  font-family: "Bookinsanity Bold Italic";
+  font-family: Insanity;
   font-weight: bold;
   color: #2F3E46
 }
 
 /*Font for death screens */
 death {
-  font-family: "Bloody Scary Font";
+  font-family: Bloody;
   font-weight: bold;
   color: #2F3E46
 }
 
 .btn {
-  font-family: "Bookinsanity Bold Italic";
+  font-family: Insanity;
   display: inline-block;
   padding: 10px 20px;
   background-color: #CAD2C5;
@@ -75,7 +75,7 @@ death {
 }
 
 .snippet {
-  font-family: "Nodesto Caps Condensed Bold Italic", sans-serif;
+  font-family: Nodesto, sans-serif;
   color: #2F3E46;
   font-weight: bold;
   font-size: 100%;
