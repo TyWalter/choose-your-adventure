@@ -3,11 +3,6 @@ const { Pool } = require('pg');
 const app = express();
 const bcrypt = require('bcrypt');
 
-let sname = document.querySelector('#sname');
-let semail = document.querySelector('#semail');
-let spass = document.querySelector('#spass');
-
-
 const pool = new Pool(
   {
     user: DB_USER,

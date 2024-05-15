@@ -5,13 +5,13 @@ const loginFormHandler = async (event) => {
   let upass = document.querySelector('#upass').value;
 
   if(uname && upass){
-    const response = await fetch('/api/users/login', {
-      method: 'POST',
+    const response = await fetch('/api/login', {
+      method: 'GET',
       body: JSON.stringify({uname, upass}),
       headers: {'Content-Type': 'application/json'}
     });
     if(response.ok){
-      document.location.replace('/profile');
+      document.location.replace('/');
     } else {
     alert(response.statusText);
     }
@@ -24,13 +24,13 @@ const signupFormHandler = async (event) => {
   const email = document.querySelector('#semail').value;
   const password = document.querySelector('#spass').value;
   if (name && email && password) {
-    const response = await fetch('/api/users', {
+    const response = await fetch('/api/login', {
       method: 'POST',
       body: JSON.stringify({ name, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/');
     } else {
       alert(response.statusText);
     }

@@ -43,7 +43,7 @@ let wins = 0;
 let deaths = 0;
 let losses = 0;
 // let button3 = $("<button>").addClass('btn btn-outline-dark')
-// let button4 = $("<button>").addClass('btn btn-outline-dark');
+let button4 = $("<button>").addClass('btn btn-outline-dark');
 
 function startStory() {
     mainText.html(`<span>${story.part1.description}</span>`);
@@ -165,7 +165,7 @@ function resultOfButton1Part3(event) {
         $(mainText).text("Congratulations You beat Level 1 of the Queen and her Guard");
         button4.text('Continue to Level 2');
 
-        mainText.append(button3);
+        mainText.append(button4);
         wins++;
         played++;
         return
