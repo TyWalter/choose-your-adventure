@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="col">
-      
+
       <div>
         <div>
           Times played = {{played}}
@@ -24,12 +24,23 @@
         <div>
           Times Beaten LVL 3 = {{level_3_wins}}
         </div>
+        <input type="submitNewGame" value="Start a New Game" />
         <div>
+          <div>
+            <form id="character-Name">
+              <label for="cname" hidden="hidden"></label><br>
+              <input type="text" id="cname" name="cname" placeholder="Enter Your Chacaters name" />
+            </form>
+            <input type="submit" id="submitCharacter" value="Create Character">
+            </form>
+          </div>
           <form action="../controllers/routes/homepage.js">
-            <input type="submit" value="Go to Google" />
+
           </form>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript" src="../js/index.js"></script>

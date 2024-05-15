@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid text-center">
+        <div class="row align-items-center">
+            <div class="col">
+                <div>
+                    <img src="imgs/the_Queen_And_her_guard.PNG" alt="Queen and her guard" />
+                </div>
+            </div>
+            <div class="col">
+
+                <div>
+                    <div>
+                        Times played = {{played}}
+                    </div>
+                    <div>
+                        Deaths/Losses = {{losses}}
+                    </div>
+                    <div>
+                        Times Beaten LVL 1 = {{level_1_wins}}
+                    </div>
+                    <div>
+                        Times Beaten LVL 2 = {{level_2_wins}}
+                    </div>
+                    <div>
+                        Times Beaten LVL 3 = {{level_3_wins}}
+                    </div>
+                    <input type="submitNewGame" value="Start a New Game" />
+                    <div>
+                        <div>
+                            <form id="character-Name">
+                                <label for="cname" hidden="hidden"></label><br>
+                                <input type="text" id="cname" name="cname" placeholder="Enter Your Chacaters name" />
+                            </form>
+                            <input type="submit" id="submitCharacter" value="Create Character">
+                            </form>
+                        </div>
+                        <form action="../controllers/routes/homepage.js">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../../public/js/index.js"></script>
+</body>
+
+</html>
