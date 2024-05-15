@@ -1,0 +1,328 @@
+/* Color Theme 
+Ash gray #CAD2C5
+Cambridge #84A98C
+Hookers green #52796F
+Dark slate gray #354F52
+Charcoal #2F3E46
+
+body {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1%;
+  background-color: #2F3E46;
+  color: #CAD2C5;
+  font-family: Nodesto, sans-serif;
+  font-weight: bold;
+  height: 10vh;
+}
+
+.img-logo {
+  border-radius: 50%;
+  max-width: 50%;
+  max-height: 50%;
+  padding: 15px;
+}
+
+html {
+  background: url(img_startgame.png) no-repeat center fixed;
+  background-size: cover;
+}
+
+.background-image {
+  width: 100vw;
+  height: 100vh;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+.parallax-container {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 1px;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.layer1 {
+  background: url('layer1.jpg') repeat-x;
+  height: 100vh;
+  z-index: -1;
+  animation: animateLayer 20s linear infinite;
+}
+
+.layer2 {
+  background: url('layer2.png') repeat-x;
+  height: 100vh;
+  z-index: -2;
+  animation: animateLayer 15s linear infinite;
+}
+
+.layer3 {
+  background: url('layer3.png') repeat-x;
+  height: 100vh;
+  z-index: -3;
+  animation: animateLayer 10s linear infinite;
+}
+
+@keyframes animateLayer {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.layer1 {
+  background: url('public\imgs\blood-png-7140 (1).png') repeat-x;
+  height: 100vh;
+  z-index: -1;
+  animation: animateLayer 20s linear infinite;
+}
+
+@keyframes animateLayer {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+
+/*Font Styling
+death {
+  font-family: Bloody;
+  font-weight: bold;
+  color: #2F3E46
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+  background: #CAD2C5;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1%;
+  background-color: #2F3E46;
+  color: #CAD2C5;
+  font-family: Nodesto, sans-serif;
+  font-weight: bold;
+  height: 10vh;
+}
+
+.logo {
+  border-radius: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 15px;
+}
+
+.dice {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+h1 a {
+  font-family: Insanity;
+  font-size: 200%;
+  color: #CAD2C5;
+  text-decoration: none;
+
+  &:hover {
+    color: #84A98C;
+  }
+}
+
+h2 {
+  font-family: Insanity;
+  margin: 2% 0;
+  font-size: 125%;
+}
+
+h3 {
+  font-family: Insanity;
+  color: #84A98C;
+  position: absolute;
+  left: 1%;
+  font-size: 24px;
+}
+
+h3 a {
+  text-decoration: none;
+  color: #CAD2C5;
+
+  &:hover {
+    color: #84A98C;
+  }
+}
+
+h4 {
+  font-family: Bloody;
+  color: #52796F;
+  font-size: 3rem;
+  text-shadow: 3px 3px #2F3E46;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(100, 5, 5);
+
+  &:hover {
+    text-shadow: 3px 3px rgb(150, 20, 20);
+    cursor: default;
+  }
+}
+
+.playGame a {
+  cursor: pointer;
+  color: #52796F;
+  text-decoration: none;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(100, 5, 5);
+}
+
+
+h5 {
+  font-family: Bloody;
+  color: #CAD2C5;
+  position: absolute;
+  right: 1%;
+  font-size: 1.25rem;
+}
+
+.snippet {
+  margin: 12vh auto;
+}
+
+/*Story font family
+story {
+  font-family: Insanity;
+  font-weight: bold;
+  color: #2F3E46;
+}
+
+/*Font for death screens
+death {
+  font-family: Bloody;
+  font-weight: bold;
+  color: #2F3E46;
+}
+
+.btn {
+  font-family: Insanity;
+  display: inline-block;
+  background-color: #CAD2C5;
+  color: #2F3E46;
+  border-radius: 10px;
+  font-weight: bold;
+
+  .&:hover {
+    background-color: #84A98C;
+    color: #2F3E46;
+  }
+} */
+
+/*Button and UI Design*/
+/* .ui-element { */
+/* background-color: #84A98C;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.ui-element h2 {
+    color: #2F3E46;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.ui-element p {
+    color: #52796F;
+    font-size: 16px;
+    margin-bottom: 20px;
+} */
+
+/* .ui-button {
+    background-color: #354F52;
+    color: #CAD2C5;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ui-button:hover {
+    background-color: #52796F;
+}
+
+.ui-button:active {
+    background-color: #354F52;
+} */
+
+/*Game elements -- Add animations or transitions to game elements like characters, objects, or enemies.  Use CSS3 features like transformations and transitions for dynamic effects.  Apply shadows or glows to make game elements stand out.*/
+
+
+
+/*Color Scheme*/
+
+
+/* Responsive Design*/
+
+/* Hover Effects*/
+
+/* Game over and victory screens*/
+
+
+
+/* Loading Screens*/
+
+
+/*  Sound and visual effects
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+  background-color: #2F3E46;
+  color: #CAD2C5;
+}
+
+/* @media screen and (max-width: 768px) {
+    header {
+      flex-direction: column;
+    }
+  
+    main {
+      max-width: 1200px;
+    }
+  } */

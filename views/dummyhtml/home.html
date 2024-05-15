@@ -14,8 +14,10 @@
     <link rel="stylesheet" href="animate.css">
     <!-- CSS link tag -->
     <link rel="stylesheet" href="../../public/css/home.css">
+    <link rel="audio" href="audio.js"
 
-    <!--Page Title-->
+
+    <!-- Page Title -->
     <title>The Queen and Her Guard</title>
 </head>
 <!-- {{!-- home page, add title --}} -->
@@ -59,6 +61,47 @@
                 <div class="snippet">
                     <h4>DIFFERENT ENDINGS</h4>
                 </div>
+                <div id="boombox">
+                    <div class="boombox-handle"></div>
+
+                    <div class="boombox-body">
+
+                        <section class="master-controls">
+                            <input type="range" id="volume" class="control-volume" min="0" max="2" value="1"
+                                list="gain-vals" step="0.01" data-action="volume" />
+                            <datalist id="gain-vals">
+                                <option value="0" label="min">
+                                <option value="2" label="max">
+                            </datalist>
+                            <label for="volume">VOL</label>
+
+                            <input type="range" id="panner" class="control-panner" list="pan-vals" min="-1" max="1"
+                                value="0" step="0.01" data-action="panner" />
+                            <datalist id="pan-vals">
+                                <option value="-1" label="left">
+                                <option value="1" label="right">
+                            </datalist>
+                            <label for="panner">PAN</label>
+
+                            <button class="control-power" role="switch" aria-checked="false" data-power="on">
+                                <span>On/Off</span>
+                            </button>
+                        </section>
+
+                        <section class="tape">
+
+                            <audio src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/858/outfoxing.mp3"
+                                crossorigin="anonymous"></audio>
+
+                            <!-- 			type="audio/mpeg" -->
+
+                            <button data-playing="false" class="tape-controls-play" role="switch" aria-checked="false">
+                                <span>Play/Pause</span>
+                            </button>
+                        </section>
+
+                    </div><!-- boombox-body -->
+                </div>
             </div>
         </div>
     </div>
@@ -66,7 +109,8 @@
 
 
     <footer class="footer">
-        <h3>GitHub: <a href="https://github.com/TyWalter/choose-your-adventure/pull/10">The Queen and Her Guard.</a></h3>
+        <h3>GitHub: <a href="https://github.com/TyWalter/choose-your-adventure/pull/10">The Queen and Her Guard.</a>
+        </h3>
         <h3> Created by: Adam, Anna, Jackie, and Tyler. &copy; 2024</h3>
     </footer>
     <!-- jquery script tag --->
@@ -76,6 +120,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <!-- JS script tag -->
+    <script src="../controllers/routes/homepage.js"></script>
 
 </body>
 
