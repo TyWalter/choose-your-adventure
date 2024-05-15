@@ -30,11 +30,13 @@ const story = {
     }
 }
 
+
 let mainText = $("#stupid-div").css('backgroundColor', 'white');
 // let createdText = $("<div>")
 let button1 = $("<button>").addClass('btn btn-outline-dark')
 let button2 = $("<button>").addClass('btn btn-outline-dark');
 let button3 = $("<button>").addClass('btn btn-outline-dark');
+let nextLevelButton = $("<button>").addClass('btn btn-outline-dark');
 let bloodscreen = $("<div>").addClass('overlay-image');
 let played = 0;
 let wins = 0;
@@ -46,6 +48,7 @@ let losses = 0;
 function startStory(){
     mainText.html(`<span>${story.part1.description}</span>`);
     $('body').css('background-image', 'url("imgs/startgame.PNG")')
+    button2.text("next");
     renderStoryStart();
 }
 
@@ -81,6 +84,7 @@ function resultOfButton2() {
         console.log('made it into button2')
         $(mainText).text(story.part1.wrongResult);
         $('body').css('background-image', 'url("imgs/alterending.PNG")')
+        button3.text('StartOver'); 
         losses++;
         played++;
     });
@@ -128,8 +132,10 @@ function resultOfButton2Part2() {
         console.log('made it into button2')
         $(mainText).text(story.part2.wrongResult);
         $('body').css('background-image', 'url("imgs/deathscreen.PNG")')
+        button3.text('StartOver'); 
         deaths++;
         played++;
+
     });
 }
 
@@ -155,8 +161,10 @@ function resultOfButton1Part3(event) {
         event.stopPropagation()
         console.log('this is button 1 part 2')
         // we need an you won img
+        $('body').css('background-image', 'url("imgs/dizzy-the-god.PNG")')
         $(mainText).text("Congratulations You beat Level 1 of the Queen and her Guard");
-        button3.text('Continue to Level 2');
+        button4.text('Continue to Level 2');
+
         mainText.append(button3);
         wins++;
         played++;
@@ -172,12 +180,19 @@ function resultOfButton2Part3() {
         $('body').css('background-image', 'url("imgs/deathscreen.PNG")')
         deaths++;
         played++;
+        button3.text('StartOver'); 
         
     });
 }
 // renderStoryStart();
 // resultOfButton1();
 // resultOfButton2();
+function startOver(event) {
+    button3.on('click', function (event) {
+        event.stopPropagation()
+    startStory();
+    });
+}
 
 console.log(deaths, wins, losses, played)
 startStory()
