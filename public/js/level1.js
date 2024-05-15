@@ -30,6 +30,7 @@ const story = {
     }
 }
 
+
 let mainText = $("#stupid-div").css('backgroundColor', 'white');
 // let createdText = $("<div>")
 let button1 = $("<button>").addClass('btn btn-outline-dark')

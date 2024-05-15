@@ -17,6 +17,7 @@
     "express-session": "^1.18.0",
     "path": "^0.12.7",
     "pg": "^8.11.5",
-    "sequelize": "^6.37.3"
+    "sequelize": "^6.37.3",
+    "typeit": "^8.8.3"
   }
 }
