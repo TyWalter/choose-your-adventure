@@ -24,19 +24,16 @@
         <div>
           Times Beaten LVL 3 = {{level_3_wins}}
         </div>
-        <input type="submitNewGame" value="Start a New Game" />
         <div>
           <div>
-            <form id="character-Name">
-              <label for="cname" hidden="hidden"></label><br>
-              <input type="text" id="cname" name="cname" placeholder="Enter Your Chacaters name" />
-            </form>
-            <input type="submit" id="submitCharacter" value="Create Character">
-            </form>
-          </div>
-          <form action="../controllers/routes/homepage.js">
-
-          </form>
+              <form>
+                    <form id="characterForm">
+        <button type="submit">Start New Game</button>
+        <label for="characterName">Character Name:</label>
+        <input type="text" id="characterName" name="characterName" required>
+        <button type="submit">Create Character</button>
+    </form>
+              </form>
         </div>
       </div>
     </div>

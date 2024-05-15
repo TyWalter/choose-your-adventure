@@ -1,5 +1,4 @@
-// get all,
-// get id
+const riddles = require('../../utils/riddle.json');
 
 const router = require("express").Router();
 const {Character, Login, Stats} = require("../../models");
@@ -7,8 +6,7 @@ const {Character, Login, Stats} = require("../../models");
 //get all answers
 router.get("/", async (req, res) => {
   try {
-    const result = await Character.findAll()
-    res.json({status: "success", payload: result});
+    res.json({status: "success", payload: riddles});
   }catch(err){
     res.status(400).json({ status:"error" });
   };
@@ -17,8 +15,11 @@ router.get("/", async (req, res) => {
 //get answer by id
 router.get("/:id", async (req, res) => {
   try {
-    const result = await Character.findAll()
-    res.json({status: "success", payload: result});
+let index = req.params.id ;
+for(let i =0; i < index; i++){
+  res.json({status: "success", payload: riddles[i]});
+}
+
   }catch(err){
     res.status(400).json({ status:"error" });
   };

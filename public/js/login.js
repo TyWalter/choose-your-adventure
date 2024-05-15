@@ -11,14 +11,22 @@ const loginFormHandler = async (event) => {
           headers: { 'Content-Type': 'application/json' }
       });
 
+  let uname = document.querySelector('#uname').value;
+  let upass = document.querySelector('#upass').value;
+
+  if(uname && upass){
+    const response = await fetch('/api/login', {
+      method: 'GET',
+      body: JSON.stringify({uname, upass}),
+      headers: {'Content-Type': 'application/json'}
+    });
     if(response){
       document.location.replace('/');
     } else {
       alert(response.statusText);
     }
   }
-}
-;
+};
 
 const signupFormHandler = async (event) => {
   event.preventDefault();

@@ -1,82 +1,84 @@
-[
-  {
-    "id": 1,
-    "riddle": "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?",
-    "answer": "An Echo"
-  },
-  {
-    "id": 2,
-    "riddle": "I'm light as a feather, yet the strongest person can't hold me for much longer than a minute. What am I?",
-    "answer": "Breath"
-  },
-  {
-    "id": 3,
-    "riddle": "What has a key but can’t open locks?",
-    "answer": "Piano"
-  },
-  {
-    "id": 4,
-    "riddle": "I am a seven-letter word. I am very heavy. Take away two letters, and you'll get eight. What am I?",
-    "answer": "Weight"
-  },
-  {
-    "id": 5,
-    "riddle": "In days of old, I was revered. A symbol of power, greatly feared. Carved from stone with eyes that gleam. Guarding treasures in my ancient scheme. What am I?",
-    "answer": "A Gargoyle"
-  },
-  {
-    "id": 6,
-    "riddle": "I am taken from a mine, and shut up in a wooden case, from which I am never released, and yet I am used by almost every person. What am I? ",
-    "answer": "Pencil Lead"
-  },
-  {
-    "id": 7,
-    "riddle": "I am not alive, but I can grow; I don't have lungs, but I need air; I don't have a mouth, but water kills me. What am I? ",
-    "answer": "A Candle"
-  },
-  {
-    "id": 8,
-    "pun": "Why did the JavaScript developer go broke?",
-    "answer": "Because he used up all his 'cache!'"
-  },
-  {
-    "id": 9,
-    "pun": "Why did the JavaScript function break up with its partner?",
-    "answer": "Because they had too many 'arguments' and couldn't 'resolve'their issues!"
-  },
-  {
-    "id": 10,
-    "pun": "Why did the server go to therapy?",
-    "answer": "Because it had too many 'clients' and needed to 'process' its feelings!"
-  },
-  {
-    "id": 11,
-    "pun": "Why did the CSS file break up with the HTML file?",
-    "answer": "Because it felt like it was being 'styled' too much and needed some 'space' to 'float' freely!"
-  },
-  {
-    "id": 12,
-    "pun": "Why did the CSS file go to jail?",
-    "answer": "It was caught 'padding' its margins!"
-  },
-  {
-    "id": 13,
-    "mchoice": "Which of the following programming languages was named after a comedy television show?",
-    "answer": "A) Python, B) Ruby - Named after a sketch in “Monty Python’s Flying Circus, C) Java, D) Lisp"
-  },
-  {
-    "id": 14,
-    "mchoice": "Which of the following is not a valid HTML tag?",
-    "answer": "A) <header>, B) <paragraph>, C) <footer>, D) <article>"
-  },
-  {
-    "id": 15,
-    "mchoice": "Which of the following is not a valid CSS property for styling text?",
-    "answer": "A) font-family, B) text-color, C) font-size, D) text-decoration"
-  },
-  {
-    "id": 16,
-    "mchoice": "In J.R.R. Tolkien's Middle-earth legendarium, which creature did Gandalf face in the Mines of Moria?",
-    "answer": "A) Balrog, B) Orc, C) Troll, D) Dragon"
-  }
-]
+
+  [
+    {
+      "id": 1,
+      "riddle": "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?",
+      "answer": "An Echo"
+    },
+    {
+      "id": 2,
+      "riddle": "I'm light as a feather, yet the strongest person can't hold me for much longer than a minute. What am I?",
+      "answer": "Breath"
+    },
+    {
+      "id": 3,
+      "riddle": "What has a key but can’t open locks?",
+      "answer": "Piano"
+    },
+    {
+      "id": 4,
+      "riddle": "I am a seven-letter word. I am very heavy. Take away two letters, and you'll get eight. What am I?",
+      "answer": "Weight"
+    },
+    {
+      "id": 5,
+      "riddle": "In days of old, I was revered. A symbol of power, greatly feared. Carved from stone with eyes that gleam. Guarding treasures in my ancient scheme. What am I?",
+      "answer": "A Gargoyle"
+    },
+    {
+      "id": 6,
+      "riddle": "I am taken from a mine, and shut up in a wooden case, from which I am never released, and yet I am used by almost every person. What am I? ",
+      "answer": "Pencil Lead"
+    },
+    {
+      "id": 7,
+      "riddle": "I am not alive, but I can grow; I don't have lungs, but I need air; I don't have a mouth, but water kills me. What am I? ",
+      "answer": "A Candle"
+    },
+    {
+      "id": 8,
+      "pun": "Why did the JavaScript developer go broke?",
+      "answer": "Because he used up all his 'cache!'"
+    },
+    {
+      "id": 9,
+      "pun": "Why did the JavaScript function break up with its partner?",
+      "answer": "Because they had too many 'arguments' and couldn't 'resolve'their issues!"
+    },
+    {
+      "id": 10,
+      "pun": "Why did the server go to therapy?",
+      "answer": "Because it had too many 'clients' and needed to 'process' its feelings!"
+    },
+    {
+      "id": 11,
+      "pun": "Why did the CSS file break up with the HTML file?",
+      "answer": "Because it felt like it was being 'styled' too much and needed some 'space' to 'float' freely!"
+    },
+    {
+      "id": 12,
+      "pun": "Why did the CSS file go to jail?",
+      "answer": "It was caught 'padding' its margins!"
+    },
+    {
+      "id": 13,
+      "mchoice": "Which of the following programming languages was named after a comedy television show?",
+      "answer": "A) Python, B) Ruby - Named after a sketch in “Monty Python’s Flying Circus, C) Java, D) Lisp"
+    },
+    {
+      "id": 14,
+      "mchoice": "Which of the following is not a valid HTML tag?",
+      "answer": "A) <header>, B) <paragraph>, C) <footer>, D) <article>"
+    },
+    {
+      "id": 15,
+      "mchoice": "Which of the following is not a valid CSS property for styling text?",
+      "answer": "A) font-family, B) text-color, C) font-size, D) text-decoration"
+    },
+    {
+      "id": 16,
+      "mchoice": "In J.R.R. Tolkien's Middle-earth legendarium, which creature did Gandalf face in the Mines of Moria?",
+      "answer": "A) Balrog, B) Orc, C) Troll, D) Dragon"
+    }
+  ]
+
