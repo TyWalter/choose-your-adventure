@@ -161,7 +161,7 @@ function resultOfButton1Part3(event) {
         event.stopPropagation()
         console.log('this is button 1 part 2')
         // we need an you won img
-        $('body').css('background-image', 'url("imgs/dizzy-the-god.PNG")')
+        $('body').css('background-image', 'url("imgs/your-character.PNG")')
         $(mainText).text("Congratulations You beat Level 1 of the Queen and her Guard");
         button4.text('Continue to Level 2');
 
