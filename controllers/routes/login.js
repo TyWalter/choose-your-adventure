@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
   };
 });
 
-// //get login by ID if we want it
+//get login by ID if we want it
 // router.get("/:id", async (req, res) => {
 //   try {
 //     const result = await Login.findByPk(req.params.id)
