@@ -56,11 +56,12 @@ function startStory() {
     mainText.html(`<span>${story.part1.description}</span>`);
     $('body').css('background-image', 'url("imgs/Runningaftertheprincess.PNG")')
     button2.text("next");
+    $(mainText).append(button2);
     renderStoryStart();
 }
 
 function renderStoryStart() {
-    document.addEventListener('click', function (event) {
+    button2.on('click', function (event) {
         event.stopPropagation()
         $(mainText).html(`<span>${story.part1.question}</span>`);// which path do you choose 
         $(button2).text(story.part1.wrongChoice);//main path

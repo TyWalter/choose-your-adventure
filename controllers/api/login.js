@@ -102,6 +102,15 @@ router.post('/login', async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
-});
+
+  pool.query('INSERT INTO login(user_name, email, password) VALUES ($1, $2, $3)', [req.body.user_name, req.body.email, req.body.password], function (err, result){
+    if(err){
+      console.log(err)
+    }else{
+      console.log(result)
+    }
+    res.send("added new user");
+  })
+})
 
 module.exports = router;
