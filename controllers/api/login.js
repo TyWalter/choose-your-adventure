@@ -1,22 +1,22 @@
-const express = require('express');
+const router = require('express').Router();
 const { Pool } = require('pg');
-const app = express();
+// const app = express();
 const bcrypt = require('bcrypt');
 
-const pool = new Pool(
-  {
-    user: DB_USER,
-    password: DB_PW,
+
+const pool = new Pool({
+    user: 'DB_USER',
+    password: 'DB_PW',
     host: 'localhost',
-    database: 'adventure_db'
-  },
-  console.log('connected to the adventure_db database')
+    database: 'adventure_db',
+}
 )
+
 
 pool.connect()
 
 //signup
-app.post("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
   console.log(req.body);
   try{
     const userData = await Login.findOne({ where: {user_name: req.body.user_name} });
