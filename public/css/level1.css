@@ -2,16 +2,48 @@
     background-image: url('path/to/overlay-image.png');
     background-size: cover;
     position: absolute;
-    top: 50px; /* Adjust positioning as needed */
-    left: 50px; /* Adjust positioning as needed */
-    width: 200px; /* Adjust width as needed */
-    height: 200px; /* Adjust height as needed */
-    z-index: 1; /* Ensure the overlay is above the background */
+    top: 50px;
+    /* Adjust positioning as needed */
+    left: 50px;
+    /* Adjust positioning as needed */
+    width: 200px;
+    /* Adjust width as needed */
+    height: 200px;
+    /* Adjust height as needed */
+    z-index: 1;
+    /* Ensure the overlay is above the background */
 }
+
 .background-image {
     background-image: url('path/to/background-image.jpg');
-    background-size: cover;
+    background-size: 10px;
     position: relative;
-    width: 100%;
-    height: 400px; /* Adjust height as needed */
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    /* width: 100vw;
+    height: 100vh; */
+    /* Adjust height as needed */
+}
+
+.logo {
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 15px;
+}
+
+/* .btn btn-outline-dark homePageButton */
+/* .btnhomePageButton {
+    size: 10%
+
+} */
+
+/* .btn btn-outline-dark profileButton */
+homePageButton {
+    size: 10%
+}
+
+profileButton {
+    size: 10%
 }
