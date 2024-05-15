@@ -38,6 +38,7 @@ const signupFormHandler = async (event) => {
 };
 
 document
+// maybe not working the way we want 
   .querySelector('#usubmit')
   .addEventListener('submit', loginFormHandler);
 document

@@ -208,6 +208,12 @@ function startOver(event) {
     startStory();
     });
 }
+function sendToLevel2(event) {
+    button4.on('click', function (event) {
+        event.stopPropagation()
+        //this button needs to send the user to the next level
+    })
+}
 
 console.log(deaths, wins, losses, played)
 startStory()
