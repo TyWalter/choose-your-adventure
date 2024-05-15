@@ -11,11 +11,20 @@ const loginFormHandler = async (event) => {
           headers: { 'Content-Type': 'application/json' }
       });
 
-      if (response.ok) {
-          document.location.replace('/');
-      } else {
-          alert('Login failed. Please check your username and password.');
-      }
+  let uname = document.querySelector('#uname').value;
+  let upass = document.querySelector('#upass').value;
+
+  if(uname && upass){
+    const response = await fetch('/api/login', {
+      method: 'GET',
+      body: JSON.stringify({uname, upass}),
+      headers: {'Content-Type': 'application/json'}
+    });
+    if(response.ok){
+      document.location.replace('/');
+    } else {
+    alert(response.statusText);
+    }
   }
 };
 
@@ -27,17 +36,16 @@ const signupFormHandler = async (event) => {
   const password = document.querySelector('#spass').value;
 
   if (name && email && password) {
-      const response = await fetch('/api/login', {
-          method: 'POST',
-          body: JSON.stringify({ user_name: name, email, password }),
-          headers: { 'Content-Type': 'application/json' }
-      });
-
-      if (response.ok) {
-          document.location.replace('/profile');
-      } else {
-          alert('Signup failed. Please try again.');
-      }
+    const response = await fetch('/api/login', {
+      method: 'POST',
+      body: JSON.stringify({ name, email, password }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    if (response.ok) {
+      document.location.replace('/');
+    } else {
+      alert(response.statusText);
+    }
   }
 };
 
