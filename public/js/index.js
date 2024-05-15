@@ -4,9 +4,8 @@
 const startGameButton = document.querySelector('#submitNewGame');
 const characterButton = document.querySelector('#submitNewCharacter');
 const characterForm = document.querySelector('#character-Name');
+characterForm.style.display ='hide'
 
-characterForm.style.display = 'none';
-
-startGameButton.addEventListener('click', function() {
+startGameButton.addEventListener('click', function(){
     characterForm.style.display = 'block';
-});
+})

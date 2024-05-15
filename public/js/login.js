@@ -5,7 +5,7 @@ const loginFormHandler = async (event) => {
   const upass = document.querySelector('#upass').value;
   
   if (uname && upass) {
-      const response = await fetch('/api/login', {
+      const response = await fetch('/api/sign', {
           method: 'POST',
           body: JSON.stringify({ user_name: uname, password: upass }),
           headers: { 'Content-Type': 'application/json' }
@@ -14,7 +14,7 @@ const loginFormHandler = async (event) => {
   let uname = document.querySelector('#uname').value;
   let upass = document.querySelector('#upass').value;
 
-  if(uname && upass){
+  if(uname && upassup){
     const response = await fetch('/api/login', {
       method: 'GET',
       body: JSON.stringify({uname, upass}),
@@ -26,8 +26,8 @@ const loginFormHandler = async (event) => {
     alert(response.statusText);
     }
   }
-};
-
+}
+}
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
