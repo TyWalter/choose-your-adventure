@@ -2,17 +2,17 @@
 
 @font-face {
     font-family: Nodesto;
-    src: url(../fonts/nodesto.otf);
+    src: url(/fonts/nodesto.otf);
 }
 
 @font-face {
     font-family: Bloody;
-    src: url(../fonts/bloody.ttf);
+    src: url(/fonts/bloody.ttf);
 }
 
 @font-face {
     font-family: Insanity;
-    src: url(../fonts/bookinsanity.otf);
+    src: url(/fonts/bookinsanity.otf);
 }
 
 

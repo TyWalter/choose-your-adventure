@@ -5,40 +5,32 @@ const loginFormHandler = async (event) => {
   const upass = document.querySelector('#upass').value;
   
   if (uname && upass) {
-      const response = await fetch('/api/login', {
+      const response = await fetch('/api/users/login', {
           method: 'POST',
-          body: JSON.stringify({ user_name: uname, password: upass }),
+          body: JSON.stringify({ uname, upass }),
           headers: { 'Content-Type': 'application/json' }
       });
 
-  let uname = document.querySelector('#uname').value;
-  let upass = document.querySelector('#upass').value;
-
-  if(uname && upass){
-    const response = await fetch('/api/login', {
-      method: 'GET',
-      body: JSON.stringify({uname, upass}),
-      headers: {'Content-Type': 'application/json'}
-    });
-    if(response.ok){
+    if(response){
       document.location.replace('/');
     } else {
-    alert(response.statusText);
+      alert(response.statusText);
     }
   }
-};
+}
+;
 
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#sname').value;
+  const user_name = document.querySelector('#sname').value;
   const email = document.querySelector('#semail').value;
   const password = document.querySelector('#spass').value;
 
-  if (name && email && password) {
-    const response = await fetch('/api/login', {
+  if (user_name && email && password) {
+    const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ user_name, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
@@ -49,6 +41,6 @@ const signupFormHandler = async (event) => {
   }
 };
 
-document.querySelector('#login-form').addEventListener('submit', loginFormHandler);
-document.querySelector('#signup-form').addEventListener('submit', signupFormHandler);
+document.querySelector('#login').addEventListener('submit', loginFormHandler);
+document.querySelector('#signup').addEventListener('submit', signupFormHandler);
 
