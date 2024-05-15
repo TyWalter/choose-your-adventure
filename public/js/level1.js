@@ -45,7 +45,7 @@ let losses = 0;
 // let button3 = $("<button>").addClass('btn btn-outline-dark')
 // let button4 = $("<button>").addClass('btn btn-outline-dark');
 
-function startStory(){
+function startStory() {
     mainText.html(`<span>${story.part1.description}</span>`);
     $('body').css('background-image', 'url("imgs/startgame.PNG")')
     button2.text("next");
@@ -84,7 +84,7 @@ function resultOfButton2() {
         console.log('made it into button2')
         $(mainText).text(story.part1.wrongResult);
         $('body').css('background-image', 'url("imgs/alterending.PNG")')
-        button3.text('StartOver'); 
+        button3.text('StartOver');
         losses++;
         played++;
     });
@@ -121,7 +121,7 @@ function resultOfButton1Part2(event) {
         console.log('this is button 1 part 2')
         // mainText.children("span").text();
         renderPart3();
-        return 
+        return
     });
 
 }
@@ -132,7 +132,7 @@ function resultOfButton2Part2() {
         console.log('made it into button2')
         $(mainText).text(story.part2.wrongResult);
         $('body').css('background-image', 'url("imgs/deathscreen.PNG")')
-        button3.text('StartOver'); 
+        button3.text('StartOver');
         deaths++;
         played++;
 
@@ -168,7 +168,7 @@ function resultOfButton1Part3(event) {
         mainText.append(button3);
         wins++;
         played++;
-        return 
+        return
     });
 }
 
@@ -180,8 +180,8 @@ function resultOfButton2Part3() {
         $('body').css('background-image', 'url("imgs/deathscreen.PNG")')
         deaths++;
         played++;
-        button3.text('StartOver'); 
-        
+        button3.text('StartOver');
+
     });
 }
 // renderStoryStart();
@@ -190,8 +190,15 @@ function resultOfButton2Part3() {
 function startOver(event) {
     button3.on('click', function (event) {
         event.stopPropagation()
-    startStory();
+        startStory();
     });
+}
+
+function sendToLevel2(event) {
+    button4.on('click', function (event) {
+        event.stopPropagation()
+        //this button needs to send the user to the next level
+    })
 }
 
 console.log(deaths, wins, losses, played)
