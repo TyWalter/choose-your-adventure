@@ -100,7 +100,7 @@ death {
 
 
 /*Button and UI Design*/
-.ui-element {
+/* .ui-element { */
     /* background-color: #84A98C;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -119,7 +119,7 @@ death {
     margin-bottom: 20px;
 } */
 
-.ui-button {
+/* .ui-button {
     background-color: #354F52;
     color: #CAD2C5;
     border: none;
@@ -135,7 +135,7 @@ death {
 
 .ui-button:active {
     background-color: #354F52;
-}
+} */
 
 /*Game elements -- Add animations or transitions to game elements like characters, objects, or enemies.  Use CSS3 features like transformations and transitions for dynamic effects.  Apply shadows or glows to make game elements stand out.*/
 
