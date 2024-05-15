@@ -1,5 +1,7 @@
 // const { clear } = require("console");
 
+
+
 const story = {
     part1: {
         description: `You are a well-experienced adventurer traveling to the next kingdom.  You awaken in your camp under a small tree feeling well rested for the journey ahead.  You pull out your map and examine it for the next kingdom.  You see a shortcut a villager marked on your map the day before.`,
