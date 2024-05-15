@@ -1,4 +1,10 @@
 /* Background effects */
+/* Color Theme 
+Ash gray #CAD2C5
+Cambridge #84A98C
+Hookers green #52796F
+Dark slate gray #354F52
+Charcoal #2F3E46
 
 body {
   display: flex;
@@ -106,20 +112,14 @@ html {
 }
 
 
-/*Font Styling*/
+/*Font Styling
 death {
   font-family: Bloody;
   font-weight: bold;
   color: #2F3E46
 }
 
-/* Color Theme 
-Ash gray #CAD2C5
-Cambridge #84A98C
-Hookers green #52796F
-Dark slate gray #354F52
-Charcoal #2F3E46
-*/
+
 
 body {
   display: flex;
@@ -221,14 +221,14 @@ h5 {
   margin: 12vh auto;
 }
 
-/*Story font family*/
+/*Story font family
 story {
   font-family: Insanity;
   font-weight: bold;
   color: #2F3E46;
 }
 
-/*Font for death screens */
+/*Font for death screens
 death {
   font-family: Bloody;
   font-weight: bold;
@@ -305,7 +305,7 @@ death {
 /* Loading Screens*/
 
 
-/*  Sound and visual effects*/
+/*  Sound and visual effects
 
 footer {
   position: fixed;
@@ -313,7 +313,7 @@ footer {
   bottom: 0;
   width: 100%;
   height: 8vh;
-  /* Adjust this value as needed */
+  /* Adjust this value as needed
   display: flex;
   justify-content: center;
   padding: 1%;
