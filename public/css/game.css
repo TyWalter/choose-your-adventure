@@ -1,4 +1,4 @@
-/* Background effects */
+/* Background effects
 
 body {
   display: flex;
@@ -106,7 +106,7 @@ html {
 }
 
 
-/*Font Styling*/
+/*Font Styling
 death {
   font-family: Bloody;
   font-weight: bold;
@@ -119,7 +119,7 @@ Cambridge #84A98C
 Hookers green #52796F
 Dark slate gray #354F52
 Charcoal #2F3E46
-*/
+
 
 body {
   display: flex;
@@ -228,7 +228,7 @@ story {
   color: #2F3E46;
 }
 
-/*Font for death screens */
+/*Font for death screens 
 death {
   font-family: Bloody;
   font-weight: bold;
@@ -247,7 +247,7 @@ death {
     background-color: #84A98C;
     color: #2F3E46;
   }
-}
+} */
 
 /*Button and UI Design*/
 /* .ui-element { */
@@ -305,7 +305,7 @@ death {
 /* Loading Screens*/
 
 
-/*  Sound and visual effects*/
+/*  Sound and visual effects
 
 footer {
   position: fixed;
@@ -313,7 +313,7 @@ footer {
   bottom: 0;
   width: 100%;
   height: 8vh;
-  /* Adjust this value as needed */
+  /* Adjust this value as needed  
   display: flex;
   justify-content: center;
   padding: 1%;
