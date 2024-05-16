@@ -21,6 +21,7 @@
 * Thank you to [Handlebars](https://handlebarsjs.com/)
 * Thank you to [Sequelize](https://www.npmjs.com/package/sequelize)
 * Thank you to [Bcrypt](https://www.npmjs.com/package/bcrypt)
+* Thank you to [FlatIcon](https://www.flaticon.com/)
 
 ## Authors / Collaborators
 * [Jackie Funk]()

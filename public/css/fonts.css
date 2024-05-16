@@ -15,4 +15,9 @@
     src: url(/fonts/bookinsanity.otf);
 }
 
+@font-face {
+    font-family: Cinzel;
+    src: url(/fonts/cinzel.ttf);
+}
+
 

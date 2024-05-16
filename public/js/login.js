@@ -5,25 +5,26 @@ const loginFormHandler = async (event) => {
   const upass = document.querySelector('#upass').value;
   
   if (uname && upass) {
-      const response = await fetch('/api/users/login', {
-          method: 'POST',
-          body: JSON.stringify({ uname, upass }),
-          headers: { 'Content-Type': 'application/json' }
-      });
-
-  let uname = document.querySelector('#uname').value;
-  let upass = document.querySelector('#upass').value;
-
-  if(uname && upass){
-    const response = await fetch('/api/login', {
-      method: 'GET',
-      body: JSON.stringify({uname, upass}),
-      headers: {'Content-Type': 'application/json'}
+    const response = await fetch('/api/users/login', {
+        method: 'POST',
+        body: JSON.stringify({ uname, upass }),
+        headers: { 'Content-Type': 'application/json' }
     });
-    if(response){
-      document.location.replace('/');
-    } else {
-      alert(response.statusText);
+
+    let uname = document.querySelector('#uname').value;
+    let upass = document.querySelector('#upass').value;
+
+    if(uname && upass){
+      const response = await fetch('/api/login', {
+        method: 'GET',
+        body: JSON.stringify({uname, upass}),
+        headers: {'Content-Type': 'application/json'}
+      });
+      if(response){
+        document.location.replace('/');
+      } else {
+        alert(response.statusText);
+      }
     }
   }
 };
