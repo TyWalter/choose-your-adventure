@@ -120,15 +120,15 @@ function typeText(text, callback) {
     mainText.html(""); // Clear the text container
     new TypeIt("#text-container", {
         strings: [text],
-        speed: 50,
-        cursorChar: "👑",
+        speed: 75,
+        cursorChar: "🗡️",
         afterComplete: function(instance) {
             instance.destroy();
             if (callback) callback();
         }
     }).go();
 }
-
+// 🗡️
 // Start the story
 startStory();
 

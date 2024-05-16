@@ -149,6 +149,7 @@ function renderPart3() {
     // this could use a new img
     mainText.children("span").text();
     mainText.children("button").hide();
+    //get riddle random
     getRiddle(1);
 }
 function getRiddle(num) {
