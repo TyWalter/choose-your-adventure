@@ -1,18 +1,9 @@
 const router = require('express').Router();
-const { Pool } = require('pg');
+
 const bcrypt = require('bcrypt');
 const { Login } = require('../../models');
 
 
-const pool = new Pool({
-    user: 'postgres',
-    password: '1234',
-    host: 'localhost',
-    database: 'adventure_db',
-}
-)
-
-pool.connect()
 
 //Create new profile
 router.post("/", async (req, res) => {
