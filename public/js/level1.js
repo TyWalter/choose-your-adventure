@@ -156,16 +156,25 @@ function renderPart3() {
     mainText.children("span").text();
     mainText.children("button").hide();
     //get riddle random
-    getRiddle(1);
+    getRiddle()
 }
-function getRiddle(num) {
+function getRiddle() {
     $.ajax({
-        url: `/api/riddles/${num}`,
+        url: `/api/riddles`,
         method: 'GET',
         success: function (data) {
+            console.log(data)
+            let dataArray = Object.keys(data)
+            const randomIndex = Math.floor(Math.random() * dataArray.length);
+            const randomRiddle = data[randomIndex];
+            console.log(randomRiddle)
+            // console.log(randomRiddle.riddle);
+            // console.log(randomRiddle.answer);
+            // mainText.text(randomRiddle.riddle);
+                
+
             mainText.text(data.payload.riddle)
-            button1.text(data.payload.rightanswer);
-            button2.text(data.payload.wronganswer);
+            button2.text(data.payload.answer);
             mainText.append(button1);
             mainText.append(button2);
             resultOfButton2Part3();
@@ -177,7 +186,6 @@ function getRiddle(num) {
             console.error(status, error);
         }
     });
-
 }
 
 function resultOfButton1Part3(event) {
@@ -231,7 +239,7 @@ function typeText(text, callback) {
         strings: [text],
         speed: 75,
         cursorChar: "🗡️",
-        afterComplete: function(instance) {
+        afterComplete: function (instance) {
             instance.destroy();
             if (callback) callback();
         }

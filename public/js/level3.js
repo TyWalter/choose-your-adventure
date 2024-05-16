@@ -173,10 +173,11 @@ function renderPart3() {
     mainText.append(button2);
     resultOfButton2Part3();
     resultOfButton1Part3();
+    getRiddle(1)
 }
 function getRiddle(num) {
     $.ajax({
-        url: `/api/answers/${num}`,
+        url: `/api/riddles/${num}`,
         method: 'GET',
         success: function (data) {
             console.log(data.payload.answer)
@@ -203,8 +204,8 @@ function resultOfButton1Part3(event) {
         $(mainText).text(story.part3.endStory);
         //WHAT to do here?
         button4.text('PLAY AGAIN?');
-
-        mainText.append(button3);
+        button4.attr('onclick', "location.href = '/profile'")
+        mainText.append(button4);
         wins++;
         played++;
         return 

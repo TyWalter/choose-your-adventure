@@ -164,13 +164,17 @@ function renderPart3() {
     resultOfButton2Part3();
     resultOfButton1Part3();
         //get riddle random
-    getRiddle(2);
+    getRiddle();
 }
-function getRiddle(num) {
+function getRiddle() {
     $.ajax({
-        url: `/api/answers/${num}`,
+        url: `/api/riddles`,
         method: 'GET',
         success: function (data) {
+            const randomRiddle = data 
+
+            Math.floor(Math.random() * randomRiddle.length);
+            console.log(randomRiddle.payload.riddle)
             console.log(data.payload.answer)
             mainText.text(data.payload.riddle)
             button2.text(data.payload.answer);
@@ -193,9 +197,10 @@ function resultOfButton1Part3(event) {
         // we need an you won img
         $('body').css('backgroundImage', 'url("../imgs/dizzy-the-god.PNG")')
         $(mainText).text("Congratulations You beat Level 2 of the Queen and her Guard");
+        //button doesnt work and idk why 
         button4.text('Continue to Level 3');
-
-        mainText.append(button3);
+        button4.attr('onclick', "location.href = '/game/3'")
+        mainText.append(button4);
         wins++;
         played++;
         return
