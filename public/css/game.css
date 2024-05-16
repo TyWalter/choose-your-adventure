@@ -243,6 +243,33 @@ death {
   border-radius: 10px;
   font-weight: bold;
 
+/* Styling for TypeIt */
+/* .btn {
+  margin: 5px;
+  padding: 10px;
+  cursor: pointer;
+} */
+.overlay-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+@font-face {
+  font-family: Insanity;
+  src: url(../fonts/bookinsanity.otf);
+}
+
+#text-container{
+  font-size: 40px;
+  letter-spacing: 1px;
+  font-weight: 50;
+  font-family: Insanity;
+}
+
   /* .&:hover {
     background-color: #84A98C;
     color: #2F3E46;
