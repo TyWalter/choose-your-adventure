@@ -166,15 +166,11 @@ function renderPart3() {
         //get riddle random
     getRiddle();
 }
-function getRiddle() {
+function getRiddle(num) {
     $.ajax({
-        url: `/api/riddles`,
+        url: `/api/riddles/${num}`,
         method: 'GET',
         success: function (data) {
-            const randomRiddle = data 
-
-            Math.floor(Math.random() * randomRiddle.length);
-            console.log(randomRiddle.payload.riddle)
             console.log(data.payload.answer)
             mainText.text(data.payload.riddle)
             button2.text(data.payload.answer);
