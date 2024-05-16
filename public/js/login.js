@@ -18,7 +18,7 @@ const loginFormHandler = async (event) => {
     }
   }
 
-  window.location.href = "/profile"
+  
 };
 
 const signupFormHandler = async (event) => {
