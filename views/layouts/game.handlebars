@@ -16,7 +16,12 @@
 	<link rel="stylesheet" href="/css/game.css">
 	<!--Page Title-->
 	<title>The Queen and Her Guard</title>
+
 </head>
+<body>
+  <audio id="background">
+    <source src="audio/level1.wav">
+  </audio>
 <header>
 	<h2 class="LoggedInUser" style="display: none">logged in as {{user_name}}</h2>
 	<nav>
@@ -29,8 +34,6 @@
 		<button type="button" class="btn btn-outline-dark profileButton"> 1 </button>
 	</nav>
 </header>
-
-<body>
 	{{{body}}}
 	<!-- jquery script tag -->
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

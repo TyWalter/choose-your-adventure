@@ -4,6 +4,14 @@
 
 // const level_3_Story = {
 //     //storyStart: 
+const oldMusic = document.quereySelector('audio')
+oldMusic.remove()
+const newMusic = document.createElement('audio')
+const source = document.createElement('source')
+source.setAttribute('src', '/audio/level3.mp3')
+newMusic.appendChild(source)
+document.body.appendChild(newMusic)
+newMusic.play()
 
 const story = {
     part1: {
