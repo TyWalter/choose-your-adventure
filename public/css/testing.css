@@ -12,6 +12,16 @@
     background: rgba(0, 0, 0, 0.5);
     z-index: 10;
 }
+@font-face {
+    font-family: Insanity;
+    src: url(../fonts/bookinsanity.otf);
+}
 
+#text-container{
+    font-size: 40px;
+    letter-spacing: 1px;
+    font-weight: 50;
+    font-family: Insanity;
+}
 
     
