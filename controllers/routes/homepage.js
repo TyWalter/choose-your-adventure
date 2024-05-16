@@ -35,9 +35,6 @@ router.get("/", async (req, res) => {
 //   }
 // });
 
-//hash password
-console.clear();
-
 // instigate our audio context
 
 // for cross browser

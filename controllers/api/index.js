@@ -1,12 +1,10 @@
 const router = require("express").Router();
-const storyRoutes = require("./story");
-const answersRoutes = require("./answers");
-const loginRoutes = require("./login")
+const riddlesRoutes = require("./riddles");
+const usersRoutes = require("./users")
 
-
-router.use("/story", storyRoutes);
-router.use("/answers", answersRoutes);
-router.use("/users", loginRoutes);
-
+router.use("/riddles", riddlesRoutes);
+router.use("/users", usersRoutes);
+router.use("*", (req, res) => {
+  res.send(`<h1>You typed an invalid route, try again!</h1>`)})
 
 module.exports = router;
