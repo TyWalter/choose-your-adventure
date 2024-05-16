@@ -54,35 +54,31 @@ let losses = 0;
 
 function startStory() {
     mainText.html(`<span>${story.part1.description}</span>`);
-    $('body').css('background-image', 'url("imgs/Runningaftertheprincess.PNG")')
+    $('body').css('backgroundImage', 'url("../imgs/Runningaftertheprincess.PNG")');
     button2.text("next");
     $(mainText).append(button2);
     renderStoryStart();
 }
 
 function renderStoryStart() {
-    button2.on('click', function (event) {
-        event.stopPropagation()
-        $(mainText).html(`<span>${story.part1.question}</span>`);// which path do you choose 
-        $(button2).text(story.part1.wrongChoice);//main path
-        $(button1).text(story.part1.rightChoice);//the short cut 
-        $(mainText).append(button1, button2);// thisis the two buttons with this text
-        // $(button1).on('click', function () {
-        //     renderPart2();
-        // });
-        // $(button2).on('click', function () {
-        //     $(mainText).text(story.part1.wrongResult);
-        // });
+    button2.on('click', function(event) {
+        event.stopPropagation();
+        $(mainText).html(`<span>${story.part1.question}</span>`);
+        $(button2).text(story.part1.wrongChoice);
+        $(button1).text(story.part1.rightChoice);
+        $(mainText).append(button1, button2);
+
+        // Ensure that resultOfButton2 is called when button2 is clicked
         resultOfButton1();
-        resultOfButton2();
-    })
+        resultOfButton2(); // Make sure this line is present to call the function
+    });
 }
 function resultOfButton1(event) {
     button1.on('click', function (event) {
         event.stopPropagation()
         console.log('this is button 1')
         // mainText.children("span").text();
-        $('body').css('background-image', 'url("imgs/Runningaftertheprincess.PNG")')
+        $('body').css('backgroundImage', 'url("../imgs/Runningaftertheprincess.PNG")')
         renderPart2();
     });
 }
@@ -92,12 +88,13 @@ function resultOfButton2() {
         event.stopPropagation()
         console.log('made it into button2')
         $(mainText).text(story.part1.wrongResult);
-        $('body').css('background-image', 'url("imgs/deathscreen.PNG")')
+        $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")')
         button3.text('StartOver');
         losses++;
         played++;
     });
 }
+
 
 // function renderWrongChoice(){
 //     document.addEventListener('click', function () {
@@ -112,7 +109,7 @@ function renderPart2() {
     console.log("ok")
     console.log(mainText)
     mainText.html(`<span>${story.part2.description}</span>`);
-    $('body').css('background-image', 'url("imgs/Runningaftertheprincess.PNG")')
+    $('body').css('backgroundImage', 'url("../imgs/Runningaftertheprincess.PNG")')
     mainText.children("span").text();
     mainText.children("button").hide();
 
@@ -140,7 +137,7 @@ function resultOfButton2Part2() {
         event.stopPropagation()
         console.log('made it into button2')
         $(mainText).text(story.part2.wrongResult);
-        $('body').css('background-image', 'url("imgs/deathscreen.PNG")')
+        $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")')
         button3.text('StartOver');
         deaths++;
         played++;
@@ -152,7 +149,7 @@ function renderPart3() {
     console.log("ok")
     console.log(mainText)
     mainText.html(`<span>${story.part3.description}</span>`);
-    $('body').css('background-image', 'url("imgs/swamp.PNG")')
+    $('body').css('backgroundImage', 'url("../imgs/swamp.PNG")')
     // this could use a new img
     mainText.children("span").text();
     mainText.children("button").hide();
@@ -170,7 +167,7 @@ function resultOfButton1Part3(event) {
         event.stopPropagation()
         console.log('this is button 1 part 2')
         // we need an you won img
-        $('body').css('background-image', 'url("imgs/dizzy-the-god.PNG")')
+        $('body').css('backgroundImage', 'url("../imgs/dizzy-the-god.PNG")')
         $(mainText).text("Congratulations You beat Level 2 of the Queen and her Guard");
         button4.text('Continue to Level 3');
 
@@ -186,7 +183,7 @@ function resultOfButton2Part3() {
         event.stopPropagation()
         console.log('made it into button2')
         $(mainText).text(story.part2.wrongResult);
-        $('body').css('background-image', 'url("imgs/deathscreen.PNG")')
+        $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")')
         deaths++;
         played++;
         button3.text('StartOver');

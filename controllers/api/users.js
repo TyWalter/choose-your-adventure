@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const bcrypt = require('bcrypt');
 const { Login } = require('../../models');
 
 //Create new profile
@@ -14,13 +13,11 @@ router.post("/", async (req, res) => {
     req.session.save(() => {
       req.session.loggedIn = true;
       res.status(200).json(dbUserData);
-    });
-      
+    });  
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
     }
-
 })
 
 //login
@@ -33,7 +30,6 @@ router.post('/login', async (req, res) => {
     });
 
     const validPassword = await dbUserData.checkPassword(req.body.upass);
-
     req.session.save(() => {
       req.session.loggedIn = true;
       res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
