@@ -242,7 +242,7 @@ death {
   color: #2F3E46;
   border-radius: 10px;
   font-weight: bold;
-
+}
 /* Styling for TypeIt */
 /* .btn {
   margin: 5px;
@@ -269,12 +269,54 @@ death {
   font-weight: 50;
   font-family: Insanity;
 }
+/* Responsive design for mobile devices */
+.container {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.column {
+  width: 50%;
+
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Default styles for desktop */
+body {
+  font-size: 16px;
+}
+
+/* Styles for tablets and larger smartphones */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .column {
+    width: 100%;
+  }
+}
+
+/* Styles for smaller smartphones */
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+
+  .menu {
+    display: none; /* Hide menu for mobile, use a mobile menu instead */
+  }
+}
+
 
   /* .&:hover {
     background-color: #84A98C;
     color: #2F3E46;
   } */
-}
+
 
 /*Button and UI Design*/
 /* .ui-element { */
