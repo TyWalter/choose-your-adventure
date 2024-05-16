@@ -27,7 +27,7 @@ const story = {
         // img: $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")'),
     },
     part3: {
-        description: `Dizzy the creator was murdered! Of course, I’ll avenge Dizzy, that poor old boy, where is his murderer?”, “It's an assassin who goes by the name of CSS.  Many have fallen to her stylish and well-organized blade. We will have to be careful of her followers’ bootstrap and flex-box as well.” You follow the Princess to the swamp where she lives and prepare to do battle again. In the swamp, there is a small shack of a house. “This is it,” the Princess says. You go into the house sword at the ready for whatever comes your way. Just as you enter the door you think about a great thing Dizzy always said “Go to where he lives in a swamp and engage in battle.” `,
+        description: `Dizzy the creator was murdered! Of course, I’ll avenge Dizzy, that poor old boy, where is his murderer?”, “It's an assassin who goes by the name of CSS.  Many have fallen to her stylish and well-organized blade. We will have to be careful of her followers’ bootstrap and flex-box as well.” You follow the Princess to the swamp where she lives and prepare to do battle again. In the swamp, there is a small shack of a house. “This is it,” the Princess says. You go into the house sword at the ready for whatever comes your way. Just as you enter the door you think about a great thing Dizzy always said..... `,
         question: `riddle`,
         wrongChoice: `riddle answer wrong`,
         rightChoice: `riddle answer right`,
@@ -163,6 +163,8 @@ function renderPart3() {
     mainText.append(button2);
     resultOfButton2Part3();
     resultOfButton1Part3();
+        //get riddle random
+    getRiddle(2);
 }
 function getRiddle(num) {
     $.ajax({
