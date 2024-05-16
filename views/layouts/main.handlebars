@@ -22,9 +22,10 @@
   <header>
     <h1><a href="/">The Queen and Her Guard</a></h1>
     <h2 class="LoggedInUser" style="display: none">logged in as {{user_name}}</h2>
-    <nav>
+    <nav style="display: flex" class="align-items-center">
       {{!-- create logout button with javascript to show up here --}}
-      <button type="button" onclick="location.href = '/login'" class="btn btn-outline-dark">Login / Signup</button>
+      <button type="button" onclick="location.href = '/login'" class="logged">Login / Signup</button>
+      <img class="crownProfile" src="imgs/crown.png" alt="crown" onclick="location.href = '/profile'" />
     </nav>
   </header>
   {{{body}}}

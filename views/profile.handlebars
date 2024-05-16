@@ -1,43 +1,51 @@
-{{!-- change to profile infomation, see wire frame --}}
+{{!-- Profile body with stats displayed dynamically --}}
 <div class="container-fluid text-center">
-  <div class="row align-items-center">
-    <div class="col">
+  <div class="row" style="height: 82vh">
+    <div class="col align-self-center">
       <div>
-        <img src="imgs/the_Queen_And_her_guard.PNG" alt="Queen and her guard" />
+        <img class="logo" src="imgs/the_Queen_And_her_guard.PNG" alt="Queen and her guard" />
       </div>
     </div>
-    <div class="col">
-
-      <div>
-        <div>
-          Times played = {{played}}
+    <div class="col align-self-center">
+      <div class="row">
+        <p class="allStats">Statistics</p>
+        <div class="col stats-played">
+          <h6>Times played</h6>
+          <div class="row">
+            <img class="col p-0 mx-2 miniIcon" src="imgs/quest.png" alt="times played" />
+            <p class="col stats">{{played}}1</p>
+          </div>
         </div>
-        <div>
-          Deaths/Losses = {{losses}}
-        </div>
-        <div>
-          Times Beaten LVL 1 = {{level_1_wins}}
-        </div>
-        <div>
-          Times Beaten LVL 2 = {{level_2_wins}}
-        </div>
-        <div>
-          Times Beaten LVL 3 = {{level_3_wins}}
-        </div>
-        <div>
-          <div>
-              <form>
-                    <form id="characterForm">
-        <button type="submit">Start New Game</button>
-        <label for="characterName">Character Name:</label>
-        <input type="text" id="characterName" name="characterName" required>
-        <button type="submit">Create Character</button>
-    </form>
-              </form>
+        <div class="col stats-wins">
+          <h6>Wins</h6>
+          <div class="row">
+            <img class="col p-0 mx-2 miniIcon" src="imgs/knight.png" alt="knight" />
+            <p class="col stats">{{wins}}45</p>
+          </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col stats-losses">
+          <h6>Losses</h6>
+          <div class="row">
+            <img class="col p-0 mx-2 miniIcon" src="imgs/sign.png" alt="lost direction" />
+            <p class="col stats">{{losses}}50</p>
+          </div>
+        </div>
+        <div class="col stats-deaths">
+          <h6>Deaths</h6>
+          <div class="row">
+            <img class="col p-0 mx-2 miniIcon" src="imgs/grim-reaper.png" alt="grim reaper" />
+            <p class="col stats">{{deaths}}4</p>
+          </div>
+        </div>
+      </div>
+      <img class="border-line" src="imgs/divider.png" alt="divider image"/>
+      <form>
+        <label class="charLabel" for="charName">Start New Game</label><br>
+        <input type="text" id="charName" name="charName" placeholder="Enter a character name" required /><br>
+        <input class="startNewGame" type="submit" value="Begin Your Adventure" />
+      </form>
     </div>
   </div>
 </div>
-
-<script type="text/javascript" src="../js/index.js"></script>
