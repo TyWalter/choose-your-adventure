@@ -50,17 +50,18 @@ function startStory() {
     mainText.html(`<span>${story.part1.description}</span>`);
     $('body').css('backgroundImage', 'url("imgs/startgame.PNG")')
     button2.text("next");
-    $(mainText).append(button2);
+    mainText.append(button2);
     renderStoryStart();
 }
 
 function renderStoryStart() {
     button2.on('click', function (event) {
         event.stopPropagation()
-        $(mainText).html(`<span>${story.part1.question}</span>`);// which path do you choose 
-        $(button2).text(story.part1.wrongChoice);//main path
-        $(button1).text(story.part1.rightChoice);//the short cut 
-        $(mainText).append(button1, button2);// thisis the two buttons with this text
+        mainText.html(`<span>${story.part1.question}</span>`);// which path do you choose 
+        button2.text(story.part1.wrongChoice);//main path
+        button1.text(story.part1.rightChoice);//the short cut 
+        mainText.append(button1);// thisis the two buttons with this text
+        mainText.append(button2);
         // $(button1).on('click', function () {
         //     renderPart2();
         // });
@@ -71,20 +72,21 @@ function renderStoryStart() {
         resultOfButton2();
     })
 }
-function resultOfButton1(event) {
+function resultOfButton1() {
     button1.on('click', function (event) {
         event.stopPropagation()
         console.log('this is button 1')
         // mainText.children("span").text();
         renderPart2();
+        return
     });
 }
 
 function resultOfButton2() {
-    $(button2).on('click', function (event) {
+    button2.on('click', function (event) {
         event.stopPropagation()
         console.log('made it into button2')
-        $(mainText).text(story.part1.wrongResult);
+        mainText.text(story.part1.wrongResult);
         $('body').css('backgroundImage', 'url("../imgs/alterending.PNG")')
         button3.text('StartOver');
         losses++;
@@ -113,11 +115,11 @@ function renderPart2() {
     button1.text(story.part2.rightChoice);
     mainText.append(button1);
     mainText.append(button2);
-    resultOfButton2Part2();
     resultOfButton1Part2();
+    resultOfButton2Part2();
 }
 
-function resultOfButton1Part2(event) {
+function resultOfButton1Part2() {
     button1.on('click', function (event) {
         event.stopPropagation()
         console.log('this is button 1 part 2')
@@ -129,15 +131,16 @@ function resultOfButton1Part2(event) {
 }
 
 function resultOfButton2Part2() {
-    $(button2).on('click', function (event) {
+    button2.on('click', function (event) {
         event.stopPropagation()
         console.log('made it into button2')
-        $(mainText).text(story.part2.wrongResult);
+        mainText.text(story.part2.wrongResult);
         $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")')
         button3.text('StartOver');
+        mainText.append(button3)
         deaths++;
         played++;
-
+        console.log(deaths)
     });
 }
 
@@ -154,12 +157,12 @@ function renderPart3() {
 }
 function getRiddle(num) {
     $.ajax({
-        url: `/api/answers/${num}`,
+        url: `/api/riddles/${num}`,
         method: 'GET',
         success: function (data) {
-            console.log(data.payload.answer)
             mainText.text(data.payload.riddle)
-            button2.text(data.payload.answer);
+            button1.text(data.payload.rightanswer);
+            button2.text(data.payload.wronganswer);
             mainText.append(button1);
             mainText.append(button2);
             resultOfButton2Part3();
@@ -180,9 +183,8 @@ function resultOfButton1Part3(event) {
         console.log('this is button 1 part 2')
         // we need an you won img
         $('body').css('backgroundImage', 'url("../imgs/your-character.PNG")')
-        $(mainText).text("Congratulations You beat Level 1 of the Queen and her Guard");
+        mainText.text("Congratulations You beat Level 1 of the Queen and her Guard");
         button4.text('Continue to Level 2');
-
         mainText.append(button4);
         wins++;
         played++;
@@ -194,12 +196,13 @@ function resultOfButton2Part3() {
     $(button2).on('click', function (event) {
         event.stopPropagation()
         console.log('made it into button2')
-        $(mainText).text(story.part2.wrongResult);
+        mainText.text(story.part2.wrongResult);
         $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")')
         deaths++;
         played++;
         button3.text('StartOver');
-
+        button3.attr('onclick', "location.href = /game")
+        mainText.append(button3);
     });
 }
 // renderStoryStart();
