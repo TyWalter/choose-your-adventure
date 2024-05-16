@@ -227,7 +227,7 @@ function sendToLevel2(event) {
 }
 function typeText(text, callback) {
     mainText.html(""); // Clear the text container
-    new TypeIt("#text-container", {
+    new TypeIt("#stupid-div", {
         strings: [text],
         speed: 75,
         cursorChar: "🗡️",
@@ -239,6 +239,4 @@ function typeText(text, callback) {
 }
 // 🗡️
 console.log(deaths, wins, losses, played)
-startStory()
-
-
+startStory();
