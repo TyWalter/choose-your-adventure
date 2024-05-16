@@ -22,7 +22,7 @@ const story = {
         description: `You start to walk up to the princess but hear rustling in the leaves nearby and notice that the ropes tying her to the tree look strangely loose. As you start to draw your weapon and prepare for the attack you are sure is coming, you remember the words of a wise professor… `,
         question: "enter riddle here",
         wrongChoice: 'wrong riddle',
-        rightChoice: 'right riddel',
+        rightChoice: 'right riddle',
         wrongResult: `You get lost in thought tearing up at the thought of your old classmates and teacher. A Bandit comes up and kills you, you should have indented. `,
         rightResult: `Remembering your professor's wise words has focused your senses, you spin around your sword cutting down the first bandit that dared to make a move. You make quick work of the other three but when you turn to look for the princess she is gone. `,
         // img: $('body').css('background-image', 'url("../../public/imgs/startgame.PNG")'),
