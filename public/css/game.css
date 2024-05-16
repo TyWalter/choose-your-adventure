@@ -26,7 +26,7 @@ header {
 }
 
 html {
-  background: url(img_startgame.png) no-repeat center fixed;
+  /* background: url(img_startgame.png) no-repeat center fixed; */
   background-size: cover;
 }
 
@@ -243,10 +243,10 @@ death {
   border-radius: 10px;
   font-weight: bold;
 
-  .&:hover {
+  /* .&:hover {
     background-color: #84A98C;
     color: #2F3E46;
-  }
+  } */
 }
 
 /*Button and UI Design*/
