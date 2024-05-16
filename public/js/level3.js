@@ -90,20 +90,24 @@ function resultOfButton1(event) {
         console.log('this is button 1')
         // mainText.children("span").text();
         renderPart2();
+        return 
     });
 }
 
 function resultOfButton2() {
-    $(button2).on('click', function (event) {
+    button2.on('click', function (event) {
         event.stopPropagation()
         console.log('made it into button2')
-        $(mainText).text(story.part1.wrongResult);
+        mainText.text(story.part1.wrongResult);
         $('body').css('background-image', 'url("../imgs/alterending.PNG")')
-        button3.text('StartOver'); 
+        button3.text('StartOver');
+        button3.attr('onclick', "location.href = '/game/3'")
+        mainText.append(button3)
         losses++;
         played++;
     });
 }
+
 
 // function renderWrongChoice(){
 //     document.addEventListener('click', function () {
