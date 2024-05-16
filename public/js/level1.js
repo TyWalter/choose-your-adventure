@@ -89,6 +89,8 @@ function resultOfButton2() {
         mainText.text(story.part1.wrongResult);
         $('body').css('backgroundImage', 'url("../imgs/alterending.PNG")')
         button3.text('StartOver');
+        button3.attr('onclick', "location.href = '/game'")
+        mainText.append(button3)
         losses++;
         played++;
     });
@@ -137,6 +139,7 @@ function resultOfButton2Part2() {
         mainText.text(story.part2.wrongResult);
         $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")')
         button3.text('StartOver');
+        button3.attr('onclick', "location.href = '/game'")
         mainText.append(button3)
         deaths++;
         played++;
@@ -201,7 +204,7 @@ function resultOfButton2Part3() {
         deaths++;
         played++;
         button3.text('StartOver');
-        button3.attr('onclick', "location.href = /game")
+        button3.attr('onclick', "location.href = '/game'")
         mainText.append(button3);
     });
 }
