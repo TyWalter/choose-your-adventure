@@ -19,4 +19,29 @@ Stats.belongsTo(Login, {
     foreignKey: 'login_id',
 });
 
+Character.findAll()
+    .then(character => {
+        console.log(character); // Log the retrieved users
+    })
+    .catch(error => {
+        console.error('Error retrieving users:', error);
+    });
+
+Login.findAll()
+    .then(login => {
+        console.log(login); // Log the retrieved users
+    })
+    .catch(error => {
+        console.error('Error retrieving users:', error);
+    });
+
+
+Stats.findAll()
+    .then(stats => {
+        console.log(stats); // Log the retrieved users
+    })
+    .catch(error => {
+        console.error('Error retrieving users:', error);
+    });
+
 module.exports = { Stats, Character, Login };

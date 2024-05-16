@@ -80,16 +80,19 @@ function resultOfButton1(event) {
         // mainText.children("span").text();
         $('body').css('backgroundImage', 'url("../imgs/Runningaftertheprincess.PNG")')
         renderPart2();
+        return
     });
 }
 
 function resultOfButton2() {
-    $(button2).on('click', function (event) {
+    button2.on('click', function (event) {
         event.stopPropagation()
         console.log('made it into button2')
-        $(mainText).text(story.part1.wrongResult);
+        mainText.text(story.part1.wrongResult);
         $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")')
         button3.text('StartOver');
+        button3.attr('onclick', "location.href = '/game/2'")
+        mainText.append(button3)
         losses++;
         played++;
     });
@@ -141,7 +144,7 @@ function resultOfButton2Part2() {
         button3.text('StartOver');
         deaths++;
         played++;
-
+    
     });
 }
 
@@ -198,7 +201,7 @@ function resultOfButton1Part3(event) {
 }
 
 function resultOfButton2Part3() {
-    $(button2).on('click', function (event) {
+    button2.on('click', function (event) {
         event.stopPropagation()
         console.log('made it into button2')
         $(mainText).text(story.part2.wrongResult);

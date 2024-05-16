@@ -48,7 +48,7 @@ let button4 = $("<button>").addClass('btn btn-outline-dark');
 
 function startStory() {
     mainText.html(`<span>${story.part1.description}</span>`);
-    $('body').css('backgroundImage', 'url("imgs/startgame.PNG")')
+    $('body').css('backgroundImage', 'url("../imgs/startgame.PNG")')
     button2.text("next");
     mainText.append(button2);
     renderStoryStart();
