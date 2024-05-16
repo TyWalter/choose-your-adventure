@@ -9,6 +9,16 @@
 // const level_2_Story = {
 //     // storyStart: 
 
+
+const oldMusic = document.getElementById('background')
+oldMusic.remove()
+const newMusic = document.createElement('audio')
+const source = document.createElement('source')
+source.setAttribute('src', '/audio/level2.wav')
+newMusic.appendChild(source)
+document.body.appendChild(newMusic)
+newMusic.play()
+
 const story = {
     part1: {
         description: `The bandits are all dead by your blade and you notice footprints in the dirt that lead off the path. It might lead to the Princess…`,
