@@ -161,7 +161,26 @@ function renderPart3() {
     resultOfButton2Part3();
     resultOfButton1Part3();
 }
-
+function getRiddle(num) {
+    $.ajax({
+        url: `/api/answers/${num}`,
+        method: 'GET',
+        success: function (data) {
+            console.log(data.payload.answer)
+            mainText.text(data.payload.riddle)
+            button2.text(data.payload.answer);
+            mainText.append(button1);
+            mainText.append(button2);
+            resultOfButton2Part3();
+            resultOfButton1Part3();
+            // button1.text(story.part3.rightChoice);
+        },
+        error: function (xhr, status, error) {
+            // Code to handle any errors
+            console.error(status, error);
+        }
+    });
+}
 function resultOfButton1Part3(event) {
     button1.on('click', function (event) {
         event.stopPropagation()
