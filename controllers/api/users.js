@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const { Login } = require('../../models');
 
-
-
 //Create new profile
 router.post("/", async (req, res) => {
   try {
@@ -15,13 +13,11 @@ router.post("/", async (req, res) => {
     req.session.save(() => {
       req.session.loggedIn = true;
       res.status(200).json(dbUserData);
-    });
-
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-
+    });  
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
 })
 
 //login
@@ -33,21 +29,7 @@ router.post('/login', async (req, res) => {
       },
     });
 
-    // if (!dbUserData) {
-    //   res
-    //     .status(400)
-    //     .json({ message: 'Incorrect email. Please try again!' });
-    //   return;
-    // }
-
     const validPassword = await dbUserData.checkPassword(req.body.upass);
-
-    // if (!validPassword) {
-    //   res
-    //     .status(400)
-    //     .json({ message: 'Incorrect password. Please try again!' });
-    //   return;
-    // }
     req.session.save(() => {
       req.session.loggedIn = true;
       res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
@@ -57,15 +39,6 @@ router.post('/login', async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
-
-  pool.query('INSERT INTO login(user_name, email, password) VALUES ($1, $2, $3)', [req.body.user_name, req.body.email, req.body.password], function (err, result){
-    if(err){
-      console.log(err)
-    }else{
-      console.log(result)
-    }
-    res.send("added new user");
-  })
 })
 
 // Logout

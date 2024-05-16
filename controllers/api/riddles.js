@@ -1,5 +1,4 @@
 const riddles = require('../../utils/riddle.json');
-
 const router = require("express").Router();
 const {Character, Login, Stats} = require("../../models");
 
