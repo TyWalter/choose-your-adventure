@@ -156,26 +156,20 @@ function renderPart3() {
     // this could use a new img
     mainText.children("span").text();
     mainText.children("button").hide();
-    //get riddle random
-    getRiddle()
+let randomRiddle = [1, 2, 3 ,4 ,5 ,6, 7, 8,9, 10 , 11, 12, 13, 14, 15 ,16]
+const randomIndex = Math.floor(Math.random() * randomRiddle.length);
+const randomElement = randomRiddle[randomIndex];
+    getRiddle(randomElement)
 }
-function getRiddle() {
+function getRiddle(num) {
     $.ajax({
-        url: `/api/riddles`,
+        url: `/api/riddles/${num}`,
         method: 'GET',
         success: function (data) {
-            console.log(data)
-            let dataArray = Object.keys(data)
-            const randomIndex = Math.floor(Math.random() * dataArray.length);
-            const randomRiddle = data[randomIndex];
-            console.log(randomRiddle)
-            // console.log(randomRiddle.riddle);
-            // console.log(randomRiddle.answer);
-            // mainText.text(randomRiddle.riddle);
-                
-
+            console.log(data.payload.answer)
             mainText.text(data.payload.riddle)
-            button2.text(data.payload.answer);
+            button2.text(data.payload.rightanswer);
+            button1.text(data.payload.wronganswer);
             mainText.append(button1);
             mainText.append(button2);
             resultOfButton2Part3();
