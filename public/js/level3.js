@@ -234,6 +234,18 @@ function sendToLevel2(event) {
         //this button needs to send the user to the next level
     })
 }
-
+function typeText(text, callback) {
+    mainText.html(""); // Clear the text container
+    new TypeIt("#text-container", {
+        strings: [text],
+        speed: 75,
+        cursorChar: "🗡️",
+        afterComplete: function(instance) {
+            instance.destroy();
+            if (callback) callback();
+        }
+    }).go();
+}
+// 🗡️
 console.log(deaths, wins, losses, played)
 startStory()
