@@ -1,13 +1,28 @@
 const router = require('express').Router();
 const { Login } = require('../../models');
 
+//doesnt work but things are saved to the database
+router.get("/", async (req, res) => {
+  try {
+    const logins = await Login.findAll(); // Retrieve all records from the Login table
+
+    res.json({ status: "success", payload: logins }); // Send the retrieved data as JSON response
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ status: "error" });
+  }
+});
+
+
 //Create new profile
 router.post("/", async (req, res) => {
+  console.log(req.body.password)
   try {
     const dbUserData = await Login.create({
       user_name: req.body.user_name,
       email: req.body.email,
       password: req.body.password,
+
     });
 
     req.session.save(() => {
