@@ -188,6 +188,7 @@ function resultOfButton1Part3(event) {
         $('body').css('backgroundImage', 'url("../imgs/your-character.PNG")')
         mainText.text("Congratulations You beat Level 1 of the Queen and her Guard");
         button4.text('Continue to Level 2');
+        button4.attr('onclick', "location.href = '/game/2'")
         mainText.append(button4);
         wins++;
         played++;
