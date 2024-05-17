@@ -132,6 +132,7 @@ function renderPart3() {
     button1.text(story.part3.rightChoice);
     mainText.append(button1);
     mainText.append(button2);
+    
     resultOfButton2Part3();
     resultOfButton1Part3();
     const randomNumber = Math.floor(Math.random() * 16) + 1;
