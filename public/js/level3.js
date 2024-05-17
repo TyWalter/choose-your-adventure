@@ -16,6 +16,7 @@ const story = {
         wrongChoice: `Kill the guards`,
         rightChoice: `Convince them to let you in`,
         wrongResult: `You step up to the guards as if you're going to chat with them and  quickly pull out your sword and stab the first guard, then the second guard comes at you, but the Princess takes him before he gets to you. You're quickly surrounded by guards and captured. You spend your days awaiting execution for your crimes. Finally, the day has come for you to die. You're escorted by the guards to the chopping block. You lay your head down and wonder how many people have died the way you are about to? Just before the ax comes down to sever your head from your body, you think, why did I kill those people with so many witnesses?`,
+        death: `You died`
         // img: ' ',
         // img2: ' '
     },
@@ -34,23 +35,22 @@ const story = {
         wrongChoice: 'wrong riddle',
         rightChoice: 'right riddle',
         wrongResult: `The king easily bushes you aside and casts a spell of death grip. You feel life being sucked out of your body. Your hands wither, your hair grays, and you die a slow and painful death.`,
+        death: `You died`,
         rightResult:  `Your blade strikes true right into the heart of the king, the battle is over. You see the Queen as she is now beginning to wake. She sees that you have killed the evil king.`,
 
-        endStory: `The coming days go by in a blur as Queen Katy makes arrangements and does her best to undo all the damage evil King Gary had on the kingdom. You are knighted as well and appointed as the chief role guard to the queen. The Queen and her guard go down in history as one of the most powerful and fair monarchs in all the realm. From time to time you see a small white dog watching from the distance, Dizzy telling you from another world that you have done well.`
+        endStory: `The coming days go by in a blur as Queen Katy makes arrangements and does her best to undo all the damage evil King Gary had on the kingdom. You are knighted as well and appointed as the chief role guard to the queen. The Queen and her guard go down in history as one of the most powerful and fair monarchs in all the realm. From time to time you see a small white dog watching from the distance, Dizzy telling you from another world that you have done well`
     }
 };
 
 let mainText = $("#stupid-div");
+let deathText = $('#death')
+let deathDiv = $("<div>").addClass('death')
 let button1 = $("<button>").addClass('btn btn-outlin-light');
 let button2 = $("<button>").addClass('btn btn-outlin-light');
 let button3 = $("<button>").addClass('btn btn-outline-light');
 let button4 = $("<button>").addClass('btn btn-outline-light');
 let nextLevelButton = $("<button>").addClass('btn btn-outline-light');
 let bloodscreen = $("<div>").addClass('overlay-image');
-let played = 0;
-let wins = 0;
-let deaths = 0;
-let losses = 0;
 const oldMusic = document.getElementById('background');
 const newMusic = document.createElement('audio');
 const source = document.createElement('source');
@@ -126,6 +126,8 @@ function resultOfButton2Part2() {
         event.stopPropagation();
         $(mainText).text(story.part2.wrongResult);
         $('body').css('background-image', 'url("../imgs/deathscreen.PNG")');
+        deathDiv.text("You Died");
+        deathText.append(deathDiv);
         button3.text('StartOver');
         button3.attr('onclick', "location.href = '/game/3'");
         mainText.append(button3); 
@@ -165,6 +167,8 @@ function resultOfButton2Part3() {
         event.stopPropagation();
         mainText.text(story.part2.wrongResult);
         $('body').css('background-image', 'url("../imgs/deathscreen.PNG")');
+        deathDiv.text("You Died");
+        deathText.append(deathDiv);
         button3.text('StartOver');
         button3.attr('onclick', "location.href = '/game/3'");
         mainText.append(button3);
@@ -189,8 +193,8 @@ function getRiddle(num) {
         method: 'GET',
         success: function (data) {
             mainText.text(data.payload.riddle);
-            button2.text(data.payload.rightanswer);
-            button1.text(data.payload.wronganswer);
+            button1.text(data.payload.rightanswer);
+            button2.text(data.payload.wronganswer);
             mainText.append(button1);
             mainText.append(button2);
             resultOfButton2Part3();
