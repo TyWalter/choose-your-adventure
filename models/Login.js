@@ -35,6 +35,13 @@ Login.init(
                 len: [4]
             }
         },
+        // stats: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'stats',
+        //         primaryKey: 'id'
+        //     }
+        // }
     },
         {
         hooks: {

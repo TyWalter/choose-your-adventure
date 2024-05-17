@@ -12,14 +12,17 @@ const { Stats } = require('../../models')
 //     };
 //   };
   router.put('/', async (req, res) => {
+    console.log(req.session)
     try {
       const result = req.body.result
       const stats = await Stats.findOne({ where: { user_id: req.session.user } })
+      console.log(stats)
       stats.increment(result)
       stats.increment('played')
 
       res.json(stats);
     } catch (error) {
+      console.log(error)
       res.status(500).json({ error: 'Failed to fetch stats' });
     }
   });
