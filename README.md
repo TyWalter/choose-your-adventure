@@ -7,11 +7,7 @@ The Queen and Her Guard is a narrative game where the player takes on the role o
 
 ## Group Collaboration:
 Challenges:
-- Merging storylines
-- Creating character profiles
-- Developing branching storylines
-- Creating character profiles using Handlebars templates
-- Developing branching storylines using Handlebars conditionals and partials
+- Merging storylines with different branches
 - Creating character profiles using Handlebars templates with data from a Sequelize Character model
 - Developing branching storylines using Handlebars conditionals and partials with data from a Sequelize Story model
 - 
