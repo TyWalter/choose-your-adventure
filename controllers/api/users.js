@@ -84,13 +84,16 @@ router.post('/logout', (req, res) => {
 });
 
 
-router.post('/profile', (req, res) =>{
+router.post('/profile', async (req, res) =>{
   try {
-    const characterName = await Login.findByPk({
+    const characterName = await Login.create({
       where: {
         first_name: req.body.uname,
       },
     })
+  }
+  catch{
+
   }
 })
 
