@@ -25,6 +25,10 @@ router.post("/", async (req, res) => {
 
     });
 
+    if (!dbUserData) {
+      return res.status(400).json({ message: "User not found" });
+    }  
+
     req.session.save(() => {
       req.session.loggedIn = true;
       res.status(200).json(dbUserData);
@@ -42,19 +46,29 @@ router.post('/login', async (req, res) => {
     const dbUserData = await Login.findOne({
       where: {
         user_name: req.body.uname,
-      },
-    });
+      },  
+    }    
+);
 
-    const validPassword = await dbUserData.checkPassword(req.body.upass);
-    req.session.save(() => {
-      req.session.loggedIn = true;
-      res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
-    })
+  if (!dbUserData) {
+    return res.status(400).json({ message: "User not found" });
+  }
+      
+  const validPassword = await dbUserData.checkPassword(req.body.upass);
+
+  if(!validPassword){
+    res.status(400).json({message: "wrong password"});
+  }
+
+  req.session.save(() => {
+    req.session.loggedIn = true;
+    res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
+  })
 
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
-  }
+}
 })
 
 // Logout

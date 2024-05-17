@@ -1,18 +1,20 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
-  
+  console.log("test");
   const uname = document.querySelector('#uname').value;
   const upass = document.querySelector('#upass').value;
   
   if (uname && upass) {
     const response = await fetch('/api/users/login', {
-        method: 'POST',
-        body: JSON.stringify({ uname, upass }),
-        headers: { 'Content-Type': 'application/json' }
+      method: 'POST',
+      body: JSON.stringify({ uname, upass }),
+      headers: { 'Content-Type': 'application/json' }
     });
 
+   
+
     if(response){
-      document.location.replace('/');
+      document.location.replace('/profile');
     } else {
       alert(response.statusText);
     }
@@ -36,7 +38,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response) {
-      document.location.replace('/');
+      document.location.replace('/profile');
     } else {
       alert(response.statusText);
     }
