@@ -14,9 +14,6 @@ Character.init(
         first_name: {
             type: DataTypes.STRING
         },
-        last_name: {
-            type: DataTypes.STRING
-        },
         login_id: {
     type: DataTypes.INTEGER,
     references: {
