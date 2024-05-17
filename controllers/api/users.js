@@ -88,16 +88,19 @@ router.post('/logout', (req, res) => {
 
 router.post('/profile', async (req, res) =>{
   if( !req.session.user ) res.status(401).json({ msg: 'not logged in'})
-  console.log("req body " + req.body);
-  console.log("req.session " + req.session);
-  const newCharacter = {...req.body, login_id: req.session.user}
-  console.log("new character " + newCharacter);
+  // console.log("req body " + req.body);
+  // console.log("req.session " + req.session);
+  // const newCharacter = {...req.body, login_id: req.session.user}
+  // console.log("new character " + newCharacter);
 
 
   try {
-    const characterName = await Character.create(newCharacter)
+    const newCharacter = await Character.create({
+      charname: req.body.characterName,
+      user_id: req.session.user,
+    })
 
-    if (!characterName) {
+    if (!newCharacter) {
       return res.status(400).json({ message: "Character not created" });
     }
 

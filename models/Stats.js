@@ -23,7 +23,7 @@ Stats.init(
         losses: {
             type: DataTypes.INTEGER
         },
-        login_id: {
+        user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'login',
