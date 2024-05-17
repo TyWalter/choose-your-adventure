@@ -146,7 +146,7 @@ function resultOfButton1Part3() {
 };
 
 function resultOfButton2Part3() {
-    $(button2).on('click', function (event) {
+    button2.on('click', function (event) {
         event.stopPropagation();
         mainText.text(story.part2.wrongResult);
         $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")');
