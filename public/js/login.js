@@ -11,16 +11,12 @@ const loginFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' }
     });
 
-   
-
     if(response){
       document.location.replace('/profile');
     } else {
       alert(response.statusText);
     }
   }
-
-  
 };
 
 const signupFormHandler = async (event) => {

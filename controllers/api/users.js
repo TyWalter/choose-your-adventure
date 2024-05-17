@@ -88,17 +88,24 @@ router.post('/logout', (req, res) => {
 
 router.post('/profile', async (req, res) =>{
   if( !req.session.user ) res.status(401).json({ msg: 'not logged in'})
-  const newCharacter = {...req.body, login_id: req.session.user.id}
-// characterName is declared, but not read? const characterName: any?
+  console.log("req body " + req.body);
+  console.log("req.session " + req.session);
+  const newCharacter = {...req.body, login_id: req.session.user}
+  console.log("new character " + newCharacter);
+
+
   try {
     const characterName = await Character.create(newCharacter)
-    if(!characterName){
+
+    if (!characterName) {
       return res.status(400).json({ message: "Character not created" });
     }
+
   }
   catch (err) {
     console.log(err);
-    res.status(500).json(err.message);
+    res.status(500).json(err);
+
   }
 })
 
