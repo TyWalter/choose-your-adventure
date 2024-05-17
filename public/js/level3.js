@@ -135,18 +135,16 @@ function resultOfButton2Part2() {
 };
 
 function renderPart3() {
+    button1.on('click', function (event) {
+        event.stopPropagation();
     mainText.html(`<span>${story.part3.description}</span>`);
-    $('body').css('background-image', 'url("../imgs/throneroom-img.PNG")');
+    $('body').css('backgroundImage', 'url("../imgs/shortcut.PNG")');
     mainText.children("span").text();
     mainText.children("button").hide();
-    button2.text(story.part3.wrongChoice);
-    button1.text(story.part3.rightChoice);
+    button1.text('next')
     mainText.append(button1);
-    mainText.append(button2);
-    resultOfButton2Part3();
-    resultOfButton1Part3();
-    const randomNumber = Math.floor(Math.random() * 16) + 1;
-    getRiddle(randomNumber)
+    randomRiddleButton();
+    })
 };
 
 function resultOfButton1Part3() {
@@ -174,6 +172,16 @@ function resultOfButton2Part3() {
         played++;
     });
 };
+
+function randomRiddleButton(){
+    button1.on('click', function(event){
+        event.stopPropagation();
+        let randomRiddle = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,16];
+        const randomIndex = Math.floor(Math.random() * randomRiddle.length);
+        const randomElement = randomRiddle[randomIndex];
+    getRiddle(randomElement);
+})
+}
 
 function getRiddle(num) {
     $.ajax({

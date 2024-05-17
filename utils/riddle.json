@@ -43,55 +43,55 @@
   },
   {
     "id": 8,
-    "pun": "Why did the JavaScript developer go broke?",
+    "riddle": "Why did the JavaScript developer go broke?",
     "rightanswer": "Because he used up all his 'cache!'",
     "wronganswer":"Because he used up his 'heap!'"
   },
   {
     "id": 9,
-    "pun": "Why did the JavaScript function break up with its partner?",
+    "riddle": "Why did the JavaScript function break up with its partner?",
     "rightanswer": "Because they had too many 'arguments' and couldn't 'resolve'their issues!",
     "wronganswer":"Because they had too many 'variables' and couldn't 'assign'their values!"
   },
   {
     "id": 10,
-    "pun": "Why did the server go to therapy?",
+    "riddle": "Why did the server go to therapy?",
     "rightanswer": "Because it had too many 'clients' and needed to 'process' its feelings!",
     "wronganswer":"Because it couldn't take it any more!"
   },
   {
     "id": 11,
-    "pun": "Why did the CSS file break up with the HTML file?",
+    "riddle": "Why did the CSS file break up with the HTML file?",
     "rightanswer": "Because it felt like it was being 'styled' too much and needed some 'space' to 'float' freely!",
     "wronganswer":"Because it was too 'dense' and couldn't 'compress' its code properly!"
   },
   {
     "id": 12,
-    "pun": "Why did the CSS file go to jail?",
+    "riddle": "Why did the CSS file go to jail?",
     "rightanswer": "It was caught 'padding' its margins!",
     "wronganswer":"It forgot to indent its code properly!"
   },
   {
     "id": 13,
-    "mchoice": "Which of the following programming languages was named after a comedy television show?",
+    "riddle": "Which of the following programming languages was named after a comedy television show?",
     "rightanswer": "Ruby, named after a sketch in 'Monty Python’s Flying Circus.'",
     "wronganswer":"Java, named after a sketch in 'The three stooges.'"
   },
   {
     "id": 14,
-    "mchoice": "Which of the following is not a valid HTML tag?",
+    "riddle": "Which of the following is not a valid HTML tag?",
     "rightanswer": "Paragraph",
     "wronganswer":"Article"
   },
   {
     "id": 15,
-    "mchoice": "Which of the following is not a valid CSS property for styling text?",
+    "riddle": "Which of the following is not a valid CSS property for styling text?",
     "rightanswer": "text-decoration",
     "wronganswer":"font-family"
   },
   {
     "id": 16,
-    "mchoice": "In J.R.R. Tolkien's Middle-earth legendarium, which creature did Gandalf face in the Mines of Moria?",
+    "riddle": "In J.R.R. Tolkien's Middle-earth legendarium, which creature did Gandalf face in the Mines of Moria?",
     "rightanswer": "Balrog",
     "wronganswer":"Orc"
   }
