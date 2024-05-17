@@ -9,18 +9,31 @@
   --lightBlood: rgb(150, 15, 15);
 }
 
-button {
-  height: 60px;
-  width: 60px;
-  background: var(--background);
-}
-
-button img {
-  height: 60px;
-  width: 60px;
+html {
+  cursor: url('../imgs/shield.png'), auto;
 }
 
 body {
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+  border-radius: 40%;
+  cursor: url('../imgs/sword.png'), auto;
+}
+
+.levelLogo {
+  height: 70px;
+  width: 70px;
+}
+
+.tryingOut:hover {
+    cursor: url('../imgs/sword.png'), auto;
+}
+
+.btn:hover {
+  cursor: url('../imgs/sword.png'), auto;
 }
