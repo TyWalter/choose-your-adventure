@@ -166,3 +166,43 @@ function resultOfButton2Part3() {
 // resultOfButton2();
 
 startStory()
+
+
+
+
+
+function renderPart3() {
+    mainText.html(`<span>${story.part3.description}</span>`);
+    $('body').css('backgroundImage', 'url("../imgs/shortcut.PNG")');
+    mainText.children("span").text();
+    mainText.children("button").hide();
+    button2.text("next");
+    mainText.append(button2);
+    getRiddle()
+};
+
+function getRiddle(num) {
+    $(button2).on('click', function (event) {
+let randomRiddle = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+const randomIndex = Math.floor(Math.random() * randomRiddle.length);
+const randomElement = randomRiddle[randomIndex];
+getRiddle(randomElement);
+$.ajax({
+    url: `/api/riddles/${num}`,
+    method: 'GET',
+    success: function (data) {
+        mainText.text(data.payload.riddle)
+        button2.text(data.payload.rightanswer);
+        button1.text(data.payload.wronganswer);
+        mainText.append(button1);
+        mainText.append(button2);
+        resultOfButton2Part3();
+        resultOfButton1Part3();
+    },
+    error: function (xhr, status, error) {
+        // Code to handle any errors
+        console.error(status, error);
+    }
+})
+});
+};
