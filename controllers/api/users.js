@@ -31,7 +31,7 @@ router.post("/", async (req, res) => {
     }  
 
     req.session.save(() => {
-      req.session.loggedIn = true;
+      req.session.logged_in = true;
       res.status(200).json(dbUserData);
     });  
     
@@ -62,7 +62,8 @@ router.post('/login', async (req, res) => {
   }
 
   req.session.save(() => {
-    req.session.loggedIn = true;
+    req.session.logged_in = true;
+    req.session.user = dbUserData;
     res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
   })
 
@@ -74,7 +75,7 @@ router.post('/login', async (req, res) => {
 
 // Logout
 router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
     });
@@ -85,12 +86,11 @@ router.post('/logout', (req, res) => {
 
 
 router.post('/profile', async (req, res) =>{
+  if( !req.session.user ) res.status(401).json({ msg: 'not logged in'})
+  const newCharacter = {...req.body, login_id: req.session.user.id}
+
   try {
-    const characterName = await Login.create({
-      where: {
-        first_name: req.body.uname,
-      },
-    })
+    const characterName = await Character.create(newCharacter)
   }
   catch{
 
