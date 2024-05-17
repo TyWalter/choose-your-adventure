@@ -1,14 +1,19 @@
 /* COLORS THEME 
-    Ash gray #CAD2C5
-    Cambridge #84A98C
-    Hookers green #52796F
-    Dark slate gray #354F52
-    Charcoal #2F3E46
+:root {
+  --light: #CAD2C5;
+  --hover: #84A98C;
+  --bigText: #52796F;
+  --extra: #354F52;
+  --background: #2F3E46;
+  --darkBlood: rgb(100, 5, 5);
+  --lightBlood: rgb(150, 15, 15);
+}
 
 FONT FAMILY 
     font-family: Nodesto;
     font-family: Insanity;
     font-family: Bloody;
+    font-family: Cinzel;
     weight: bold;
     color:
 

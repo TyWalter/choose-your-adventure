@@ -24,7 +24,7 @@
 	--white: hsla(0, 0%, 95%, 1);
 	--black: hsla(0, 0%, 10%, 1);
 
-	/* abstract our colours */
+	/* abstract our colors */
 	--boxMain: var(--blue);
 	--boxSecond: var(--cyan);
 	--boxHigh: var(--orange);
@@ -209,7 +209,7 @@ label[for="panner"] {grid-area: panlab; margin-top: 15px;}
 audio {
 	grid-area: tape;
 }
-/*TODO GIVE BUTTONS CLASSES*/
+/*TO DO GIVE BUTTONS CLASSES*/
 [class^="tape-controls"] {
 	border: none;
 }
