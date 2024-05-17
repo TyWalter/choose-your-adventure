@@ -43,10 +43,10 @@ let losses = 0;
 const music = document.getElementById('background');
 
 function startStory() {
-    mainText.html(`<span>${story.part1.description}</span>`);
-    $('body').css('backgroundImage', 'url("../imgs/startgame.PNG")');
-    button2.text("next");
+    mainText.html(`<span>${story.part1.description}</span>`)
     mainText.append(button2);
+    button2.text("next");
+    $('body').css('backgroundImage', 'url("../imgs/startgame.PNG")');
     music.play();
     music.volume = .05;
     renderStoryStart();
@@ -190,7 +190,7 @@ function getRiddle(num) {
 
 function typeText(text, callback) {
     mainText.html(""); // Clear the text container
-    new TypeIt("#stupid-div", {
+    new TypeIt("#tested123", {
         strings: [text],
         speed: 75,
         cursorChar: "🗡️",
