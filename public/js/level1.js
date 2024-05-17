@@ -43,7 +43,20 @@ let losses = 0;
 const music = document.getElementById('background');
 
 function startStory() {
-    mainText.html(`<span>${story.part1.description}</span>`)
+    const instance = new TypeIt("#stupid-div", {
+        strings: story.part1.description,
+        speed: 20,
+        waitUntilVisible: true,
+        })
+        .exec(async () => {
+            await new Promise((res, rej) => {
+                setTimeout(() => {
+                    return res();
+                }, 2000);
+            });
+        })
+        .go();
+    mainText.html(instance)
     mainText.append(button2);
     button2.text("next");
     $('body').css('backgroundImage', 'url("../imgs/startgame.PNG")');
