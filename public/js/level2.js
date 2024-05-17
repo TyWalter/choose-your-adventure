@@ -6,6 +6,7 @@ const story = {
         wrongChoice: `No`,
         rightChoice: `Yes`,
         wrongResult: `You make your way down the path but slip on all the blood and fall. You don't even notice the blade sticking out of your chest until you try to get up and are pulled down. Once you notice it is impossible to notice anything else, the pain racks your body and in your final moments, you think to yourself “I should have…followed the…Princess.”`,
+        death: `You died`
         //img: $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")'),
     },
     part2: {
@@ -13,7 +14,8 @@ const story = {
         question: `If you help me, I'll make sure you're knighted and that you are declared a hero of the realm. What do you say?”`,
         wrongChoice: `I dont have time for this`,
         rightChoice: `Of course I'll help avenge dizzy`,
-        wrongResult: `“Pffs why should I care about some old half-taxidermied dog, he probably was ready to die!!” The Princess replies “HOW DARE YOU!!!” She scratches and lunges towards you with a dagger she had hidden behind her. “How dare you not grieve for Dizzy the all creator?” The blade hits you first on the left side of your stomach, then, right then, in the middle… she stabs you over and over until everything goes black. You die`,
+        wrongResult: `“Pffs why should I care about some old half-taxidermied dog, he probably was ready to die!!” The Princess replies “HOW DARE YOU!!!” She scratches and lunges towards you with a dagger she had hidden behind her. “How dare you not grieve for Dizzy the all creator?” The blade hits you first on the left side of your stomach, then, right then, in the middle… she stabs you over and over until everything goes black.`,
+        death: `You died`
         // img: $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")'),
     },
     part3: {
@@ -22,6 +24,7 @@ const story = {
         wrongChoice: `riddle answer wrong`,
         rightChoice: `riddle answer right`,
         wrongResult: `As the door opens you see three figures standing by the fireplace of the small house ready to attack. ‘Damn!” you think, “we were too loud, we are going to die”. As soon as the door opens there is a dagger square in your chest, but you can't stop now. You fight through the pain and move forward sloppily. You hear a cry behind you. The Princess has been slain. You swing at CSS but miss. She laughs in your face, “Trying to assassinate the assassin? How cute.” She kicks you down and you fall with a grunt. “What do you think boy, should we have some fun?” They laugh cruelly at your pain. You die slowly over the next two hours as the assassins torture you for being so arrogant as to think you could defeat CSS and her frameworks.`,
+        death: `You died`,
         //img: $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")'),
         rightResult: `The noise of your entrance startles the sleeping assassins. You see the one they call Bootstrap rises from his cot on the ground with a look of surprise. You go forward slicing him in half before he has time to draw his blade. You hear a noise behind you, it's Princess Katy slaying Flex-box where he stands. You feel a blade fly by your right ear barely missing you. You swing around and engage the infamous and very beautiful killer known only as CSS. She lunges towards you, teeth bared and eyes bright. You dodge, but a split second too late and the blade grazes your arm. It's your turn as you step forward and thrust your blade into her stomach. Her face displays a look of surprise and pain. “Why?’ she asks as she falls to the floor and dies.`,
         // img: $('body').css('background-image', 'url("../../public/imgs/blood-png-7140(1).PNG")'),
@@ -29,16 +32,14 @@ const story = {
 };
 
 let mainText = $("#stupid-div");
+let deathText = $('#death')
+let deathDiv = $("<div>").addClass('death')
 let button1 = $("<button>").addClass('btn btn-outlin-light');
 let button2 = $("<button>").addClass('btn btn-outlin-light');
 let button3 = $("<button>").addClass('btn btn-outline-light');
 let button4 = $("<button>").addClass('btn btn-outline-light');
 let nextLevelButton = $("<button>").addClass('btn btn-outline-light');
 let bloodscreen = $("<div>").addClass('overlay-image');
-let played = 0;
-let wins = 0;
-let deaths = 0;
-let losses = 0;
 const oldMusic = document.getElementById('background');
 const newMusic = document.createElement('audio');
 const source = document.createElement('source');
@@ -82,11 +83,14 @@ function resultOfButton2() {
         event.stopPropagation();
         mainText.text(story.part1.wrongResult);
         $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")');
+        deathDiv.text("You Died");
+        deathText.append(deathDiv);
         button3.text('StartOver');
         button3.attr('onclick', "location.href = '/game/2'");
         mainText.append(button3);
         deaths++;
         played++;
+        //ajax put inside each of these 
     });
 };
 
@@ -115,6 +119,8 @@ function resultOfButton2Part2() {
         event.stopPropagation();
         mainText.text(story.part2.wrongResult);
         $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")');
+        deathDiv.text("You Died");
+        deathText.append(deathDiv);
         button3.text('StartOver');
         button3.attr('onclick', "location.href = '/game/2'");
         mainText.append(button3);
@@ -155,6 +161,8 @@ function resultOfButton2Part3() {
         console.log('made it into button2');
         mainText.text(story.part2.wrongResult);
         $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")');
+        deathDiv.text("You Died");
+        deathText.append(deathDiv);
         button3.text('StartOver');
         button3.attr('onclick', "location.href = '/game/2'");
         mainText.append(button3);
@@ -180,8 +188,8 @@ function getRiddle(num) {
         method: 'GET',
         success: function (data) {
             mainText.text(data.payload.riddle);
-            button2.text(data.payload.rightanswer);
-            button1.text(data.payload.wronganswer);
+            button1.text(data.payload.rightanswer);
+            button2.text(data.payload.wronganswer);
             mainText.append(button1);
             mainText.append(button2);
             resultOfButton2Part3();

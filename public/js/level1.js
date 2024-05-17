@@ -13,7 +13,8 @@ const story = {
         question: `Do you cut the rope and free the princess or do you leave her there?`,
         wrongChoice: `Cut the rope.`,
         rightChoice: `Don't cut the rope. `,
-        wrongResult: `You go up to the princess as she struggles and say "You're Princess Katy from the kingdom of Dizzylot, right? Are you okay? Do you need help? " She replies "Of course I am, What do you think? I'm tied to a tree!" You lean down to untie her and feel a sharp pain in the middle of your back. Blood sprays onto the princess' face as she looks up at you with an evil grin.The princess says "Nice shot boys! They are sure to have plenty of a loot on them", You died`,
+        wrongResult: `You go up to the princess as she struggles and say "You're Princess Katy from the kingdom of Dizzylot, right? Are you okay? Do you need help? " She replies "Of course I am, What do you think? I'm tied to a tree!" You lean down to untie her and feel a sharp pain in the middle of your back. Blood sprays onto the princess' face as she looks up at you with an evil grin.The princess says "Nice shot boys! They are sure to have plenty of a loot on them"`,
+        death: `You died`
         // img1: $('body').css('background-image', 'url("../../public/imgs/shortcut.PNG")'),
         // img: $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")')
     },
@@ -22,7 +23,8 @@ const story = {
         question: "enter riddle here",
         wrongChoice: 'wrong riddle',
         rightChoice: 'right riddle',
-        wrongResult: `You get lost in thought tearing up at the thought of your old classmates and teacher. A Bandit comes up and kills you, you should have indented. `,
+        wrongResult: `You get lost in thought tearing up at the thought of your old classmates and teacher. A Bandit comes up and kills you, you should have indented.`,
+        death: `You died`,
         rightResult: `Remembering your professor's wise words has focused your senses, you spin around your sword cutting down the first bandit that dared to make a move. You make quick work of the other three but when you turn to look for the princess she is gone. `,
         // img: $('body').css('background-image', 'url("../../public/imgs/startgame.PNG")'),
         // overlayImg: "bloodimg"
@@ -30,6 +32,8 @@ const story = {
 };
 
 let mainText = $("#stupid-div");
+let deathText = $('#death')
+let deathDiv = $("<div>").addClass('death')
 let button1 = $("<button>").addClass('btn btn-outlin-light');
 let button2 = $("<button>").addClass('btn btn-outlin-light');
 let button3 = $("<button>").addClass('btn btn-outline-light');
@@ -110,6 +114,8 @@ function resultOfButton2Part2() {
         event.stopPropagation();
         mainText.text(story.part2.wrongResult);
         $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")');
+        deathDiv.text("You Died");
+        deathText.append(deathDiv);
         button3.text('StartOver');
         button3.attr('onclick', "location.href = '/game'");
         mainText.append(button3);
@@ -142,6 +148,7 @@ function resultOfButton1Part3() {
         mainText.append(button4);
         wins++;
         played++;
+        updateStats(num1, num2, num3, num4)
     });
 };
 
@@ -149,6 +156,8 @@ function resultOfButton2Part3() {
     button2.on('click', function (event) {
         event.stopPropagation();
         mainText.text(story.part2.wrongResult);
+        deathDiv.text("You Died");
+        deathText.append(deathDiv);
         $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")');
         deaths++;
         played++;
@@ -174,8 +183,8 @@ function getRiddle(num) {
         method: 'GET',
         success: function (data) {
             mainText.text(data.payload.riddle)
-            button2.text(data.payload.rightanswer);
-            button1.text(data.payload.wronganswer);
+            button1.text(data.payload.rightanswer);
+            button2.text(data.payload.wronganswer);
             mainText.append(button1);
             mainText.append(button2);
             resultOfButton2Part3();
@@ -200,5 +209,22 @@ function typeText(text, callback) {
         }
     }).go();
 };
+
+
+
+function updateStats(num1, num2, num3, num4) {
+    $.ajax({
+        url: '/api/stats',
+        method: 'PUT',
+        contentType: 'application/json',
+        data: JSON.stringify({ played: num1, wins: num2, deaths: num3, losses: num4 }),
+        success: function(response) {
+            console.log('Data updated:', response.message);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error updating data:', error);
+        }
+    });
+}
 
 startStory();

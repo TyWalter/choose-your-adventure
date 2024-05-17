@@ -64,3 +64,15 @@ h2 {
 .btn{
   background-color: rgba(240, 248, 255, 0.3);
 }
+
+#death{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Bloody', sans-serif;
+    font-size: 200px;
+    color: var(--darkBlood);
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: var(--lightBlood);
+}
