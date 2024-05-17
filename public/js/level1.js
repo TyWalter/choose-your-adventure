@@ -132,7 +132,7 @@ function renderPart3() {
 function resultOfButton1Part3() {
     button1.on('click', function (event) {
         event.stopPropagation();
-        $('body').css('backgroundImage', 'url("../imgs/your-character.PNG")');
+        $('body').css('backgroundImage', 'url("../imgs/your-characcter.jpg")');
         mainText.text("Congratulations You beat Level 1 of the Queen and her Guard");
         button4.text('Continue to Level 2');
         button4.attr('onclick', "location.href = '/game/2'; music.pause()");

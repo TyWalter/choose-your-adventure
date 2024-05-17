@@ -103,7 +103,7 @@ function resultOfButton2() {
 
 function renderPart2() {
     mainText.html(`<span>${story.part2.description}</span>`);
-    $('body').css('background-image', 'url("../imgs/castleimg.PNG")');
+    $('body').css('background-image', 'url("../imgs/castleimg.jpg")');
     mainText.children("span").text();
     mainText.children("button").hide();
     button2.text(story.part2.wrongChoice);
@@ -152,7 +152,7 @@ function renderPart3() {
 function resultOfButton1Part3() {
     button1.on('click', function (event) {
         event.stopPropagation();
-        $('body').css('background-image', 'url("../imgs/endGamePhoto.PNG")');
+        $('body').css('background-image', 'url("../imgs/endGamePhoto.jpg")');
         mainText.text(story.part3.endStory);
         button4.text('PLAY AGAIN?');
         button4.attr('onclick', "location.href = '/profile'");
