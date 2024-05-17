@@ -1,4 +1,4 @@
-// add a forgien key from user info to character 
+// add a foreign key from user info to character 
 const Login = require('./Login');
 const Character = require('./Character');
 const Stats = require('./Stats');

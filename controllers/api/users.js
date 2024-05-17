@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Login, Character } = require('../../models');
 
-//doesnt work but things are saved to the database
+//doesn't work but things are saved to the database
 router.get("/", async (req, res) => {
   try {
     const logins = await Login.findAll(); // Retrieve all records from the Login table
@@ -55,7 +55,7 @@ router.post('/login', async (req, res) => {
   if (!dbUserData) {
     return res.status(400).json({ message: "User not found" });
   }
-      
+  // check if await has any effect below  
   const validPassword = await dbUserData.checkPassword(req.body.upass);
 
   if(!validPassword){
@@ -105,6 +105,7 @@ router.post('/profile', async (req, res) =>{
   catch (err) {
     console.log(err);
     res.status(500).json(err);
+
   }
 })
 

@@ -49,3 +49,18 @@ h2 {
 .btn:hover {
   cursor: url('../imgs/sword.png'), auto;
 }
+
+#stupid-div{
+  border: 2px solid rgba(0, 0, 0, 0.5); /* Border with 50% transparency */
+  background-color: rgba(47, 62, 70, 0.8); /* Background color with 50% transparency */
+  padding: 10px; /* Padding of 10px */
+  border-radius: 10px; /* Rounded corners with a border radius of 10px */
+  color: #84A98C; /* Text color */
+  position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+.btn{
+  background-color: rgba(240, 248, 255, 0.3);
+}

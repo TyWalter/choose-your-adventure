@@ -1,6 +1,6 @@
 const riddles = require('../../utils/riddle.json');
 const router = require("express").Router();
-const {Character, Login, Stats} = require("../../models");
+
 
 //get all answers
 router.get("/", async (req, res) => {
