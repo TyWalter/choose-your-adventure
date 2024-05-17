@@ -17,16 +17,17 @@ router.get("/", async (req, res) => {
 //Create new profile
 router.post("/", async (req, res) => {
   console.log(req.body.password)
+
   try {
     const dbUserData = await Login.create({
-      user_name: req.body.user_name,
-      email: req.body.email,
-      password: req.body.password,
+      user_name: req.body.sname,
+      email: req.body.semail,
+      password: req.body.spass,
 
     });
 
     if (!dbUserData) {
-      return res.status(400).json({ message: "User not found" });
+      return res.status(500).json({ message: "User not created" });
     }  
 
     req.session.save(() => {
