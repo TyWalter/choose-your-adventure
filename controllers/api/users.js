@@ -30,9 +30,11 @@ router.post("/", async (req, res) => {
       return res.status(500).json({ message: "User not created" });
     }  
 
+    const user = dbUserData.get({plain:true})
+
     req.session.save(() => {
       req.session.logged_in = true;
-      req.session.user = dbUserData;
+      req.session.user = user.id;
       res.status(200).json(dbUserData);
     });  
     
@@ -62,9 +64,11 @@ router.post('/login', async (req, res) => {
     res.status(400).json({message: "wrong password"});
   }
 
+  const user = dbUserData.get({plain:true})
+
   req.session.save(() => {
     req.session.logged_in = true;
-    req.session.user = dbUserData;
+    req.session.user = user.id;
     res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
   })
 
