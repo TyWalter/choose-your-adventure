@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Login } = require('../../models');
 
-//doesnt work but things are saved to the database
+//doesn't work but things are saved to the database
 router.get("/", async (req, res) => {
   try {
     const logins = await Login.findAll(); // Retrieve all records from the Login table
@@ -54,7 +54,7 @@ router.post('/login', async (req, res) => {
   if (!dbUserData) {
     return res.status(400).json({ message: "User not found" });
   }
-      
+  // check if await has any effect below  
   const validPassword = await dbUserData.checkPassword(req.body.upass);
 
   if(!validPassword){
@@ -88,7 +88,7 @@ router.post('/logout', (req, res) => {
 router.post('/profile', async (req, res) =>{
   if( !req.session.user ) res.status(401).json({ msg: 'not logged in'})
   const newCharacter = {...req.body, login_id: req.session.user.id}
-
+// characterName is declared, but not read? const characterName: any?
   try {
     const characterName = await Character.create(newCharacter)
   }
