@@ -7,6 +7,14 @@ const getStatsFromDatabase = async () => {
       deaths: await db.getDeaths(),
     };
   };
+  app.put('/api/stats', async (req, res) => {
+    try {
+      const stats = await getStatsFromDatabase();
+      res.json(stats);
+    } catch (error) {
+      res.status(500).json({ error: 'Failed to fetch stats' });
+    }
+  });
   
   app.get('/api/stats', async (req, res) => {
     try {
