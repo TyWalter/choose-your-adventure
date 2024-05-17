@@ -83,4 +83,16 @@ router.post('/logout', (req, res) => {
   }
 });
 
+
+router.post('/profile', (req, res) =>{
+  try {
+    const characterName = await Login.findByPk({
+      where: {
+        first_name: req.body.uname,
+      },
+    })
+  }
+})
+
+
 module.exports = router;
