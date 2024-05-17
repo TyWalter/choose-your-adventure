@@ -1,24 +1,4 @@
-// this will contain all the logic to make level two work 
-
-// Importing level_3_Story from the module if it's nested within another object
-//const { storyObject: { level_3_Story } } = require("../../storyarray/storyarray");
-
-
-//const { level_3_Story } = require("../../storyarray/storyarray");
-
-// const level_2_Story = {
-//     // storyStart: 
-
-
-const oldMusic = document.getElementById('background')
-oldMusic.remove()
-const newMusic = document.createElement('audio')
-const source = document.createElement('source')
-source.setAttribute('src', '/audio/level2.wav')
-newMusic.appendChild(source)
-document.body.appendChild(newMusic)
-newMusic.play()
-
+// Level 2 story logic
 const story = {
     part1: {
         description: `The bandits are all dead by your blade and you notice footprints in the dirt that lead off the path. It might lead to the Princess…`,
@@ -46,200 +26,165 @@ const story = {
         rightResult: `The noise of your entrance startles the sleeping assassins. You see the one they call Bootstrap rises from his cot on the ground with a look of surprise. You go forward slicing him in half before he has time to draw his blade. You hear a noise behind you, it's Princess Katy slaying Flex-box where he stands. You feel a blade fly by your right ear barely missing you. You swing around and engage the infamous and very beautiful killer known only as CSS. She lunges towards you, teeth bared and eyes bright. You dodge, but a split second too late and the blade grazes your arm. It's your turn as you step forward and thrust your blade into her stomach. Her face displays a look of surprise and pain. “Why?’ she asks as she falls to the floor and dies.`,
         // img: $('body').css('background-image', 'url("../../public/imgs/blood-png-7140(1).PNG")'),
     }
-}
+};
 
-let mainText = $("#stupid-div").css('backgroundColor', 'white');
-// let createdText = $("<div>")
-let button1 = $("<button>").addClass('btn btn-outline-dark')
+let mainText = $("#stupid-div");
+let button1 = $("<button>").addClass('btn btn-outline-dark');
 let button2 = $("<button>").addClass('btn btn-outline-dark');
 let button3 = $("<button>").addClass('btn btn-outline-dark');
+let button4 = $("<button>").addClass('btn btn-outline-dark');
 let nextLevelButton = $("<button>").addClass('btn btn-outline-dark');
 let bloodscreen = $("<div>").addClass('overlay-image');
 let played = 0;
 let wins = 0;
 let deaths = 0;
 let losses = 0;
-// let button3 = $("<button>").addClass('btn btn-outline-dark')
-// let button4 = $("<button>").addClass('btn btn-outline-dark');
+const oldMusic = document.getElementById('background');
+const newMusic = document.createElement('audio');
+const source = document.createElement('source');
 
 function startStory() {
     mainText.html(`<span>${story.part1.description}</span>`);
     $('body').css('backgroundImage', 'url("../imgs/Runningaftertheprincess.PNG")');
     button2.text("next");
-    $(mainText).append(button2);
+    mainText.append(button2);
+    oldMusic.remove();
+    source.setAttribute('src', '/audio/level2.wav');
+    newMusic.appendChild(source);
+    document.body.appendChild(newMusic);
+    newMusic.play();
+    newMusic.volume = .05;
     renderStoryStart();
-}
+};
 
 function renderStoryStart() {
     button2.on('click', function(event) {
         event.stopPropagation();
-        $(mainText).html(`<span>${story.part1.question}</span>`);
-        $(button2).text(story.part1.wrongChoice);
-        $(button1).text(story.part1.rightChoice);
-        $(mainText).append(button1, button2);
-
-        // Ensure that resultOfButton2 is called when button2 is clicked
+        mainText.html(`<span>${story.part1.question}</span>`);
+        button2.text(story.part1.wrongChoice);
+        button1.text(story.part1.rightChoice);
+        mainText.append(button1, button2);
         resultOfButton1();
-        resultOfButton2(); // Make sure this line is present to call the function
+        resultOfButton2(); 
     });
-}
-function resultOfButton1(event) {
+};
+
+function resultOfButton1() {
     button1.on('click', function (event) {
-        event.stopPropagation()
-        console.log('this is button 1')
-        // mainText.children("span").text();
-        $('body').css('backgroundImage', 'url("../imgs/Runningaftertheprincess.PNG")')
+        event.stopPropagation();
+        $('body').css('backgroundImage', 'url("../imgs/Runningaftertheprincess.PNG")');
         renderPart2();
-        return
     });
-}
+};
 
 function resultOfButton2() {
     button2.on('click', function (event) {
-        event.stopPropagation()
-        console.log('made it into button2')
+        event.stopPropagation();
         mainText.text(story.part1.wrongResult);
-        $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")')
+        $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")');
         button3.text('StartOver');
-        button3.attr('onclick', "location.href = '/game/2'")
-        mainText.append(button3)
-        losses++;
+        button3.attr('onclick', "location.href = '/game/2'");
+        mainText.append(button3);
+        deaths++;
         played++;
     });
-}
-
-
-// function renderWrongChoice(){
-//     document.addEventListener('click', function () {
-//         console.log('rednerwrong choise')
-//         $(mainText).text(story.part1.wrongResult);
-//         $('body').css('background-image', 'url("../../public/imgs/alterending.PNG")')
-//         // img append to body
-//     })
-// }
+};
 
 function renderPart2() {
-    console.log("ok")
-    console.log(mainText)
     mainText.html(`<span>${story.part2.description}</span>`);
-    $('body').css('backgroundImage', 'url("../imgs/Runningaftertheprincess.PNG")')
+    $('body').css('backgroundImage', 'url("../imgs/Runningaftertheprincess.PNG")');
     mainText.children("span").text();
     mainText.children("button").hide();
-
     button2.text(story.part2.wrongChoice);
     button1.text(story.part2.rightChoice);
     mainText.append(button1);
     mainText.append(button2);
     resultOfButton2Part2();
     resultOfButton1Part2();
-}
+};
 
-function resultOfButton1Part2(event) {
+function resultOfButton1Part2() {
     button1.on('click', function (event) {
-        event.stopPropagation()
-        console.log('this is button 1 part 2')
-        // mainText.children("span").text();
+        event.stopPropagation();
         renderPart3();
-        return
     });
-
-}
+};
 
 function resultOfButton2Part2() {
-    $(button2).on('click', function (event) {
-        event.stopPropagation()
-        console.log('made it into button2')
-        $(mainText).text(story.part2.wrongResult);
-        $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")')
+    button2.on('click', function (event) {
+        event.stopPropagation();
+        mainText.text(story.part2.wrongResult);
+        $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")');
         button3.text('StartOver');
+        button3.attr('onclick', "location.href = '/game/2'");
+        mainText.append(button3);
         deaths++;
         played++;
-    
     });
-}
+};
 
 function renderPart3() {
-    console.log("ok")
-    console.log(mainText)
     mainText.html(`<span>${story.part3.description}</span>`);
-    $('body').css('backgroundImage', 'url("../imgs/swamp.PNG")')
-    // this could use a new img
+    $('body').css('backgroundImage', 'url("../imgs/swamp.PNG")');
     mainText.children("span").text();
     mainText.children("button").hide();
-
     button2.text(story.part3.wrongChoice);
     button1.text(story.part3.rightChoice);
     mainText.append(button1);
     mainText.append(button2);
     resultOfButton2Part3();
     resultOfButton1Part3();
-        //get riddle random
-    getRiddle();
-}
+    const randomNumber = Math.floor(Math.random() * 16) + 1;
+    getRiddle(randomNumber);
+};
+
+function resultOfButton1Part3() {
+    button1.on('click', function (event) {
+        event.stopPropagation();
+        $('body').css('backgroundImage', 'url("../imgs/dizzy-the-god.PNG")');
+        mainText.text("Congratulations You beat Level 2 of the Queen and her Guard");
+        button4.text('Continue to Level 3');
+        button4.attr('onclick', "location.href = '/game/3'");
+        mainText.append(button4);
+        wins++;
+        played++;
+    });
+};
+
+function resultOfButton2Part3() {
+    button2.on('click', function (event) {
+        event.stopPropagation();
+        console.log('made it into button2');
+        mainText.text(story.part2.wrongResult);
+        $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")');
+        button3.text('StartOver');
+        button3.attr('onclick', "location.href = '/game/2'");
+        mainText.append(button3);
+        deaths++;
+        played++;
+    });
+};
+
 function getRiddle(num) {
     $.ajax({
         url: `/api/riddles/${num}`,
         method: 'GET',
         success: function (data) {
-            console.log(data.payload.answer)
-            mainText.text(data.payload.riddle)
-            button2.text(data.payload.answer);
+            mainText.text(data.payload.riddle);
+            button2.text(data.payload.rightanswer);
+            button1.text(data.payload.wronganswer);
             mainText.append(button1);
             mainText.append(button2);
             resultOfButton2Part3();
             resultOfButton1Part3();
-            // button1.text(story.part3.rightChoice);
         },
         error: function (xhr, status, error) {
             // Code to handle any errors
             console.error(status, error);
         }
     });
-}
-function resultOfButton1Part3(event) {
-    button1.on('click', function (event) {
-        event.stopPropagation()
-        console.log('this is button 1 part 2')
-        // we need an you won img
-        $('body').css('backgroundImage', 'url("../imgs/dizzy-the-god.PNG")')
-        $(mainText).text("Congratulations You beat Level 2 of the Queen and her Guard");
-        //button doesnt work and idk why 
-        button4.text('Continue to Level 3');
-        button4.attr('onclick', "location.href = '/game/3'")
-        mainText.append(button4);
-        wins++;
-        played++;
-        return
-    });
-}
+};
 
-function resultOfButton2Part3() {
-    button2.on('click', function (event) {
-        event.stopPropagation()
-        console.log('made it into button2')
-        $(mainText).text(story.part2.wrongResult);
-        $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")')
-        deaths++;
-        played++;
-        button3.text('StartOver');
-
-    });
-}
-// renderStoryStart();
-// resultOfButton1();
-// resultOfButton2();
-function startOver(event) {
-    button3.on('click', function (event) {
-        event.stopPropagation()
-        startStory();
-    });
-}
-function sendToLevel2(event) {
-    button4.on('click', function (event) {
-        event.stopPropagation()
-        //this button needs to send the user to the next level
-    })
-}
 function typeText(text, callback) {
     mainText.html(""); // Clear the text container
     new TypeIt("#text-container", {
@@ -251,7 +196,6 @@ function typeText(text, callback) {
             if (callback) callback();
         }
     }).go();
-}
-// 🗡️
-console.log(deaths, wins, losses, played)
-startStory()
+};
+
+startStory();
