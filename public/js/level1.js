@@ -119,14 +119,17 @@ function resultOfButton2Part2() {
 };
 
 function renderPart3() {
+    button1.on('click', function (event) {
+        event.stopPropagation();
     mainText.html(`<span>${story.part3.description}</span>`);
     $('body').css('backgroundImage', 'url("../imgs/shortcut.PNG")');
     mainText.children("span").text();
     mainText.children("button").hide();
-    let randomRiddle = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,16];
-    const randomIndex = Math.floor(Math.random() * randomRiddle.length);
-    const randomElement = randomRiddle[randomIndex];
-    getRiddle(randomElement);
+    button1.text('next')
+    mainText.append(button1);
+    randomRiddleButton();
+    })
+
 };
 
 function resultOfButton1Part3() {
@@ -154,6 +157,16 @@ function resultOfButton2Part3() {
         mainText.append(button3);
     });
 };
+
+function randomRiddleButton(){
+    button1.on('click', function(event){
+        event.stopPropagation();
+        let randomRiddle = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,16];
+        const randomIndex = Math.floor(Math.random() * randomRiddle.length);
+        const randomElement = randomRiddle[randomIndex];
+    getRiddle(randomElement);
+})
+}
 
 function getRiddle(num) {
     $.ajax({
