@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Login } = require('../../models');
+const { Login, Character } = require('../../models');
 
 //doesnt work but things are saved to the database
 router.get("/", async (req, res) => {
@@ -32,6 +32,7 @@ router.post("/", async (req, res) => {
 
     req.session.save(() => {
       req.session.logged_in = true;
+      req.session.user = dbUserData;
       res.status(200).json(dbUserData);
     });  
     
@@ -91,9 +92,13 @@ router.post('/profile', async (req, res) =>{
 
   try {
     const characterName = await Character.create(newCharacter)
+    if(!characterName){
+      return res.status(400).json({ message: "Character not created" });
+    }
   }
-  catch{
-
+  catch (err) {
+    console.log(err);
+    res.status(500).json(err.message);
   }
 })
 

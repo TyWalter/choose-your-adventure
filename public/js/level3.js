@@ -41,11 +41,11 @@ const story = {
 };
 
 let mainText = $("#stupid-div");
-let button1 = $("<button>").addClass('btn btn-outline-dark')
-let button2 = $("<button>").addClass('btn btn-outline-dark');
-let button3 = $("<button>").addClass('btn btn-outline-dark');
-let button4 = $("<button>").addClass('btn btn-outline-dark');
-let nextLevelButton = $("<button>").addClass('btn btn-outline-dark');
+let button1 = $("<button>").addClass('btn btn-outlin-light');
+let button2 = $("<button>").addClass('btn btn-outlin-light');
+let button3 = $("<button>").addClass('btn btn-outline-light');
+let button4 = $("<button>").addClass('btn btn-outline-light');
+let nextLevelButton = $("<button>").addClass('btn btn-outline-light');
 let bloodscreen = $("<div>").addClass('overlay-image');
 let played = 0;
 let wins = 0;
@@ -138,7 +138,7 @@ function renderPart3() {
     button1.on('click', function (event) {
         event.stopPropagation();
     mainText.html(`<span>${story.part3.description}</span>`);
-    $('body').css('backgroundImage', 'url("../imgs/shortcut.PNG")');
+    $('body').css('backgroundImage', 'url("../imgs/throneroom-img.PNG")');
     mainText.children("span").text();
     mainText.children("button").hide();
     button1.text('next')
