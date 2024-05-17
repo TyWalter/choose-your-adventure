@@ -30,11 +30,11 @@ const story = {
 };
 
 let mainText = $("#stupid-div");
-let button1 = $("<button>").addClass('btn btn-outline-dark');
-let button2 = $("<button>").addClass('btn btn-outline-dark');
-let button3 = $("<button>").addClass('btn btn-outline-dark');
-let button4 = $("<button>").addClass('btn btn-outline-dark');
-let nextLevelButton = $("<button>").addClass('btn btn-outline-dark');
+let button1 = $("<button>").addClass('btn btn-outlin-light');
+let button2 = $("<button>").addClass('btn btn-outlin-light');
+let button3 = $("<button>").addClass('btn btn-outline-light');
+let button4 = $("<button>").addClass('btn btn-outline-light');
+let nextLevelButton = $("<button>").addClass('btn btn-outline-light');
 let bloodscreen = $("<div>").addClass('overlay-image');
 let played = 0;
 let wins = 0;
