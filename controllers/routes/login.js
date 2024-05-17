@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
     // const result = await Login.findAll()
     // res.json({status: "success", payload: result});
     if(req.session.logged_in){
-      res.render('profile');
+      res.redirect('/profile');
       return;
     }
     res.render('login')

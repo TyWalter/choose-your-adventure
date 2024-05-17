@@ -15,9 +15,7 @@ Login.hasOne(Stats, {
     foreignKey: 'user_id',
 });
 
-Stats.belongsTo(Login, {
-    foreignKey: 'user_id',
-});
+Stats.belongsTo(Login);
 
 // Character.findAll()
 //     .then(character => {
@@ -36,12 +34,12 @@ Stats.belongsTo(Login, {
 //     });
 
 
-Stats.findAll()
-    .then(stats => {
-        console.log(stats); // Log the retrieved users
-    })
-    .catch(error => {
-        console.error('Error retrieving users:', error);
-    });
+// Stats.findAll()
+//     .then(stats => {
+//         console.log(stats); // Log the retrieved users
+//     })
+//     .catch(error => {
+//         console.error('Error retrieving users:', error);
+//     });
 
 module.exports = { Stats, Character, Login };

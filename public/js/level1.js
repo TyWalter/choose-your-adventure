@@ -220,7 +220,7 @@ function updateStats(result) {
         url: '/api/stats',
         method: 'PUT',
         contentType: 'application/json',
-        data: JSON.stringify(result),
+        data: JSON.stringify({result}),
         success: function(response) {
             console.log('Data updated:', response.message);
         },

@@ -4,13 +4,15 @@ const withAuth = require('../../utils/auth')
 
 // Get profile page and display
 router.get("/", withAuth, async (req, res) => {
+
+  console.log(req.session)
   try {
     const result = await Login.findByPk(req.session.user, {
+      include: Stats,
       attributes: {exclude: ['password']},
-      include: Stats
     });
     const user = result.get({plain:true});
-    console.log(user)
+    console.log("Profile rout user", user.stat)
     // res.json({status: "success", payload: result});
     res.render('profile', {
       user,
