@@ -47,20 +47,7 @@ let losses = 0;
 const music = document.getElementById('background');
 
 function startStory() {
-    const instance = new TypeIt("#stupid-div", {
-        strings: story.part1.description,
-        speed: 20,
-        waitUntilVisible: true,
-        })
-        .exec(async () => {
-            await new Promise((res, rej) => {
-                setTimeout(() => {
-                    return res();
-                }, 2000);
-            });
-        })
-        .go();
-    mainText.html(instance)
+    mainText.html(`<span>${story.part1.description}</span>`)
     mainText.append(button2);
     button2.text("next");
     $('body').css('backgroundImage', 'url("../imgs/startgame.PNG")');
@@ -99,6 +86,7 @@ function resultOfButton2() {
         mainText.append(button3);
         losses++;
         played++;
+        updateStats('losses')
     });
 };
 
@@ -134,6 +122,7 @@ function resultOfButton2Part2() {
         mainText.append(button3);
         deaths++;
         played++;
+        updateStats('deaths')
     });
 };
 
@@ -161,7 +150,7 @@ function resultOfButton1Part3() {
         mainText.append(button4);
         wins++;
         played++;
-        updateStats(num1, num2, num3, num4)
+        updateStats('wins')
     });
 };
 
@@ -174,6 +163,7 @@ function resultOfButton2Part3() {
         $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")');
         deaths++;
         played++;
+        updateStats('deaths')
         button3.text('StartOver');
         button3.attr('onclick', "location.href = '/game'");
         mainText.append(button3);
@@ -225,12 +215,12 @@ function typeText(text, callback) {
 
 
 
-function updateStats(num1, num2, num3, num4) {
+function updateStats(result) {
     $.ajax({
         url: '/api/stats',
         method: 'PUT',
         contentType: 'application/json',
-        data: JSON.stringify({ played: num1, wins: num2, deaths: num3, losses: num4 }),
+        data: JSON.stringify(result),
         success: function(response) {
             console.log('Data updated:', response.message);
         },

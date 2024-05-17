@@ -12,28 +12,28 @@ Character.belongsTo(Login, {
 });
 
 Login.hasOne(Stats, {
-    // foreignKey: 'login_id',
+    foreignKey: 'user_id',
 });
 
 Stats.belongsTo(Login, {
     foreignKey: 'user_id',
 });
 
-Character.findAll()
-    .then(character => {
-        console.log(character); // Log the retrieved users
-    })
-    .catch(error => {
-        console.error('Error retrieving users:', error);
-    });
+// Character.findAll()
+//     .then(character => {
+//         console.log(character); // Log the retrieved users
+//     })
+//     .catch(error => {
+//         console.error('Error retrieving users:', error);
+//     });
 
-Login.findAll()
-    .then(login => {
-        console.log(login); // Log the retrieved users
-    })
-    .catch(error => {
-        console.error('Error retrieving users:', error);
-    });
+// Login.findAll()
+//     .then(login => {
+//         console.log(login); // Log the retrieved users
+//     })
+//     .catch(error => {
+//         console.error('Error retrieving users:', error);
+//     });
 
 
 Stats.findAll()
