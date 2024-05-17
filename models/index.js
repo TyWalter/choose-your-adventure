@@ -4,19 +4,19 @@ const Character = require('./Character');
 const Stats = require('./Stats');
 
 Login.hasMany(Character, {
-    foreignKey: 'login_id',
+    // foreignKey: 'login_id',
 });
 
 Character.belongsTo(Login, {
-    foreignKey: 'login_id',
+    foreignKey: 'user_id',
 });
 
 Login.hasOne(Stats, {
-    foreignKey: 'login_id',
+    // foreignKey: 'login_id',
 });
 
 Stats.belongsTo(Login, {
-    foreignKey: 'login_id',
+    foreignKey: 'user_id',
 });
 
 Character.findAll()

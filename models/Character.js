@@ -13,16 +13,16 @@ Character.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        first_name: {
+        charname: {
             type: DataTypes.STRING
         },
-        login_id: {
-    type: DataTypes.INTEGER,
-    references: {
-        model: 'login',
-        key: 'id',
-    }
-}
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'login',
+                key: 'id',
+            }
+        }
     },
     {
         sequelize,
