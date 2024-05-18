@@ -1,16 +1,28 @@
-const startNewGame = document.querySelector('.startNewGame');
-
-
-startNewGame.addEventListener('click', async function(){
-    const characterName = document.querySelector('#charName').value;
-    const response = await fetch('/api/users/profile', {
+// Start new game with new character
+const characterCreator = async (event) => {
+	event.preventDefault();
+	const charName = document.querySelector('#charName').value;
+	const characterName = charName.toLowerCase();
+	if (characterName) {
+		try {
+      const nameFetch = await fetch(`/api/users/profile/${characterName}`, {
+        headers: { 'Content-Type': 'application/json' },
+      });
+      if (nameFetch.ok) {
+        throw new Error(`${characterName}'s story has already ended, choose a new adventurer!`);
+      };
+      const response = await fetch('/api/users/profile', {
         method: 'POST',
         body: JSON.stringify({ characterName }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-    if(characterName){
-        document.location.replace('/game')
+        headers: { 'Content-Type': 'application/json' },
+      });
+      if (response.ok) {
+        document.location.replace('/game');
+      }
+    } catch (error) {
+      alert(error.message);
     }
-})
+	}
+};
+
+document.querySelector('#startNewGame').addEventListener('submit', characterCreator);

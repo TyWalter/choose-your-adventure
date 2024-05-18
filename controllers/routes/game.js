@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const {Login} = require("../../models");
 const withAuth = require('../../utils/auth')
 
 // Get all game info

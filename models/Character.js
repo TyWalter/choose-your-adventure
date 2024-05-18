@@ -1,11 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Character extends Model {
-	checkPassword(upass) {
-		return bcrypt.compareSync(upass, this.password);
-	};
-};
+class Character extends Model { };
 
 Character.init(
 	{
@@ -16,7 +12,9 @@ Character.init(
 			autoIncrement: true,
 		},
 		charname: {
-			type: DataTypes.STRING
+			type: DataTypes.STRING,
+			unique: true,
+			allowNull: false,
 		},
 		user_id: {
 			type: DataTypes.INTEGER,

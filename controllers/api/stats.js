@@ -14,7 +14,7 @@ router.put('/', async (req, res) => {
   console.log(req.session)
   try {
     const result = req.body.result
-    const stats = await Stats.findOne({ where: { user_id: req.session.user } })
+    const stats = await Stats.findOne({ where: { user_id: req.session.user_id } })
     console.log(stats)
     stats.increment(result)
     stats.increment('played')

@@ -23,11 +23,11 @@
       </div>
       <form id="signup">
         <label for="sname" hidden="hidden"></label><br>
-        <input type="text" id="sname" placeholder="Enter a username" />
+        <input type="text" id="sname" placeholder="Enter a username" required />
         <label for="semail" hidden="hidden"></label><br>
-        <input type="text" id="semail" placeholder="Enter an email" />
+        <input type="email" id="semail" placeholder="Enter an email" required />
         <label for="spass" hidden="hidden"></label><br>
-        <input type="password" id="spass" placeholder="Enter a password" />
+        <input type="password" id="spass" placeholder="Enter a password" required minlength="4"/>
         <input type="submit" id="ssubmit" value="Create Account">
       </form>
     </div>
