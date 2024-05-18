@@ -13,6 +13,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/login", async (req, res) => {
+  try {
+    const logged = await Login.findAll()
+    res.json({status: "success", payload: logged});
+  }catch(err){
+    res.status(400).json({ status:"error" });
+  };
+});
+
 
 //Create new profile
 router.post("/", async (req, res) => {
@@ -103,15 +112,8 @@ router.post('/logout', (req, res) => {
   }
 });
 
-
 router.post('/profile', async (req, res) =>{
   if( !req.session.user ) res.status(401).json({ msg: 'not logged in'})
-  // console.log("req body " + req.body);
-  // console.log("req.session " + req.session);
-  // const newCharacter = {...req.body, login_id: req.session.user}
-  // console.log("new character " + newCharacter);
-
-
   try {
     const newCharacter = await Character.create({
       charname: req.body.characterName,
@@ -127,14 +129,13 @@ router.post('/profile', async (req, res) =>{
   catch (err) {
     console.log(err);
     res.status(500).json(err);
-
   }
-})
+});
 
 router.get('/profile', async (req, res) => {
- const charData = await Character.findAll()
- res.json(charData)
-})
+  const charData = await Character.findAll()
+  res.json(charData)
+});
 
 
 module.exports = router;

@@ -3,9 +3,7 @@ const Login = require('./Login');
 const Character = require('./Character');
 const Stats = require('./Stats');
 
-Login.hasMany(Character, {
-    // foreignKey: 'login_id',
-});
+Login.hasMany(Character);
 
 Character.belongsTo(Login, {
     foreignKey: 'user_id',
