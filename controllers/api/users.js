@@ -1,105 +1,107 @@
 const router = require('express').Router();
 const { Login, Character, Stats } = require('../../models');
 
-//doesn't work but things are saved to the database
+// Get users
 router.get("/", async (req, res) => {
   try {
-    const logins = await Login.findAll(); // Retrieve all records from the Login table
-
-    res.json({ status: "success", payload: logins }); // Send the retrieved data as JSON response
+    const logins = await Login.findAll({
+      attributes: {
+        exclude: ["password"]
+      }
+    });
+    res.json({ status: "success", payload: logins });
   } catch (err) {
     console.error(err);
     res.status(400).json({ status: "error" });
-  }
-});
-
-router.get("/login", async (req, res) => {
-  try {
-    const logged = await Login.findAll()
-    res.json({status: "success", payload: logged});
-  }catch(err){
-    res.status(400).json({ status:"error" });
   };
 });
 
-
-//Create new profile
-router.post("/", async (req, res) => {
-  console.log(req.body.password)
-
+// Login
+router.get("/profile", async (req, res) => {
   try {
-    const dbUserData = await Login.create({
-      user_name: req.body.sname,
-      email: req.body.semail,
-      password: req.body.spass,
-
+    const chars = await Character.findAll({
+      attributes: {
+        exclude: ["loginId"]
+      }
     });
+    res.json({ status: "success", payload: chars });
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ status: "error" });
+  };
+});
 
-    if (!dbUserData) {
-      return res.status(500).json({ message: "User not created" });
-    }  
-
-    const user = dbUserData.get({plain:true})
-
-    const statData = await Stats.create({
-      played: 0,
-      wins: 0,
-      losses: 0,
-      deaths: 0,
-      user_id: user.id
+// Get characters by account
+router.get("/profile/:characterName", async (req,res) => {
+  console.log(Character)
+  try{
+    const chars = await Character.findOne({
+      where: {
+        charname: req.params.characterName
+      },
+      attributes: {
+        exclude: ["loginId"]
+      }
     })
-
-    if (!statData) {
-      return res.status(500).json({ message: "User not created" });
-    }  
-
-    req.session.save(() => {
-      req.session.logged_in = true;
-      req.session.user = user.id;
-      res.status(200).json(dbUserData);
-    });  
-    
-    } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
+    if(chars){
+      res.status(200).json(chars)
+    } else {
+      res.status(404).json({ status: "error", message: "Character not found" });
     }
-})
+  } catch (err) {
+    res.status(500).json({ status: "error", message: "Internal server error" });
+  }
+});
 
-//login
+// Get user by user_name
+router.get("/:user_name", async (req,res) => {
+  try{
+    const logins = await Login.findOne({
+      where: {
+        user_name: req.params.user_name
+      },
+      attributes: {
+        exclude: ["password", ]
+      }
+    })
+    if(logins){
+      res.status(200).json(logins)
+    } else {
+      res.status(404).json({ status: "error", message: "User not found" });
+    }
+  } catch (err) {
+    res.status(500).json({ status: "error", message: "Internal server error" });
+  }
+});
+
 router.post('/login', async (req, res) => {
   try {
     const dbUserData = await Login.findOne({
       where: {
-        user_name: req.body.uname,
+        user_name: req.body.uname
       },  
-    }    
-);
-
-  if (!dbUserData) {
-    return res.status(400).json({ message: "User not found" });
-  }
-  // check if await has any effect below  
-  const validPassword = await dbUserData.checkPassword(req.body.upass);
-
-  if(!validPassword){
-    res.status(400).json({message: "wrong password"});
-  }
-
-  const user = dbUserData.get({plain:true})
-
-  console.log(user)
-
-  req.session.save(() => {
-    req.session.logged_in = true;
-    req.session.user = user.id;
-    res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
-  })
-
+    });
+    if (!dbUserData) {
+      res.status(400).json({ message: "User not found" });
+      return;
+    }
+    // check if await has any effect below  
+    const validPassword = await dbUserData.checkPassword(req.body.upass);
+    if(!validPassword){
+      res.status(400).json({message: "wrong password"});
+      return;
+    }
+    // const user = dbUserData.get({plain:true});
+    req.session.save(() => {
+      req.session.logged_in = true;
+      req.session.user_id = dbUserData.id;
+      res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
-}
-})
+  }
+});
 
 // Logout
 router.post('/logout', (req, res) => {
@@ -112,12 +114,13 @@ router.post('/logout', (req, res) => {
   }
 });
 
+// Character create
 router.post('/profile', async (req, res) =>{
-  if( !req.session.user ) res.status(401).json({ msg: 'not logged in'})
+  if( !req.session.user_id ) res.status(401).json({ msg: 'not logged in'})
   try {
     const newCharacter = await Character.create({
       charname: req.body.characterName,
-      user_id: req.session.user,
+      user_id: req.session.user_id,
     })
 
     if (!newCharacter) {
@@ -128,14 +131,40 @@ router.post('/profile', async (req, res) =>{
   }
   catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    res.status(500).json(err.message);
   }
 });
 
-router.get('/profile', async (req, res) => {
-  const charData = await Character.findAll()
-  res.json(charData)
+// Create new profile
+router.post("/", async (req, res) => {
+  try {
+    const dbUserData = await Login.create({
+      user_name: req.body.sname,
+      email: req.body.semail,
+      password: req.body.spass,
+    });
+    if (!dbUserData) {
+      return res.status(500).json({ message: "User not created" });
+    }  
+    const statData = await Stats.create({
+      played: 0,
+      wins: 0,
+      losses: 0,
+      deaths: 0,
+      user_id: dbUserData.id
+    })
+    if (!statData) {
+      return res.status(500).json({ message: "User not created" });
+    }  
+    req.session.save(() => {
+      req.session.logged_in = true;
+      req.session.user_id = dbUserData.id;
+      res.status(200).json(dbUserData);
+    })
+    } catch (err) {
+      console.log(err);
+      res.status(400).json(err);
+    }
 });
-
 
 module.exports = router;

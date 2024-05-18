@@ -21,10 +21,16 @@
 <body>
   <header>
     <h1><a href="/">The Queen and Her Guard</a></h1>
-    <h2 class="LoggedInUser" style="display: none">logged in as {{user_name}}</h2>
+    {{#if logged_in}}
+      <h2 class="LoggedInUser">logged in as {{user.user_name}}</h2>
+    {{/if}}
     <nav style="display: flex" class="align-items-center">
-      <button type="button" onclick="location.href = '/login'" class="logged">Login / Signup</button>
-      <img class="crownProfile" src="https://em-content.zobj.net/source/microsoft/309/crown_1f451.png" alt="crown" onclick="location.href = '/profile'" />
+      {{#if logged_in}}
+        <button type="button" class="loggedIn">Log Out</button>
+        <img class="crownProfile" src="https://em-content.zobj.net/source/microsoft/309/crown_1f451.png" alt="crown" onclick="location.href = '/profile'" />
+        {{else}}
+        <button type="button" onclick="location.href = '/login'" class="logged">Login / Signup</button>
+      {{/if}}
     </nav>
   </header>
   {{{body}}}
@@ -37,7 +43,11 @@
   <!-- Bootstrap script tag --->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <!-- JS script tag -->
+  {{#if logged_in}}
 
+  <script type="text/javascript" src="../js/home.js"></script>
+
+  {{/if}}
 </body>
 
 </html>

@@ -236,7 +236,7 @@ input:focus {
   outline: 1px solid var(--hover);
 }
 
-#usubmit:active, #ssubmit:active, .startNewGame:active {
+#usubmit:active, #ssubmit:active, #startGame:active {
   font-size: 19px;
   width: 59%;
   height: 32px;
@@ -244,7 +244,7 @@ input:focus {
   margin-bottom: 2px;
 }
 
-#usubmit:hover, #ssubmit:hover, .startNewGame:hover {
+#usubmit:hover, #ssubmit:hover, #startGame:hover {
   cursor: url('../imgs/sword.png'), auto;
 }
 

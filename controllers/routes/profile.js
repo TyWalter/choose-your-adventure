@@ -5,15 +5,23 @@ const withAuth = require('../../utils/auth')
 // Get profile page and display
 router.get("/", withAuth, async (req, res) => {
 
-  console.log(req.session)
   try {
-    const result = await Login.findByPk(req.session.user, {
-      include: Stats,
-      attributes: {exclude: ['password']},
+    const finder = await Login.findOne({
+      where: {
+        id: req.session.user_id
+      }
     });
-    const user = result.get({plain:true});
+    const chars = await Stats.findOne({
+      where: {
+        user_id: req.session.user_id
+      }
+    });
+    const user = finder.get({plain:true});
+    const char = chars.get({plain: true});
+    console.log(char)
     res.render('profile', {
       user,
+      char,
       logged_in: req.session.logged_in
     })
   }catch(err){
