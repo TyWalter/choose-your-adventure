@@ -23,7 +23,6 @@ img {
   height: 50px;
   width: 50px;
   border-radius: 40%;
-  cursor: url('../imgs/sword.png'), auto;
   margin: .5% 0 0 1%;
 }
 
@@ -42,7 +41,7 @@ h2 {
   width: 70px;
 }
 
-.tryingOut:hover {
+#sendToHome, #sendToProfile {
     cursor: url('../imgs/sword.png'), auto;
 }
 
@@ -51,28 +50,29 @@ h2 {
 }
 
 #stupid-div{
-  border: 2px solid rgba(0, 0, 0, 0.5); /* Border with 50% transparency */
-  background-color: rgba(47, 62, 70, 0.8); /* Background color with 50% transparency */
-  padding: 10px; /* Padding of 10px */
-  border-radius: 10px; /* Rounded corners with a border radius of 10px */
-  color: #84A98C; /* Text color */
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  background-color: rgba(53, 79, 82, 0.75);
+  padding: 10px;
+  border-radius: 10px;
+  color: var(--light);
   position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
+
 .btn{
   background-color: rgba(240, 248, 255, 0.3);
 }
 
 #death{
   position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'Bloody', sans-serif;
-    font-size: 200px;
-    color: var(--darkBlood);
-    -webkit-text-stroke-width: 5px;
-    -webkit-text-stroke-color: var(--lightBlood);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Bloody', sans-serif;
+  font-size: 200px;
+  color: var(--darkBlood);
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: var(--lightBlood);
 }

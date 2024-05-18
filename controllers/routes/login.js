@@ -4,8 +4,6 @@ const {Login} = require("../../models");
 // Get login/signup page and display
 router.get("/", async (req, res) => {
   try {
-    // const result = await Login.findAll()
-    // res.json({status: "success", payload: result});
     if(req.session.logged_in){
       res.redirect('/profile');
       return;

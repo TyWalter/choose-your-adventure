@@ -31,39 +31,33 @@ const story = {
     }
 };
 
-let mainText = $("#stupid-div");
-let deathText = $('#death')
-let deathDiv = $("<div>").addClass('death')
-let button1 = $("<button>").addClass('btn btn-outlin-light');
-let button2 = $("<button>").addClass('btn btn-outlin-light');
-let button3 = $("<button>").addClass('btn btn-outline-light');
-let button4 = $("<button>").addClass('btn btn-outline-light');
-let nextLevelButton = $("<button>").addClass('btn btn-outline-light');
-let bloodscreen = $("<div>").addClass('overlay-image');
-let played = 0;
-let wins = 0;
-let deaths = 0;
-let losses = 0;
 const music = document.getElementById('background');
+let mainText = $("#stupid-div");
+let deathText = $('#death');
+let deathDiv = $("<div>").addClass('death');
+let button1 = $("<button>").addClass('choice btn btn-outline-light');
+let button2 = $("<button>").addClass('choice btn btn-outline-light');
+let button3 = $("<button>").addClass('continue btn btn-outline-light');
+let button4 = $("<button>").addClass('riddle btn btn-outline-light');
+let button5 = $("<button>").addClass('riddle btn btn-outline-light');
 
 function startStory() {
-    mainText.html(`<span>${story.part1.description}</span>`)
-    mainText.append(button2);
-    button2.text("next");
     $('body').css('backgroundImage', 'url("../imgs/startgame.PNG")');
+    mainText.html(`<span>${story.part1.description}</span>`)
+    button3.text("next");
+    mainText.append(button3);
     music.play();
     music.volume = .05;
     renderStoryStart();
 };
 
 function renderStoryStart() {
-    button2.on('click', function (event) {
+    button3.on('click', function (event) {
         event.stopPropagation();
-        mainText.html(`<span>${story.part1.question}</span>`); // which path do you choose 
-        button2.text(story.part1.wrongChoice); //main path
-        button1.text(story.part1.rightChoice); //the short cut 
-        mainText.append(button1); // thisis the two buttons with this text
-        mainText.append(button2);
+        mainText.html(`<span>${story.part1.question}</span>`);
+        button1.text(story.part1.rightChoice);
+        button2.text(story.part1.wrongChoice);
+        mainText.append(button1, button2);
         resultOfButton1();
         resultOfButton2();
     });
@@ -79,24 +73,22 @@ function resultOfButton1() {
 function resultOfButton2() {
     button2.on('click', function (event) {
         event.stopPropagation();
-        mainText.text(story.part1.wrongResult);
         $('body').css('backgroundImage', 'url("../imgs/alterending.PNG")');
-        button3.text('StartOver');
-        button3.attr('onclick', "location.href = '/game'");
-        mainText.append(button3);
-        losses++;
-        played++;
+        mainText.text(story.part1.wrongResult);
+        button2.text('StartOver');
+        button2.attr('onclick', "location.href = '/profile'");
+        mainText.append(button2);
         updateStats('losses')
     });
 };
 
 function renderPart2() {
-    mainText.html(`<span>${story.part2.description}</span>`);
     $('body').css('backgroundImage', 'url("../imgs/shortcut.PNG")');
+    mainText.html(`<span>${story.part2.description}</span>`);
     mainText.children("span").text();
     mainText.children("button").hide();
-    button2.text(story.part2.wrongChoice);
     button1.text(story.part2.rightChoice);
+    button2.text(story.part2.wrongChoice);
     mainText.append(button1);
     mainText.append(button2);
     resultOfButton1Part2();
@@ -113,72 +105,34 @@ function resultOfButton1Part2() {
 function resultOfButton2Part2() {
     button2.on('click', function (event) {
         event.stopPropagation();
-        mainText.text(story.part2.wrongResult);
         $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")');
+        mainText.text(story.part2.wrongResult);
         deathDiv.text("You Died");
         deathText.append(deathDiv);
         button3.text('StartOver');
-        button3.attr('onclick', "location.href = '/game'");
+        button3.attr('onclick', "location.href = '/profile'");
         mainText.append(button3);
-        deaths++;
-        played++;
         updateStats('deaths')
     });
 };
 
 function renderPart3() {
-    button1.on('click', function (event) {
-        event.stopPropagation();
-    mainText.html(`<span>${story.part3.description}</span>`);
     $('body').css('backgroundImage', 'url("../imgs/shortcut.PNG")');
+    mainText.html(`<span>${story.part3.description}</span>`);
     mainText.children("span").text();
     mainText.children("button").hide();
-    button1.text('next')
-    mainText.append(button1);
+    button3.text('next')
+    mainText.append(button3);
     randomRiddleButton();
-    })
-
-};
-
-function resultOfButton1Part3() {
-    button1.on('click', function (event) {
-        event.stopPropagation();
-        $('body').css('backgroundImage', 'url("../imgs/your-characcter.jpg")');
-        mainText.text("Congratulations You beat Level 1 of the Queen and her Guard");
-        button4.text('Continue to Level 2');
-        button4.attr('onclick', "location.href = '/game/2'; music.pause()");
-        mainText.append(button4);
-        wins++;
-        played++;
-        updateStats('wins')
-    });
-};
-
-function resultOfButton2Part3() {
-    button2.on('click', function (event) {
-        event.stopPropagation();
-        mainText.text(story.part2.wrongResult);
-        deathDiv.text("You Died");
-        deathText.append(deathDiv);
-        $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")');
-        deaths++;
-        played++;
-        updateStats('deaths')
-        button3.text('StartOver');
-        button3.attr('onclick', "location.href = '/game'");
-        mainText.append(button3);
-    });
 };
 
 function randomRiddleButton(){
-    button1.on('click', function(event){
+    button3.on('click', function(event){
         event.stopPropagation();
-        let randomRiddle = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,16];
-        const randomIndex = Math.floor(Math.random() * randomRiddle.length);
-        const randomElement = randomRiddle[randomIndex];
-    getRiddle(randomElement);
-})
-}
+        const randomNum = Math.floor(Math.random() * 16) + 1;
+        getRiddle(randomNum);
+    });
+};
 
 function getRiddle(num) {
     $.ajax({
@@ -186,12 +140,12 @@ function getRiddle(num) {
         method: 'GET',
         success: function (data) {
             mainText.text(data.payload.riddle)
-            button1.text(data.payload.rightanswer);
-            button2.text(data.payload.wronganswer);
-            mainText.append(button1);
-            mainText.append(button2);
-            resultOfButton2Part3();
+            button4.text(data.payload.rightanswer);
+            button5.text(data.payload.wronganswer);
+            mainText.append(button4);
+            mainText.append(button5);
             resultOfButton1Part3();
+            resultOfButton2Part3();
         },
         error: function (xhr, status, error) {
             // Code to handle any errors
@@ -200,20 +154,30 @@ function getRiddle(num) {
     });
 };
 
-function typeText(text, callback) {
-    mainText.html(""); // Clear the text container
-    new TypeIt("#tested123", {
-        strings: [text],
-        speed: 75,
-        cursorChar: "🗡️",
-        afterComplete: function (instance) {
-            instance.destroy();
-            if (callback) callback();
-        }
-    }).go();
+function resultOfButton1Part3() {
+    button4.on('click', function (event) {
+        event.stopPropagation();
+        $('body').css('backgroundImage', 'url("../imgs/your-characcter.jpg")');
+        mainText.text("Congratulations You beat Level 1 of the Queen and her Guard");
+        button3.text('Continue to Level 2');
+        button3.attr('onclick', "location.href = '/game/2'; music.pause()");
+        mainText.append(button3);
+    });
 };
 
-
+function resultOfButton2Part3() {
+    button5.on('click', function (event) {
+        event.stopPropagation();
+        $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")');
+        mainText.text(story.part2.wrongResult);
+        deathDiv.text("You Died");
+        deathText.append(deathDiv);
+        button3.text('StartOver');
+        button3.attr('onclick', "location.href = '/profile'");
+        mainText.append(button3);
+        updateStats('deaths')
+    });
+};
 
 function updateStats(result) {
     $.ajax({
@@ -228,6 +192,19 @@ function updateStats(result) {
             console.error('Error updating data:', error);
         }
     });
-}
+};
+
+function typeText(text, callback) {
+    mainText.html(""); // Clear the text container
+    new TypeIt("#stupid-div", {
+        strings: [text],
+        speed: 75,
+        cursorChar: "🗡️",
+        afterComplete: function (instance) {
+            instance.destroy();
+            if (callback) callback();
+        }
+    }).go();
+};
 
 startStory();

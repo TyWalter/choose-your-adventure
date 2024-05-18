@@ -1,8 +1,7 @@
 const riddles = require('../../utils/riddle.json');
 const router = require("express").Router();
 
-
-//get all answers
+// Get all riddles
 router.get("/", async (req, res) => {
   try {
     res.json({status: "success", payload: riddles});
@@ -11,7 +10,7 @@ router.get("/", async (req, res) => {
   };
 });
 
-//get answer by id
+// Get riddle by id
 router.get("/:id", async (req, res) => {
   try {
   res.json({status: "success", payload: riddles[req.params.id-1]});

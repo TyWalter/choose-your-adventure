@@ -3,7 +3,6 @@ const startNewGame = document.querySelector('.startNewGame');
 
 startNewGame.addEventListener('click', async function(){
     const characterName = document.querySelector('#charName').value;
-    // add things to make this send you home 
     const response = await fetch('/api/users/profile', {
         method: 'POST',
         body: JSON.stringify({ characterName }),
@@ -11,5 +10,7 @@ startNewGame.addEventListener('click', async function(){
             'Content-Type': 'application/json'
         }
     });
-    document.location.replace('/game')
+    if(characterName){
+        document.location.replace('/game')
+    }
 })

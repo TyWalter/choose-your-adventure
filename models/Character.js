@@ -1,35 +1,37 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Character extends Model { checkPassword(upass) {
-    return bcrypt.compareSync(upass, this.password);
-  }}
+class Character extends Model {
+	checkPassword(upass) {
+		return bcrypt.compareSync(upass, this.password);
+	};
+};
 
 Character.init(
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-        },
-        charname: {
-            type: DataTypes.STRING
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'login',
-                key: 'id',
-            }
-        }
-    },
-    {
-        sequelize,
-        timestamps: false,
-        underscored: true,
-        modelName: 'character'
-    }
+	{
+		id: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+			primaryKey: true,
+			autoIncrement: true,
+		},
+		charname: {
+			type: DataTypes.STRING
+		},
+		user_id: {
+			type: DataTypes.INTEGER,
+			references: {
+				model: 'login',
+				key: 'id',
+			}
+		}
+	},
+	{
+		sequelize,
+		timestamps: false,
+		underscored: true,
+		modelName: 'character'
+	}
 );
 
 

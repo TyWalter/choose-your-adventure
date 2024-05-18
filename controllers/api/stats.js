@@ -1,48 +1,29 @@
 const router = require('express').Router()
-const { Stats } = require('../../models')
+const {Stats, Login} = require('../../models')
 
+router.get('/', async (req, res) => {
+  try {
+    const stats = await Stats.findAll();
+    res.json(stats);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch stats' });
+  }
+});
 
-// const getStatsFromDatabase = async () => {
-//     // Example of fetching data from a database
-//     return {
-//       timesPlayed: await db.getTimesPlayed(),
-//       wins: await db.getWins(),
-//       losses: await db.getLosses(),
-//       deaths: await db.getDeaths(),
-//     };
-//   };
-  router.put('/', async (req, res) => {
-    console.log(req.session)
-    try {
-      const result = req.body.result
-      const stats = await Stats.findOne({ where: { user_id: req.session.user } })
-      console.log(stats)
-      stats.increment(result)
-      stats.increment('played')
+router.put('/', async (req, res) => {
+  console.log(req.session)
+  try {
+    const result = req.body.result
+    const stats = await Stats.findOne({ where: { user_id: req.session.user } })
+    console.log(stats)
+    stats.increment(result)
+    stats.increment('played')
 
-      res.json(stats);
-    } catch (error) {
-      console.log(error)
-      res.status(500).json({ error: 'Failed to fetch stats' });
-    }
-  });
-  
-  router.get('/', async (req, res) => {
-    try {
-      const stats = await getStatsFromDatabase();
-      res.json(stats);
-    } catch (error) {
-      res.status(500).json({ error: 'Failed to fetch stats' });
-    }
-  });
-  
-  // router.get('/', async (req, res) => {
-  //   try {
-  //     const stats = await getStatsFromDatabase();
-  //     res.render('stats', { stats });
-  //   } catch (error) {
-  //     res.status(500).send('Failed to render stats');
-  //   }
-  // });
+    res.json(stats);
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ error: 'Failed to fetch stats' });
+  }
+});
   
 module.exports = router
