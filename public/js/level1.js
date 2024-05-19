@@ -41,27 +41,27 @@ let button3 = $("<button>").addClass('continue btn btn-outline-light');
 let button4 = $("<button>").addClass('riddle btn btn-outline-light');
 let button5 = $("<button>").addClass('riddle btn btn-outline-light');
 
-function startStory() {
+async function startStory() {
     $('body').css('backgroundImage', 'url("../imgs/startgame.PNG")');
-    mainText.html(`<span>${story.part1.description}</span>`)
-    button3.text("next");
-    mainText.append(button3);
     music.play();
     music.volume = .05;
+    await typeText(`<p>${story.part1.description}</p>`);
+    button3.text("next");
+    mainText.append(button3);
     renderStoryStart();
 };
 
 function renderStoryStart() {
-    button3.on('click', function (event) {
+    button3.on('click', async function (event) {
         event.stopPropagation();
-        mainText.html(`<span>${story.part1.question}</span>`);
+        await typeText(`<p>${story.part1.question}</p>`);
         button1.text(story.part1.rightChoice);
         button2.text(story.part1.wrongChoice);
         mainText.append(button1, button2);
         resultOfButton1();
         resultOfButton2();
     });
-};
+}
 
 function resultOfButton1() {
     button1.on('click', function (event) {
@@ -71,21 +71,21 @@ function resultOfButton1() {
 };
 
 function resultOfButton2() {
-    button2.on('click', function (event) {
+    button2.on('click', async function (event) {
         event.stopPropagation();
         $('body').css('backgroundImage', 'url("../imgs/alterending.PNG")');
-        mainText.text(story.part1.wrongResult);
+        await typeText(`<p>${story.part1.wrongResult}</p>`);
         button2.text('StartOver');
-        button2.attr('onclick', "location.href = '/profile'");
+        button2.attr('onclick', "location.href = '/game'");
         mainText.append(button2);
         updateStats('losses')
     });
 };
 
-function renderPart2() {
+async function renderPart2() {
     $('body').css('backgroundImage', 'url("../imgs/shortcut.PNG")');
-    mainText.html(`<span>${story.part2.description}</span>`);
-    mainText.children("span").text();
+    await typeText(`<p>${story.part2.description}</p>`);
+    mainText.children("p").text();
     mainText.children("button").hide();
     button1.text(story.part2.rightChoice);
     button2.text(story.part2.wrongChoice);
@@ -103,23 +103,23 @@ function resultOfButton1Part2() {
 };
 
 function resultOfButton2Part2() {
-    button2.on('click', function (event) {
+    button2.on('click', async function (event) {
         event.stopPropagation();
         $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")');
-        mainText.text(story.part2.wrongResult);
+        await typeText(`<p>${story.part2.wrongResult}</p>`);
         deathDiv.text("You Died");
         deathText.append(deathDiv);
         button3.text('StartOver');
-        button3.attr('onclick', "location.href = '/profile'");
+        button3.attr('onclick', "location.href = '/game'");
         mainText.append(button3);
         updateStats('deaths')
     });
 };
 
-function renderPart3() {
+async function renderPart3() {
     $('body').css('backgroundImage', 'url("../imgs/shortcut.PNG")');
-    mainText.html(`<span>${story.part3.description}</span>`);
-    mainText.children("span").text();
+    await typeText(`<p>${story.part3.description}</p>`);
+    mainText.children("p").text();
     mainText.children("button").hide();
     button3.text('next')
     mainText.append(button3);
@@ -138,8 +138,8 @@ function getRiddle(num) {
     $.ajax({
         url: `/api/riddles/${num}`,
         method: 'GET',
-        success: function (data) {
-            mainText.text(data.payload.riddle)
+        success: async function (data) {
+            await typeText(`<p>${data.payload.riddle}</p>`)
             button4.text(data.payload.rightanswer);
             button5.text(data.payload.wronganswer);
             mainText.append(button4);
@@ -155,10 +155,10 @@ function getRiddle(num) {
 };
 
 function resultOfButton1Part3() {
-    button4.on('click', function (event) {
+    button4.on('click', async function (event) {
         event.stopPropagation();
         $('body').css('backgroundImage', 'url("../imgs/your-characcter.jpg")');
-        mainText.text("Congratulations You beat Level 1 of the Queen and her Guard");
+        await typeText(`<p>"Congratulations You beat Level 1 of the Queen and her Guard"</p>`);
         button3.text('Continue to Level 2');
         button3.attr('onclick', "location.href = '/game/2'; music.pause()");
         mainText.append(button3);
@@ -166,14 +166,14 @@ function resultOfButton1Part3() {
 };
 
 function resultOfButton2Part3() {
-    button5.on('click', function (event) {
+    button5.on('click', async function (event) {
         event.stopPropagation();
         $('body').css('backgroundImage', 'url("../imgs/deathscreen.PNG")');
-        mainText.text(story.part2.wrongResult);
+        await typeText(`<p>${story.part3.wrongResult}</p>`)
         deathDiv.text("You Died");
         deathText.append(deathDiv);
         button3.text('StartOver');
-        button3.attr('onclick', "location.href = '/profile'");
+        button3.attr('onclick', "location.href = '/game'");
         mainText.append(button3);
         updateStats('deaths')
     });
@@ -194,17 +194,28 @@ function updateStats(result) {
     });
 };
 
-function typeText(text, callback) {
-    mainText.html(""); // Clear the text container
-    new TypeIt("#stupid-div", {
-        strings: [text],
-        speed: 75,
-        cursorChar: "🗡️",
-        afterComplete: function (instance) {
-            instance.destroy();
-            if (callback) callback();
-        }
-    }).go();
-};
+async function typeText(text) {
+    mainText.html("");
+    return new Promise((resolve) => {
+        return new TypeIt("#stupid-div", {
+            strings: [text],
+            speed: 1,
+            cursor: false,
+            cursorChar: "🗡️",
+            afterComplete: function (instance) {
+                instance.destroy();
+                resolve();
+            }
+        })
+        .exec(async () => {
+            await new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    return resolve();
+                }, 650);
+            });
+        })
+        .go();
+    });
+}
 
 startStory();

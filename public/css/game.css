@@ -27,14 +27,9 @@ img {
 }
 
 
-nav {
+/* nav {
   display: inline;
-}
-
-h2 {
-  display: inline;
-  text-align: right;
-}
+} */
 
 .levelLogo {
   height: 70px;
@@ -62,6 +57,7 @@ h2 {
 }
 
 .btn{
+  display: inline-block;
   background-color: rgba(240, 248, 255, 0.3);
 }
 

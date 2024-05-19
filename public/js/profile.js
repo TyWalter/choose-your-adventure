@@ -5,18 +5,19 @@ const characterCreator = async (event) => {
 	const characterName = charName.toLowerCase();
 	if (characterName) {
 		try {
-      const nameFetch = await fetch(`/api/users/profile/${characterName}`, {
-        headers: { 'Content-Type': 'application/json' },
-      });
-      if (nameFetch.ok) {
-        throw new Error(`${characterName}'s story has already ended, choose a new adventurer!`);
-      };
+      // This was for character unique creation
+      // const nameFetch = await fetch(`/api/users/profile/${characterName}`, {
+      //   headers: { 'Content-Type': 'application/json' },
+      // });
+      // if (nameFetch.ok) {
+      //   throw new Error(`${characterName}'s story has already ended, choose a new adventurer!`);
+      // };
       const response = await fetch('/api/users/profile', {
         method: 'POST',
         body: JSON.stringify({ characterName }),
         headers: { 'Content-Type': 'application/json' },
       });
-      if (response.ok) {
+      if (response) {
         document.location.replace('/game');
       }
     } catch (error) {
