@@ -13,6 +13,7 @@ Character.init(
 		},
 		charname: {
 			type: DataTypes.STRING,
+			unique: false,
 			allowNull: false,
 		},
 		user_id: {

@@ -199,7 +199,7 @@ async function typeText(text) {
     return new Promise((resolve) => {
         return new TypeIt("#stupid-div", {
             strings: [text],
-            speed: 1,
+            speed: 20,
             cursor: false,
             cursorChar: "🗡️",
             afterComplete: function (instance) {
