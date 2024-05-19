@@ -4,8 +4,8 @@ const story = {
         description: `You are a well-experienced adventurer traveling to the next kingdom.  You awaken in your camp under a small tree feeling well rested for the journey ahead.  You pull out your map and examine it for the next kingdom.  You see a shortcut a villager marked on your map the day before.`,
         question: `Do you take the villager's shortcut or proceed to the well-worn path?`,
         wrongChoice: `You head down the main path.`,
-        rightChoice: `You head to the short cut`,
-        wrongResult: `Clearly, you are one for reliability and stability. Unfortunately, reliability and stability do not make for a good adventurer. To be a good adventurer one must take the path less traveled. The main path leads you to a nice town you settle down in and never go on another adventure ever again!`,
+        rightChoice: `You decide to take the short cut`,
+        wrongResult: `Clearly, you are one for reliability and stability. Unfortunately, reliability and stability do not make for a good adventurer. To be a good adventurer one must take the path less traveled. The main path leads you to a nice town that you settle in and never go on another adventure again!`,
         // img: $('body').css('background-image', 'url("imgs/startgame.PNG")')
     },
     part2: {
@@ -13,19 +13,19 @@ const story = {
         question: `Do you cut the rope and free the princess or do you leave her there?`,
         wrongChoice: `Cut the rope.`,
         rightChoice: `Don't cut the rope. `,
-        wrongResult: `You go up to the princess as she struggles and say "You're Princess Katy from the kingdom of Dizzylot, right? Are you okay? Do you need help? " She replies "Of course I am, What do you think? I'm tied to a tree!" You lean down to untie her and feel a sharp pain in the middle of your back. Blood sprays onto the princess' face as she looks up at you with an evil grin.The princess says "Nice shot boys! They are sure to have plenty of a loot on them"`,
-        death: `You died`
+        wrongResult: `You go up to the princess as she struggles and say "You're Princess Katy from the kingdom of Dizzylot, right? Are you okay? Do you need help? " She replies "Of course I am Princess Katy, What do you think?" You lean down to untie her and feel a sharp pain in the middle of your back. Blood sprays onto the Princess' face as she looks up at you with an evil grin. The Princess says "Nice shot boys! They are sure to have plenty of a loot on them"`,
+        death: `You die!`
         // img1: $('body').css('background-image', 'url("../../public/imgs/shortcut.PNG")'),
         // img: $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")')
     },
     part3: {
-        description: `You start to walk up to the princess but hear rustling in the leaves nearby and notice that the ropes tying her to the tree look strangely loose. As you start to draw your weapon and prepare for the attack you are sure is coming, you remember the words of a wise professor… `,
+        description: `You start to walk up to the Princess, but hear rustling in the leaves nearby and notice that the ropes tying her to the tree look strangely loose. As you start to draw your weapon and prepare for the attack, you are sure is coming, you remember the words of a wise professor… `,
         question: "enter riddle here",
         wrongChoice: 'wrong riddle',
         rightChoice: 'right riddle',
         wrongResult: `You get lost in thought tearing up at the thought of your old classmates and teacher. A Bandit comes up and kills you, you should have indented.`,
-        death: `You died`,
-        rightResult: `Remembering your professor's wise words has focused your senses, you spin around your sword cutting down the first bandit that dared to make a move. You make quick work of the other three but when you turn to look for the princess she is gone. `,
+        death: `You die!`,
+        rightResult: `Remembering your professor's wise words has refocused your senses, you spin around your sword cutting down the first bandit that dared to make a move. You make quick work of the other three but when you turn to look for the Princess she is gone. `,
         // img: $('body').css('background-image', 'url("../../public/imgs/startgame.PNG")'),
         // overlayImg: "bloodimg"
     }
