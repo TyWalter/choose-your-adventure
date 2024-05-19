@@ -53,6 +53,13 @@ img {
 #sendToHome, #sendToProfile {
   cursor: url('../imgs/sword.png'), auto;
 }
+/* added this to make SendToHome/profile mobile compatible */
+@media (max-width: 767px) {
+  .your-background-class {
+    background-size: cover;
+    background-position: center center;
+  }
+}
 
 #sendToHome:hover, #sendToProfile:hover {
   opacity: 50%;
@@ -134,8 +141,8 @@ p {
   -webkit-text-stroke-color: var(--lightBlood);
 }
 
-/* @media (max-width: 768px) {
+ @media (max-width: 768px) {
   .stats-card {
-      flex: 1 1 100%; /* Stacks items vertically on smaller screens
+      flex: 1 1 100%; /* Stacks items vertically on smaller screens */
   }
-} */
+} 
