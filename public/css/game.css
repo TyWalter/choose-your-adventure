@@ -9,14 +9,20 @@
   --lightBlood: rgb(150, 15, 15);
 }
 
+/* ---Body section--- */
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Cursor setting for page */
 html {
   cursor: url('../imgs/shield.png'), auto;
 }
 
-body {
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 0px;
+/* ---Image settings--- */
+.navIcons {
+  display: inline;
 }
 
 img {
@@ -26,28 +32,69 @@ img {
   margin: .5% 0 0 1%;
 }
 
-
-/* nav {
-  display: inline;
-} */
-
 .levelLogo {
   height: 70px;
   width: 70px;
 }
 
+/* Clickable buttons settings */
 #sendToHome, #sendToProfile {
-    cursor: url('../imgs/sword.png'), auto;
-}
-
-.btn:hover {
   cursor: url('../imgs/sword.png'), auto;
 }
 
+#sendToHome:hover, #sendToProfile:hover {
+  opacity: 50%;
+}
+
+.continue {
+  border: 2px solid var(--light);
+  display: inline-block;
+  font-family: Nodesto;
+  margin: 0 auto 10px auto;
+  letter-spacing: 1px;
+  font-size: 21px;
+  background-color: rgba(240, 248, 255, 0.3);
+  &:hover {
+    cursor: url('../imgs/sword.png'), auto;
+  }
+}
+
+.choice {
+  border: 2px solid var(--light);
+  display: inline-flex;
+  margin: 0 10px 10px 10px;
+  justify-content: space-between;
+  font-family: Nodesto;
+  letter-spacing: 1px;
+  font-size: 21px;
+  background-color: rgba(240, 248, 255, 0.3);
+  &:hover {
+    cursor: url('../imgs/sword.png'), auto;
+  }
+}
+
+.riddle {
+  display: inline-flex;
+  margin: 0 10px 10px 10px;
+  justify-content: space-between;
+  font-family: Nodesto;
+  letter-spacing: 1px;
+  font-size: 21px;
+  background-color: rgba(240, 248, 255, 0.3);
+  &:hover {
+    cursor: url('../imgs/sword.png'), auto;
+  }
+}
+
+/* ---Text box section--- */
 #stupid-div{
+  line-height: 1.25rem;
+  font-family: Insanity;
+  text-align: center;
+  letter-spacing: 1px;
   border: 2px solid rgba(0, 0, 0, 0.5);
   background-color: rgba(53, 79, 82, 0.75);
-  padding: 10px;
+  padding: 0px 15px;
   border-radius: 10px;
   color: var(--light);
   position: fixed;
@@ -56,11 +103,13 @@ img {
   width: 100%;
 }
 
-.btn{
-  display: inline-block;
-  background-color: rgba(240, 248, 255, 0.3);
+p {
+  font-size: 1.1rem;
+  margin-top: -5px;
+  text-align: left;
 }
 
+/* Death screen settings */
 #death{
   position: absolute;
   top: 50%;
