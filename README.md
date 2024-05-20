@@ -10,8 +10,7 @@ Challenges:
 - Merging storylines with different branches
 - Creating character profiles using Handlebars templates with data from a Sequelize Character model
 - Developing branching storylines using Handlebars conditionals and partials with data from a Sequelize Story model
-- 
-- 
+ 
 
 ## Team Wins:
 - Successfully implemented Handlebars templates to dynamically render character profiles
@@ -26,7 +25,7 @@ Challenges:
 - Implemented POST /login and POST /signup routes to handle form submissions and authentication
 - Added GET /logout route to handle logout requests
 - Implemented logout functionality by clearing req.session
-- 
+
 
 ## Visuals
 ![Screenshot of Homepage](xxxxxxxxxxx)
@@ -35,6 +34,7 @@ Challenges:
 
 
 ## Installation
+
 
 ## Tech Stack:
 - Node.js
@@ -48,7 +48,7 @@ Challenges:
 - CSS
 - jQuery
 - 
-- 
+
 ## Links:
 - Link to deployed version on Render:
 - Repo:
@@ -66,6 +66,9 @@ Challenges:
 * Thank you to [Sequelize](https://www.npmjs.com/package/sequelize)
 * Thank you to [Bcrypt](https://www.npmjs.com/package/bcrypt)
 * Thank you to [FlatIcon](https://www.flaticon.com/)
+* Thank you to [Font Awesome](https://fontawesome.com/)
+* Thank you to [Google Fonts](https://fonts.google.com/)
+* Thank you to [typeit.js for the typing animation](https://www.typeitjs.com/)
 
 ## Authors / Collaborators
 * [Jackie Funk]()
@@ -77,4 +80,3 @@ Challenges:
 
 ## Project Requirements:
 - [Project 2 Requirements and Notes](https://docs.google.com/document/d/1fJ2dYtbmMBDxmZlDZ3rP0PYQKk4UAzI7jzBZD0HVC4w/edit)
-
