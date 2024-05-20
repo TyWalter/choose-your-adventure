@@ -13,6 +13,7 @@
 body {
   background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
 }
 
 /* Cursor setting for page */
@@ -134,8 +135,8 @@ p {
   100% { opacity: 1; }
 }
 
-/* Media queries for mobile (Iphone 14 Pro Max) */
-@media only screen and (min-width: 430px) and (max-width: 932px) {
+/* Media queries for mobile at 576 breakpoint */
+@media screen and (max-width: 576px) {
   /* Background image re-size */
   body {
     position: relative;
@@ -143,9 +144,11 @@ p {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    height: fit-content;
   }
 
   #death {
+    position: absolute;
     top: 30%;
   }
 }

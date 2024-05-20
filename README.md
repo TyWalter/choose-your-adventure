@@ -58,7 +58,7 @@ The Queen and Her Guard is a narrative game where the player takes on the role o
 
 ## Usage
 - This is a made from scratch choose your adventure story-based game that is meant to be played and enjoyed. It keeps track of your overrall stats and can be replayed several different times and there are several different outcomes. Can you save the princess?
-- This is meant to be played on a computer screen, however, it's also setup with responsiveness for an iphone 14 Pro Max as well. We're sorry about other screen sizes not being queried!
+- This is meant to be played on a computer screen, however, it's also setup with responsiveness for a breakpoint of 576px wide. We're sorry about other screen sizes not being queried!
 
 ## Group Collaboration:
 Challenges:
