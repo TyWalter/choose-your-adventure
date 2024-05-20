@@ -26,7 +26,7 @@ const story = {
         wrongResult: `As the door opens you see three figures standing by the fireplace of the small house ready to attack. ‘Damn!” you think, “we were too loud, we are going to die”. As soon as the door opens there is a dagger square in your chest, but you can't stop now. You fight through the pain and move forward sloppily. You hear a cry behind you. The Princess has been slain. You swing at CSS but miss. She laughs in your face, “Trying to assassinate the assassin? How cute.” She kicks you down and you fall with a grunt. “What do you think boy, should we have some fun?” They laugh cruelly at your pain. You die slowly over the next two hours as the assassins torture you for being so arrogant as to think you could defeat CSS and her frameworks.`,
         death: `You died`,
         //img: $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")'),
-        rightResult: `The noise of your entrance startles the sleeping assassins. You see the one they call Bootstrap rises from his cot on the ground with a look of surprise. You go forward slicing him in half before he has time to draw his blade. You hear a noise behind you, it's Princess Katy slaying Flex-box where he stands. You feel a blade fly by your right ear barely missing you. You swing around and engage the infamous and very beautiful killer known only as CSS. She lunges towards you, teeth bared and eyes bright. You dodge, but a split second too late and the blade grazes your arm. It's your turn as you step forward and thrust your blade into her stomach. Her face displays a look of surprise and pain. “Why?’ she asks as she falls to the floor and dies.`,
+        rightResult: `The noise of your entrance startles the sleeping assassins. You see the one they call Bootstrap rises from his cot on the ground with a look of surprise. You go forward slicing him in half before he has time to draw his blade. You hear a noise behind you, it's Princess Katy slaying Flex-box where he stands. You feel a blade fly by your right ear barely missing you. You swing around and engage the infamous and very beautiful killer known only as CSS. She lunges towards you, teeth barred and eyes bright. You dodge, but a split second too late and the blade grazes your arm. It's your turn as you step forward and thrust your blade into her stomach. Her face displays a look of surprise and pain. “Why?’ she asks as she falls to the floor and dies.`,
         // img: $('body').css('background-image', 'url("../../public/imgs/blood-png-7140(1).PNG")'),
     }
 };
@@ -63,7 +63,10 @@ function renderStoryStart() {
         await typeText(`<p>${story.part1.question}</p>`);
         button1.text(story.part1.rightChoice);
         button2.text(story.part1.wrongChoice);
-        mainText.append(button1, button2);
+        const randomNum = Math.floor(Math.random() * 2) + 1;
+        if(randomNum === 1){
+            mainText.append(button1, button2);
+        } else mainText.append(button2, button1);
         resultOfButton1();
         resultOfButton2(); 
     });
@@ -97,8 +100,10 @@ async function renderPart2() {
     mainText.children("button").hide();
     button1.text(story.part2.rightChoice);
     button2.text(story.part2.wrongChoice);
-    mainText.append(button1);
-    mainText.append(button2);
+    const randomNum = Math.floor(Math.random() * 2) + 1;
+    if(randomNum === 1){
+        mainText.append(button1, button2);
+    } else mainText.append(button2, button1);
     resultOfButton1Part2();
     resultOfButton2Part2();
 };
@@ -125,7 +130,7 @@ function resultOfButton2Part2() {
 };
 
 async function renderPart3() {
-    $('body').css('backgroundImage', 'url("../imgs/swamp.PNG")');
+    $('body').css('backgroundImage', 'url("../imgs/swamp.jpeg")');
     await typeText(`<p>${story.part3.description}</p>`);
     mainText.children("p").text();
     mainText.children("button").hide();
@@ -150,8 +155,10 @@ function getRiddle(num) {
             await typeText(`<p>${data.payload.riddle}</p>`)
             button4.text(data.payload.rightanswer);
             button5.text(data.payload.wronganswer);
-            mainText.append(button4);
-            mainText.append(button5);
+            const randomNum = Math.floor(Math.random() * 2) + 4;
+            if(randomNum === 4){
+                mainText.append(button4, button5);
+            } else mainText.append(button5, button4);
             resultOfButton1Part3();
             resultOfButton2Part3();
         },
@@ -165,7 +172,7 @@ function getRiddle(num) {
 function resultOfButton1Part3() {
     button4.on('click', async function (event) {
         event.stopPropagation();
-        $('body').css('backgroundImage', 'url("../imgs/dizzy-the-god.png")');
+        $('body').css('backgroundImage', 'url("../imgs/dizzy-the-god.jpeg")');
         await typeText(`<p>"Congratulations You beat Level 2 of the Queen and her Guard"</p>`);
         button3.text('Continue to Level 3');
         button3.attr('onclick', "location.href = '/game/3'");
@@ -207,9 +214,8 @@ async function typeText(text) {
     return new Promise((resolve) => {
         return new TypeIt("#stupid-div", {
             strings: [text],
-            speed: 20,
+            speed: 16,
             cursor: false,
-            cursorChar: "🗡️",
             afterComplete: function (instance) {
                 instance.destroy();
                 resolve();

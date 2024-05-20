@@ -57,7 +57,10 @@ function renderStoryStart() {
         await typeText(`<p>${story.part1.question}</p>`);
         button1.text(story.part1.rightChoice);
         button2.text(story.part1.wrongChoice);
-        mainText.append(button1, button2);
+        const randomNum = Math.floor(Math.random() * 2) + 1;
+        if(randomNum === 1){
+            mainText.append(button1, button2);
+        } else mainText.append(button2, button1);
         resultOfButton1();
         resultOfButton2();
     });
@@ -73,11 +76,11 @@ function resultOfButton1() {
 function resultOfButton2() {
     button2.on('click', async function (event) {
         event.stopPropagation();
-        $('body').css('backgroundImage', 'url("../imgs/alterending.PNG")');
+        $('body').css('backgroundImage', 'url("../imgs/alterending.jpeg")');
         await typeText(`<p>${story.part1.wrongResult}</p>`);
-        button2.text('StartOver');
-        button2.attr('onclick', "location.href = '/game'");
-        mainText.append(button2);
+        button3.text('StartOver');
+        button3.attr('onclick', "location.href = '/game'");
+        mainText.append(button3);
         updateStats('losses')
     });
 };
@@ -89,8 +92,10 @@ async function renderPart2() {
     mainText.children("button").hide();
     button1.text(story.part2.rightChoice);
     button2.text(story.part2.wrongChoice);
-    mainText.append(button1);
-    mainText.append(button2);
+    const randomNum = Math.floor(Math.random() * 2) + 1;
+    if(randomNum === 1){
+        mainText.append(button1, button2);
+    } else mainText.append(button2, button1);
     resultOfButton1Part2();
     resultOfButton2Part2();
 };
@@ -142,8 +147,10 @@ function getRiddle(num) {
             await typeText(`<p>${data.payload.riddle}</p>`)
             button4.text(data.payload.rightanswer);
             button5.text(data.payload.wronganswer);
-            mainText.append(button4);
-            mainText.append(button5);
+            const randomNum = Math.floor(Math.random() * 2) + 4;
+            if(randomNum === 4){
+                mainText.append(button4, button5);
+            } else mainText.append(button5, button4);
             resultOfButton1Part3();
             resultOfButton2Part3();
         },
@@ -157,7 +164,7 @@ function getRiddle(num) {
 function resultOfButton1Part3() {
     button4.on('click', async function (event) {
         event.stopPropagation();
-        $('body').css('backgroundImage', 'url("../imgs/your-characcter.jpg")');
+        $('body').css('backgroundImage', 'url("../imgs/your-character.jpg")');
         await typeText(`<p>"Congratulations You beat Level 1 of the Queen and her Guard"</p>`);
         button3.text('Continue to Level 2');
         button3.attr('onclick', "location.href = '/game/2'; music.pause()");
@@ -199,9 +206,8 @@ async function typeText(text) {
     return new Promise((resolve) => {
         return new TypeIt("#stupid-div", {
             strings: [text],
-            speed: 20,
+            speed: 16,
             cursor: false,
-            cursorChar: "🗡️",
             afterComplete: function (instance) {
                 instance.destroy();
                 resolve();
