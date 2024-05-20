@@ -13,7 +13,7 @@ const story = {
         question: `Do you cut the rope and free the princess or do you leave her there?`,
         wrongChoice: `Cut the rope.`,
         rightChoice: `Don't cut the rope. `,
-        wrongResult: `You go up to the princess as she struggles and say "You're Princess Katy from the kingdom of Dizzylot, right? Are you okay? Do you need help? " She replies "Of course I am, What do you think? I'm tied to a tree!" You lean down to untie her and feel a sharp pain in the middle of your back. Blood sprays onto the princess' face as she looks up at you with an evil grin.The princess says "Nice shot boys! They are sure to have plenty of a loot on them"`,
+        wrongResult: `You go up to the princess as she struggles and say "You're Princess Katy from the kingdom of Dizzylot, right? Are you okay? Do you need help?" she replies "Of course I am, What do you think? I'm tied to a tree!" You lean down to untie her and feel a sharp pain in the middle of your back. Blood sprays onto the princess' face as she looks up at you with an evil grin. The princess says "Nice shot boys! They are sure to have plenty of a loot on them"`,
         death: `You died`
         // img1: $('body').css('background-image', 'url("../../public/imgs/shortcut.PNG")'),
         // img: $('body').css('background-image', 'url("../../public/imgs/deathscreen.PNG")')

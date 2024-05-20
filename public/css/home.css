@@ -204,6 +204,10 @@ body {
   background: var(--light);
 }
 
+.home-height {
+  height: 82vh;
+}
+
 .bg-image-home {
   position: fixed;
   opacity: 75%;
@@ -330,14 +334,19 @@ footer {
 }
 
 
-/* Media queries for mobile (Iphone 14 Pro Max) */
-@media only screen and (min-width: 430px) and (max-width: 932px) {
+/* Media queries for mobile at 576 breakpoint */
+@media screen and (max-width: 576px) {
   /* ---Body section--- */
   header {
     flex-direction: column;
     height: fit-content;
     text-align: center;
     margin-bottom: 10px;
+  }
+
+  .logo {
+    height: 80%;
+    width: 80%;
   }
 
   nav {
@@ -383,14 +392,14 @@ footer {
     text-align: center;
   }
 
-  /* ---Login / profile page--- */
-  .logged-height {
+  /* ---Login / profile page / home page--- */
+  .logged-height, .home-height {
     height: fit-content;
   }
 
   .login-logo {
-    height: 150px;
-    width: 150px;
+    height: 50%;
+    width: 50%;
   }
 
   .stats-played, .stats-losses, .stats-wins, .stats-deaths {
