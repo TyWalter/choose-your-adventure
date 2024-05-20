@@ -3,7 +3,7 @@ const story = {
     part1: {
         description: `“You're not a half-bad fighter, you'll make a great knight.” Princess Katy says`,
         // img: $('body').css('background-image', 'url("imgs/alterending.PNG")')
-        question: `“well, I suppose it's time to head back to Dizzylot, shall we go?” `,
+        question: `“Well, I suppose it's time to head back to Dizzylot, shall we go?” `,
         wrongChoice: `I helped you average dizzy I didnt agree to do anything` ,
         rightChoice: `Sure! Let's go`,
         wrongResult:  `“Fine,” she says.  You go your separate ways.You continue to do good deeds but songs are never written about you.  You kill bad guys and help good people, but no one knows your name.  You lead a life of purpose and anonymity. Due to this, and your humble nature, you die alone and penniless in old age. The world will never know the deeds you did and no one remembers you.`,
