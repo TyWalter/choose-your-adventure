@@ -27,6 +27,7 @@ html {
 
 img {
   height: 50px;
+<<<<<<< HEAD
   width: 50px; 
   /* border-radius: 40%;
   margin: .5% 0 0 1%;
@@ -43,6 +44,12 @@ img {
     background-position: center center;
   }
 } */
+=======
+  width: 50px;
+  border-radius: 40%;
+  margin: .5% 0 0 1%;
+}
+>>>>>>> parent of 37f5a6c (Merge pull request #114 from TyWalter/spelling)
 
 .levelLogo {
   height: 70px;
@@ -139,6 +146,7 @@ p {
   color: var(--darkBlood);
   -webkit-text-stroke-width: 5px;
   -webkit-text-stroke-color: var(--lightBlood);
+<<<<<<< HEAD
 }
 /* Stacks items vertically on smaller screens */
 /* 
@@ -147,3 +155,6 @@ p {
       flex: 1 1 100%; 
   }
 }  */
+=======
+}
+>>>>>>> parent of 37f5a6c (Merge pull request #114 from TyWalter/spelling)

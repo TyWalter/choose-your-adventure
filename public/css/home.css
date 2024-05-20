@@ -340,9 +340,3 @@ footer {
     max-width: 1200px;
   }
 }
-
-@media (max-width: 768px) {
-  .stats-card {
-      flex: 1 1 100%; /* Stacks items vertically on smaller screens */
-  }
-}
