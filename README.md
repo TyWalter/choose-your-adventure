@@ -59,7 +59,7 @@ Challenges:
 * Thank you to [FlatIcon](https://www.flaticon.com/)
 * Thank you to [Font Awesome](https://fontawesome.com/)
 * Thank you to [Google Fonts](https://fonts.google.com/)
-*  Thank you to [typeit.js for the typing animation] (https://www.typeitjs.com/)
+* Thank you to [typeit.js for the typing animation] (https://www.typeitjs.com/)
 
 ## Authors / Collaborators
 * [Tyler Walter](https://github.com/TyWalter)
@@ -73,3 +73,4 @@ Challenges:
 ## Usage
 ## Installation
 ## Support
+
