@@ -22,7 +22,8 @@ html {
 
 /* ---Image settings--- */
 .navIcons {
-  display: inline;
+  display: flex;
+  align-items: center;
 }
 
 img {
@@ -35,6 +36,8 @@ img {
 .levelLogo {
   height: 70px;
   width: 70px;
+  position: absolute;
+  right: 1%;
 }
 
 /* Clickable buttons settings */
@@ -112,12 +115,37 @@ p {
 /* Death screen settings */
 #death{
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Bloody', sans-serif;
   font-size: 200px;
   color: var(--darkBlood);
-  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-width: 3.5px;
   -webkit-text-stroke-color: var(--lightBlood);
+}
+
+.death {
+  animation: fadeIn 7s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Media queries for mobile (Iphone 14 Pro Max) */
+@media only screen and (min-width: 430px) and (max-width: 932px) {
+  /* Background image re-size */
+  body {
+    position: relative;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  #death {
+    top: 30%;
+  }
 }

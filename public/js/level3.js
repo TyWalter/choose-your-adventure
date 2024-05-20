@@ -3,7 +3,7 @@ const story = {
     part1: {
         description: `“You're not a half-bad fighter, you'll make a great knight.” Princess Katy says`,
         // img: $('body').css('background-image', 'url("imgs/alterending.PNG")')
-        question: `“well, I suppose it's time to head back to Dizzylot, should we go?” `,
+        question: `“well, I suppose it's time to head back to Dizzylot, shall we go?” `,
         wrongChoice: `I helped you average dizzy I didnt agree to do anything` ,
         rightChoice: `Sure! Let's go`,
         wrongResult:  `“Fine,” she says.  You go your separate ways.You continue to do good deeds but songs are never written about you.  You kill bad guys and help good people, but no one knows your name.  You lead a life of purpose and anonymity. Due to this, and your humble nature, you die alone and penniless in old age. The world will never know the deeds you did and no one remembers you.`,
@@ -55,7 +55,7 @@ let button4 = $("<button>").addClass('riddle btn btn-outline-light');
 let button5 = $("<button>").addClass('riddle btn btn-outline-light');
 
 async function startStory(){
-    $('body').css('background-image', 'url("../imgs/swamp.PNG")');
+    $('body').css('background-image', 'url("../imgs/swamp.jpeg")');
     oldMusic.remove();
     source.setAttribute('src', '/audio/level3.mp3');
     newMusic.appendChild(source);
@@ -74,7 +74,10 @@ function renderStoryStart() {
         await typeText(`<p>${story.part1.question}</p>`);
         button1.text(story.part1.rightChoice);
         button2.text(story.part1.wrongChoice);
-        mainText.append(button1, button2);
+        const randomNum = Math.floor(Math.random() * 2) + 1;
+        if(randomNum === 1){
+            mainText.append(button1, button2);
+        } else mainText.append(button2, button1);
         resultOfButton1();
         resultOfButton2();
     });
@@ -90,8 +93,8 @@ function resultOfButton1() {
 function resultOfButton2() {
     button2.on('click', async function (event) {
         event.stopPropagation();
+        $('body').css('background-image', 'url("../imgs/alterending.jpeg")');
         await typeText(`<p>${story.part1.wrongResult}</p>`);
-        $('body').css('background-image', 'url("../imgs/alterending.PNG")');
         button3.text('StartOver');
         button3.attr('onclick', "location.href = '/game/3'");
         mainText.append(button3);
@@ -106,8 +109,10 @@ async function renderPart2() {
     mainText.children("button").hide();
     button1.text(story.part2.rightChoice);
     button2.text(story.part2.wrongChoice);
-    mainText.append(button1);
-    mainText.append(button2);
+    const randomNum = Math.floor(Math.random() * 2) + 1;
+        if(randomNum === 1){
+            mainText.append(button1, button2);
+        } else mainText.append(button2, button1);
     resultOfButton1Part2();
     resultOfButton2Part2();
 };
@@ -159,8 +164,10 @@ function getRiddle(num) {
             await typeText(`<p>${data.payload.riddle}</p>`)
             button4.text(data.payload.rightanswer);
             button5.text(data.payload.wronganswer);
-            mainText.append(button4);
-            mainText.append(button5);
+            const randomNum = Math.floor(Math.random() * 2) + 4;
+            if(randomNum === 4){
+                mainText.append(button4, button5);
+            } else mainText.append(button5, button4);
             resultOfButton1Part3();
             resultOfButton2Part3();
         },
@@ -217,9 +224,8 @@ async function typeText(text) {
     return new Promise((resolve) => {
         return new TypeIt("#stupid-div", {
             strings: [text],
-            speed: 20,
+            speed: 16,
             cursor: false,
-            cursorChar: "🗡️",
             afterComplete: function (instance) {
                 instance.destroy();
                 resolve();

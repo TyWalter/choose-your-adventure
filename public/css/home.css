@@ -198,6 +198,7 @@ header {
 /* ---Body section--- */
 body {
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
   line-height: 1.3;
   background: var(--light);
@@ -210,7 +211,6 @@ body {
   width: 100%;
   filter: brightness(50%);
   pointer-events: none;
-  /* display: none; */
 }
 
 /* Logo */
@@ -221,13 +221,6 @@ body {
   padding: 15px;
   filter: drop-shadow(0px 0px 20px var(--background));
   pointer-events: none;
-}
-
-/* Dice image */
-.dice {
-  width: 2rem;
-  height: 2rem;
-  filter: opacity(75%);
 }
 
 /* ---Form section--- */
@@ -280,6 +273,11 @@ input:focus {
   cursor: url('../imgs/sword.png'), auto;
 }
 
+/* Height of body content for login page  */
+.login-height {
+  height: 82vh;
+}
+
 /* Divider line between login/signup */
 .border-line {
   width: 75%;
@@ -322,6 +320,7 @@ input:focus {
 /* ---Footer section--- */
 footer {
   width: 100%;
+  margin-top: auto;
   height: 8vh;
   display: flex;
   padding: 1% 1% 0 1%;
@@ -331,13 +330,71 @@ footer {
 }
 
 
-/* Media queries for mobile */
-@media screen and (max-width: 768px) {
+/* Media queries for mobile (Iphone 14 Pro Max) */
+@media only screen and (min-width: 430px) and (max-width: 932px) {
+  /* ---Body section--- */
   header {
     flex-direction: column;
+    height: fit-content;
+    text-align: center;
+    margin-bottom: 10px;
   }
 
-  main {
-    max-width: 1200px;
+  nav {
+    margin: 5px auto;
+  }
+
+  footer {
+    flex-direction: column;
+    height: 10vh;
+    margin-top: 10px;
+  }
+
+  /* Text size */
+  h1 {
+    margin-top: 5px;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  h3 {
+    position: relative;
+    text-align: center;
+    padding-top: 5px;
+  }
+  
+  h4 {
+    font-size: 2rem;
+  }
+
+  .playGame a:active {
+    font-size: 1.75rem;
+    padding: .25rem;
+  }
+  
+  .snippet {
+    margin: 0 auto;
+  }
+
+  h5 {
+    position: relative;
+    text-align: center;
+  }
+
+  /* ---Login / profile page--- */
+  .logged-height {
+    height: fit-content;
+  }
+
+  .login-logo {
+    height: 150px;
+    width: 150px;
+  }
+
+  .stats-played, .stats-losses, .stats-wins, .stats-deaths {
+    max-width: 45%;
+    margin: 10px auto;
   }
 }
