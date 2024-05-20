@@ -27,22 +27,10 @@ html {
 
 img {
   height: 50px;
-  width: 50px; 
-  /* border-radius: 40%;
+  width: 50px;
+  border-radius: 40%;
   margin: .5% 0 0 1%;
-  background-size: cover; /* added this to change to mobile size 
-  background-position: center center;
-  background-repeat: no-repeat;
-  height: 100vh; /* any height you want */
-  width:  100%; */
 }
-
-/* @media (max-width: 767px) {
-  .your-background-class {
-    background-size: cover;
-    background-position: center center;
-  }
-} */
 
 .levelLogo {
   height: 70px;
@@ -53,13 +41,6 @@ img {
 #sendToHome, #sendToProfile {
   cursor: url('../imgs/sword.png'), auto;
 }
-/* added this to make SendToHome/profile mobile compatible */
-/* @media (max-width: 767px) {
-  .your-background-class {
-    background-size: cover;
-    background-position: center center;
-  }
-} */
 
 #sendToHome:hover, #sendToProfile:hover {
   opacity: 50%;
@@ -140,10 +121,3 @@ p {
   -webkit-text-stroke-width: 5px;
   -webkit-text-stroke-color: var(--lightBlood);
 }
-/* Stacks items vertically on smaller screens */
-/* 
- @media (max-width: 768px) {
-  .stats-card {
-      flex: 1 1 100%; 
-  }
-}  */
