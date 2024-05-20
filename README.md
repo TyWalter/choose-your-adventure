@@ -54,7 +54,7 @@ The Queen and Her Guard is a narrative game where the player takes on the role o
 - Link to deployed version on Render: [Click me](https://choose-your-adventure-qxmy.onrender.com)
 - Repo: [Click me](https://github.com/TyWalter/choose-your-adventure)
 - Presentation Slides:
-- Google Docs Working Dcoument:
+- Google Docs Working Document: [Click me](https://docs.google.com/presentation/d/1q8bhCSvRCu8qISwdX4nvC8TBr6nGyE28BZgYH8RfEvA/edit#slide=id.g271b3686168_0_106)
 
 ## Usage
 - This is a made from scratch choose your adventure story-based game that is meant to be played and enjoyed. It keeps track of your overrall stats and can be replayed several different times and there are several different outcomes. Can you save the princess?
