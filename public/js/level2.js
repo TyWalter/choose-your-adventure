@@ -165,7 +165,7 @@ function getRiddle(num) {
 function resultOfButton1Part3() {
     button4.on('click', async function (event) {
         event.stopPropagation();
-        $('body').css('backgroundImage', 'url("../imgs/dizzy-the-god.PNG")');
+        $('body').css('backgroundImage', 'url("../imgs/dizzy-the-god.png")');
         await typeText(`<p>"Congratulations You beat Level 2 of the Queen and her Guard"</p>`);
         button3.text('Continue to Level 3');
         button3.attr('onclick', "location.href = '/game/3'");
